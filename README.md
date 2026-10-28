@@ -71,6 +71,16 @@ OBS文件提取在每条NDJSON完整写入后才更新输出长度/SHA；低层�
 
 只需原始测量值时，可运行`node tools/read-extracted-epoch.mjs DIRECTORY 1`，或导入`tools/extracted-epoch.mjs`的`readExtractedEpoch`，得到同样校验后的`{observation, epoch}`。此读取器不依赖NAV或编译桥，保留全部观测卫星、原始槽、0/null、LLI/SSI和精确GPST字符串；不做改正或物理质量重判。用`examples/obs-raw-values.rnx`提取到新目录后，`node examples/read-extracted-epoch.mjs DIRECTORY`展示带断言的原始值消费者。
 
+需要连续几条已保存的原始历元时，使用`readExtractedEpochs(directory,startIndex,count,{includeHeader:false})`或`node tools/read-extracted-epochs.mjs DIRECTORY START COUNT [--header]`。一次完整核对NDJSON后，按保存行序原子交付1–256条`epochs`及`observation.selected_epochs`；起点从1开始，末行不得超过已保存数量或100万。它选择保存行，不按时间间隔补点，也不计算GNSS统计。单历元入口及默认JSON保持兼容。
+
+```sh
+node tools/extract-observations.mjs examples/obs-series.rnx NEW_SERIES_DIRECTORY
+node tools/read-extracted-epochs.mjs NEW_SERIES_DIRECTORY 2 2 --header
+node examples/read-extracted-epochs.mjs NEW_SERIES_DIRECTORY
+```
+
+自编四历元样例保留奇数100ns标签、0值/LLI/SSI、flag1零卫星和负值，独立固定字段与整数日历预期见`examples/EXTRACTED-SERIES-REFERENCE.json`。读取阶段只需Node与四文件目录；任一所选行无效、尾部损坏或原生质量不合格时，整批失败且CLI stdout为空。详细返回结构和验证范围见[连续历元读取](docs/EXTRACTED-EPOCH-QUERY.md#连续读取已保存的原始历元)。
+
 零卫星历元仍保存为一条带精确GPST的`satellites:[]`记录，保留原生`empty-epoch`诊断。默认提取剖面的可接受warning不等于取得测量值或NAV状态；普通unavailable仍退出2，原生质量不合格的目录则在读取NAV前拒绝。完整消费链及独立回归见[零卫星说明](docs/EXTRACTED-EPOCH-QUERY.md#零卫星历元)。
 
 需要解释测量值的头部上下文时，CLI追加`--header`，或API传`{includeHeader:true}`，可在同样的全文校验后取得保存的`header:{parsed,raw_lines}`。默认JSON不变；原始scale/phase/clock记录供调用方使用，读取器不额外应用改正。`examples/obs-header-context.rnx`与`examples/read-extracted-context.mjs`提供可运行的头信息消费者。

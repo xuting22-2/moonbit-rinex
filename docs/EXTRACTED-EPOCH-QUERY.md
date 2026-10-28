@@ -1,4 +1,4 @@
-# 复用已完成提取目录查询单个历元
+# 复用已完成提取目录读取历元与查询导航
 
 已经用 `tools/extract-observations.mjs` 得到观测目录后，可以复用其中一个历元的 GPST 标签，为指定卫星查询广播状态，无需再次提取原始 OBS。
 
@@ -32,6 +32,32 @@ for (const satellite of epoch.satellites) {
 返回的 `epoch` 是选中行的原生 JSON：包含全部卫星及槽的 code、源列、raw_field、value、LLI/SSI，以及原始记录、源行和精确 GPST 字符串。0与null、负相位、缺少尾字符的空槽分别保留；0仍可能表示缺测。读取器不按 NAV 支持范围过滤卫星，不做缩放、钟差/相位改正或质量重判。自编示例含G01/C06/E25，G01含0、负相位和空槽；参考预期在 `examples/EXTRACTED-RAW-REFERENCE.json`。
 
 独立读取与下面的查询入口共享完整/合格、GPS、来源和整份NDJSON身份校验，严格要求原生质量合格，可接受warning原样保留。默认CLI接收目录和序列化历元索引，成功退出0并打印完整`{observation, epoch}`；可选头上下文见下文。失败退出1、stdout为空，API抛出错误，不交付暂定历元。原查询函数继续返回`{observation, results, receipt}`，签名/格式/状态码不变。
+
+### 连续读取已保存的原始历元
+
+需要一个短序列时，无需逐行重复核对整份NDJSON：
+
+```sh
+node tools/extract-observations.mjs examples/obs-series.rnx NEW_SERIES_DIRECTORY
+node tools/read-extracted-epochs.mjs NEW_SERIES_DIRECTORY 2 2 --header
+node examples/read-extracted-epochs.mjs NEW_SERIES_DIRECTORY
+```
+
+```js
+import {readExtractedEpochs} from './tools/extracted-epoch.mjs';
+const output = await readExtractedEpochs('EXISTING_DIRECTORY', 2, 2, {includeHeader:true});
+console.log(output.epochs, output.header, output.observation.selected_epochs);
+```
+
+API参数为`directory,startIndex,count,{includeHeader=false}`。起点和数量必须是整数，起点1..1000000，数量1..256，末行不得超过1000000或清单的`selectedEpochs`；不截短请求。索引指已保存NDJSON的连续行，包含合法零卫星历元；提取时筛选过的范围之外没有隐含行。它不按GPST跨度、卫星数或采样间隔选取，不补点，也不做时间或GNSS统计运算。
+
+返回`{epochs, header?, observation}`。`epochs`按保存顺序保留各行完整原生JSON，`header`仅在显式启用时出现。`observation`保留既有完整/合格标记、原生报告、来源、`reported_input`及整份`verified_output`，以`selected_epochs`数组代替单历元的`selected_epoch`；每项仍含`index,gps_ticks,line,end_line,flag,receiver_clock,receiver_clock_raw`。`verified_output.epochs`是整份产物行数，原生报告和findings也针对原输入，不伪装成窗口重新计算的质量结果。
+
+一次调用只打开并完整流式读取NDJSON一次，复用相同元数据、来源、字节数/SHA、行数和文件变化门禁，缓冲所选行。在全文校验和每条所选行的JSON/形状检查均成功后才交付整个对象；后续所选行无效或未选中的尾部同长度损坏仍使整批失败。API抛错；CLI成功退出0打印一条JSON，参数、缺行、完整性或质量失败退出1、stdout为空，stderr为`{complete:false,error}`。不返回部分窗口或暂定头。
+
+读取阶段只依赖Node24和保存目录，不需要原OBS、NAV或编译桥。原单历元API/CLI、查询入口及默认JSON保持兼容；读取器只解析所选保存行，并未重新认证原OBS、重算GNSS质量或证明来源真实性。共享元数据1MiB、NDJSON512MiB上限不变。
+
+自编`examples/obs-series.rnx`含四个30秒间隔历元，独立参考`examples/EXTRACTED-SERIES-REFERENCE.json`由字面固定列字段及Python整数日历产生，不取实现输出作预期。第二行保留0/LLI/SSI，第三行为flag1零卫星，第四行含负值。`node tools/test-read-extracted-epochs.mjs`验证实际提取、无桥独立CLI、原生warning、可选头、256条跨64KiB窗口、末行无LF、原生质量错误、未选中尾部损坏和后续所选行无效时的整批拒绝，同时核对输入只读和句柄释放。
 
 ### 零卫星历元
 

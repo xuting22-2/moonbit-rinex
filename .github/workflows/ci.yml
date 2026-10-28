@@ -57,6 +57,7 @@ jobs:
           node tools/test-nav-query-ticks.mjs
           node tools/test-query-extracted-epoch.mjs
           node tools/test-read-extracted-epoch.mjs
+          node tools/test-read-extracted-epochs.mjs
           node tools/test-extracted-header.mjs
           node tools/test-saved-empty-epoch-chain.mjs
       - name: Run public consumers on both backends

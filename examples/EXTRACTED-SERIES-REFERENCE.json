@@ -1,0 +1,106 @@
+{
+  "source": "Project-authored fixed-column OBS and literal fields; Python datetime integer GPS-calendar reference",
+  "input": {
+    "file": "obs-series.rnx",
+    "bytes": 733,
+    "lines": 14,
+    "sha256": "03bc8d6d276c5c8e6f78fd9c867234b8512da44502fd0d8148f963239609d168"
+  },
+  "epochs": [
+    {
+      "gps_ticks": "14773968000000001",
+      "flag": 0,
+      "line": 8,
+      "end_line": 9,
+      "raw_record": "> 2026 10 25 12 00 00.0000001  0  1",
+      "receiver_clock": null,
+      "receiver_clock_raw": "",
+      "satellites": [
+        {
+          "satellite": "G01",
+          "line": 9,
+          "raw_record": "G01        10.50007",
+          "observations": [
+            {
+              "code": "C1C",
+              "column": 4,
+              "raw_field": "        10.50007",
+              "value": 10.5,
+              "lli": 0,
+              "ssi": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "gps_ticks": "14773968300000001",
+      "flag": 0,
+      "line": 10,
+      "end_line": 11,
+      "raw_record": "> 2026 10 25 12 00 30.0000001  0  1",
+      "receiver_clock": null,
+      "receiver_clock_raw": "",
+      "satellites": [
+        {
+          "satellite": "G01",
+          "line": 11,
+          "raw_record": "G01         0.00015",
+          "observations": [
+            {
+              "code": "C1C",
+              "column": 4,
+              "raw_field": "         0.00015",
+              "value": 0,
+              "lli": 1,
+              "ssi": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "gps_ticks": "14773968600000001",
+      "flag": 1,
+      "line": 12,
+      "end_line": 12,
+      "raw_record": "> 2026 10 25 12 01 00.0000001  1  0",
+      "receiver_clock": null,
+      "receiver_clock_raw": "",
+      "satellites": []
+    },
+    {
+      "gps_ticks": "14773968900000001",
+      "flag": 0,
+      "line": 13,
+      "end_line": 14,
+      "raw_record": "> 2026 10 25 12 01 30.0000001  0  1",
+      "receiver_clock": null,
+      "receiver_clock_raw": "",
+      "satellites": [
+        {
+          "satellite": "G01",
+          "line": 14,
+          "raw_record": "G01      -123.25024",
+          "observations": [
+            {
+              "code": "C1C",
+              "column": 4,
+              "raw_field": "      -123.25024",
+              "value": -123.25,
+              "lli": 2,
+              "ssi": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "report": {
+    "epochs": 4,
+    "records": 3,
+    "complete": true,
+    "acceptable": true
+  },
+  "limits": "Stored raw data and existing native quality only; no measurement correction or original-source authentication"
+}

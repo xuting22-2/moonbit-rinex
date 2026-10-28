@@ -33,6 +33,14 @@ for (const satellite of epoch.satellites) {
 
 独立读取与下面的查询入口共享完整/合格、GPS、来源和整份NDJSON身份校验，严格要求原生质量合格，可接受warning原样保留。默认CLI接收目录和序列化历元索引，成功退出0并打印完整`{observation, epoch}`；可选头上下文见下文。失败退出1、stdout为空，API抛出错误，不交付暂定历元。原查询函数继续返回`{observation, results, receipt}`，签名/格式/状态码不变。
 
+### 零卫星历元
+
+合法零卫星历元仍是一行已保存的历元：保留精确GPST、原始历元行和`satellites:[]`，不会变成“没有这个历元”。普通Reader结构检查剖面中的`empty-epoch`为可接受warning，读取和查询会原样保留；提取的GPS范围只筛选返回历元，不启用日文件质量窗口。
+
+观测可接受与导航状态可用分别判断。用该标签查询目录中不存在的G99，NAV完整加载一次后返回unavailable，查询CLI退出2；这不代表观测读取失败，也不声称有测量值。若头声明1颗卫星而实际0颗，原生报告保留`header-satellite-total`错误及`empty-epoch`warning：提取仍完整但不合格，退出2；原始读取和耦合查询都退出1且stdout为空，打开NAV前停止。完整产物不是绕过质量门禁的理由。
+
+`node tools/test-saved-empty-epoch-chain.mjs`以自编固定列OBS和独立整数日历预期验证这条链：奇数100ns标签、1历元/0记录、无编译桥的独立读取、NAV前全文校验，以及真实质量错误和同长度损坏的拒绝。输入、原始质量诊断和产物均保持原状；不增加格式、算法或质量认证范围。
+
 ### 可选头部上下文
 
 `readExtractedEpoch(directory,index,{includeHeader:true})` 或 CLI `DIRECTORY INDEX --header` 会额外返回 `header:{parsed,raw_lines}`；选项默认false且只接受布尔值，原两参数调用及默认CLI JSON不变。返回的是读取到的 `header.json` 快照，`parsed`为原生已解释字段，`raw_lines`保留scale/phase/clock等未解释记录。它仍在整份NDJSON校验成功后才与历元一起交付；没有只读头而跳过完整性/质量门禁的路径。

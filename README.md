@@ -71,6 +71,8 @@ OBS文件提取在每条NDJSON完整写入后才更新输出长度/SHA；低层�
 
 只需原始测量值时，可运行`node tools/read-extracted-epoch.mjs DIRECTORY 1`，或导入`tools/extracted-epoch.mjs`的`readExtractedEpoch`，得到同样校验后的`{observation, epoch}`。此读取器不依赖NAV或编译桥，保留全部观测卫星、原始槽、0/null、LLI/SSI和精确GPST字符串；不做改正或物理质量重判。用`examples/obs-raw-values.rnx`提取到新目录后，`node examples/read-extracted-epoch.mjs DIRECTORY`展示带断言的原始值消费者。
 
+零卫星历元仍保存为一条带精确GPST的`satellites:[]`记录，保留原生`empty-epoch`诊断。默认提取剖面的可接受warning不等于取得测量值或NAV状态；普通unavailable仍退出2，原生质量不合格的目录则在读取NAV前拒绝。完整消费链及独立回归见[零卫星说明](docs/EXTRACTED-EPOCH-QUERY.md#零卫星历元)。
+
 需要解释测量值的头部上下文时，CLI追加`--header`，或API传`{includeHeader:true}`，可在同样的全文校验后取得保存的`header:{parsed,raw_lines}`。默认JSON不变；原始scale/phase/clock记录供调用方使用，读取器不额外应用改正。`examples/obs-header-context.rnx`与`examples/read-extracted-context.mjs`提供可运行的头信息消费者。
 
 运行`node examples/nav-query-batch.mjs`查看经过断言的程序化消费者；也可将`examples/catalog-synthetic.nav examples/catalog-queries.json`作为批量CLI参数。该CLI示例含2项selected和2项unavailable，预期退出2；全部selected退出0，输入/参数失败退出1。Node API新增`queryNavigationBatch`，现有点查询和原生目录API保持兼容。详见[批量请求格式、上限与回执](docs/NAV-BATCH-QUERY.md)。

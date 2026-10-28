@@ -4,7 +4,9 @@
 
 工具链来自官方 MoonBit Unix 安装器，安装器 SHA256 固定于 workflow，编译器版本由 `.moonbit-version` 固定。GitHub 官方 checkout、setup-node、setup-python actions 固定到经核对的 commit SHA。运行器为普通 Ubuntu 24.04，Node 24.11.0、Python 3.14.0；实际版本写入每次日志。核心不依赖额外宿主包，Python仅使用标准库作独立比较和模块启动。
 
-本地准备同样工具后，按 `.github/workflows/ci.yml` 的顺序执行：格式检查、公共接口差异、所有声明目标的严格 check、JS/Wasm-GC 两套严格测试、JS release 构建、九个已有 Node 合同/错误路径测试，以及四个公共消费者在两个后端上的断言。导航测试使用已记录的独立 RTKLIB 数值预期；CRINEX 测试保留独立 GSI 恢复预期和已知分歧。
+本地准备同样工具后，按 `.github/workflows/ci.yml` 的顺序执行：格式检查、公共接口差异、所有声明目标的严格 check、JS/Wasm-GC 两套严格测试、JS release 构建、十个 Node 合同/错误路径测试，以及四个公共消费者在两个后端上的断言。导航测试使用已记录的独立 RTKLIB 数值预期；CRINEX 测试保留独立 GSI 恢复预期和已知分歧。
+
+已存零卫星历元的持续消费者测试使用自编固定列输入和独立整数日历预期，检查精确标签、零记录、原生warning、无桥读取、一次NAV加载，以及质量不合格和同长度损坏时的失败封闭。它补充既有能力的完整链回归，不宣称修复已正确的实现或增加格式支持。
 
 原始 ROB BRUX 前缀保留整日头声明，提取预期退出 2，CI 会精确检查这个状态。随后独立 fixed-column/Decimal Python 参考核对全部选中槽，再由两个冷启动的独立 MoonBit 模块分别在 JS / Wasm-GC 上核对完整公共结果。提取目录与独立模块目录均位于 runner 的临时目录；不下载或改造整日测站数据来隐藏质量问题。
 

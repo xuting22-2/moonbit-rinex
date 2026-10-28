@@ -77,7 +77,7 @@ OBS文件提取在每条NDJSON完整写入后才更新输出长度/SHA；低层�
 
 运行`node examples/nav-query-batch.mjs`查看经过断言的程序化消费者；也可将`examples/catalog-synthetic.nav examples/catalog-queries.json`作为批量CLI参数。该CLI示例含2项selected和2项unavailable，预期退出2；全部selected退出0，输入/参数失败退出1。Node API新增`queryNavigationBatch`，现有点查询和原生目录API保持兼容。详见[批量请求格式、上限与回执](docs/NAV-BATCH-QUERY.md)。
 
-补充边界核对：批量JSON传递保留前后1 tick的100ns选择边界；三路独立调用并发时，一路加载失败不影响另两路；恰好1048576字节的合法请求文件可接受。这些是有限场景验证，不增加格式或并发吞吐承诺。
+补充边界核对：批量JSON传递保留前后1 tick的100ns选择边界；三路独立调用并发时，一路加载失败不影响另两路；恰好1048576字节的合法请求文件可接受。上限按原始UTF-8字节计，包含BOM与JSON空白；持续回归以无BOM/带BOM的合法请求成对核对上限与多1字节，验证独立状态/来源、超限空stdout及输入不改写。这些是有限场景验证，不增加格式或并发吞吐承诺。
 
 ## 独立证据与来源
 深入修复08：LegacyReader在flag3/4版本/系统头更新后刷新当前系统，后续GPS空标识和默认GPS时间按新头解释；非GPS文件不再把空标识猜成该星座。更新后的不支持版本/系统明确失败。4份合成头更新输入由GSI独立恢复，相关8项回归在JS/Wasm-GC各通过；实际JSON出口保留超过2^53的奇数100ns tick字符串。

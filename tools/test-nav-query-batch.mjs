@@ -85,6 +85,46 @@ try {
   const skipped=run(unsupported,valid,['--skip-unsupported']);assert.equal(skipped.code,0);assert.equal(skipped.receipt.skipped_unsupported,1);
   assert.equal(skipped.result.results[0].result.selection.record.source_line,25);
   failed(run(input,await fixture('malformed.json','[')),/JSON/);
+  // Both sides are the same valid request plus legal JSON whitespace. A size
+  // rejection must not be explained by malformed JSON, including with a BOM.
+  const boundaryRef=refs.find(ref=>ref.case==='gps-fallback'),byteBoundary=[];
+  assert(boundaryRef);
+  assert.equal(boundaryRef.satellite,query.satellite);assert.equal(boundaryRef.week,query.week);
+  assert.equal(boundaryRef.sow,query.sow);assert.equal(boundaryRef.expectedRecordIndex,3);
+  assert.equal(rows[19].slice(0,3),'G01');
+  const byteLimit=1048576,payload=Buffer.from(JSON.stringify([query]),'utf8');
+  for(const [encoding,bomBytes] of [['plain',Buffer.alloc(0)],['bom',Buffer.from([239,187,191])]]){
+    const prefix=Buffer.concat([bomBytes,payload]);
+    const exact=Buffer.concat([prefix,Buffer.alloc(byteLimit-prefix.length,' \t\r\n')]);
+    const over=Buffer.concat([exact,Buffer.from('\t','utf8')]);
+    assert.equal(exact.length,byteLimit);assert.equal(over.length,byteLimit+1);
+    assert(over.subarray(0,byteLimit).equals(exact));
+    for(const bytes of [exact,over])assert.deepEqual(JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes)),[query]);
+    if(bomBytes.length)assert(exact.toString('utf8').length<exact.length);
+    const exactFile=await fixture('byte-limit-'+encoding+'.json',exact);
+    const overFile=await fixture('byte-limit-plus-one-'+encoding+'.json',over);
+    const accepted=run(input,exactFile);
+    assert.equal(accepted.code,0);assert.equal(accepted.stdout.trim().split('\n').length,1);
+    assert.equal(accepted.result.results.length,1);assert.equal(accepted.result.results[0].query_index,1);
+    assert.equal(accepted.result.results[0].result.status,'selected');
+    const chosen=accepted.result.results[0].result.selection;
+    assert.equal(chosen.record.record_index,3);assert.equal(chosen.record.source_line,20);
+    const axisErrors=Object.fromEntries(['x','y','z'].map(axis=>[axis,Math.abs(chosen.state[axis]-boundaryRef[axis])]));
+    for(const error of Object.values(axisErrors))assert(error<=1e-5);
+    const clockError=Math.abs(chosen.state.clock_seconds-boundaryRef.clock_seconds);assert(clockError<=1e-13);
+    for(const [key,value] of Object.entries({complete:true,stored_records:5,queries:1,selected:1,unavailable:0,ambiguous:0,all_selected:true})){
+      assert.equal(accepted.receipt[key],value);
+    }
+    assert.equal(accepted.receipt.bytes,raw.length);assert.equal(accepted.receipt.lines,43);
+    const rejected=run(input,overFile);failed(rejected,/1MiB/);
+    assert.equal(digest(await fs.readFile(exactFile)),digest(exact));
+    assert.equal(digest(await fs.readFile(overFile)),digest(over));
+    assert.equal(digest(await fs.readFile(input)),digest(raw));
+    byteBoundary.push({encoding,exactBytes:exact.length,overBytes:over.length,exactExit:accepted.code,overExit:rejected.code,
+      bothValidUtf8Json:true,expectedReference:boundaryRef.case,recordIndex:3,sourceLine:20,axisErrorsMeters:axisErrors,
+      clockErrorSeconds:clockError,overStdoutEmpty:rejected.stdout==='',requestAndNavUnchanged:true,
+      exactSha256:digest(exact),overSha256:digest(over)});
+  }
   failed(run(input,await fixture('oversize.json',Buffer.alloc(1048577,32))),/1MiB/);
   failed(run(input,await fixture('invalid-utf8.json',Buffer.from([255]))),/UTF-8/i);
   failed(run(input,await queries('not-array',{})),/1\.\.256/);
@@ -93,7 +133,8 @@ try {
   for(const flags of [['--capacity'],['--capacity','1.5'],['--skip-unsupported','--skip-unsupported'],['--other']])failed(run(input,valid,flags),/capacity|duplicate|unknown/);
   assert.equal(digest(await fs.readFile(input)),digest(raw));
   summary={status:'passed',cliCases,apiCases,bridgeGateCases:3,independentReferenceCases:refs.length,navigationOpensPerObservedBatch:1,
-    maximumQueriesAccepted:256,requestSnapshotVerified:true,mixedStatusesPreserved:true,noPartialResultOnFailure:true,inputUnchanged:true};
+    maximumQueriesAccepted:256,requestSnapshotVerified:true,mixedStatusesPreserved:true,noPartialResultOnFailure:true,inputUnchanged:true,
+    utf8ByteBoundary:byteBoundary};
 } finally {
   const actual=await fs.realpath(directory),relative=path.relative(buildRoot,actual);
   assert(relative&&!path.isAbsolute(relative)&&relative!=='..'&&!relative.startsWith('..'+path.sep));

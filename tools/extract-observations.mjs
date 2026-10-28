@@ -6,7 +6,10 @@ import * as api from '../_build/js/release/build/cmd/bridge/bridge.js';
 
 // Keep files in the host and the shared grammar/state in the MoonBit Reader.
 export async function extractObservations(file,directory,gpsRange=null){
- const reader=api.reader_create(JSON.stringify({gps_range:gpsRange}));
+ const options=JSON.stringify({gps_range:gpsRange});
+ const reader=api.reader_create(options);
+ // Record the same serialized range the native Reader accepted, without caller aliases.
+ const rangeSnapshot=JSON.parse(options).gps_range;
  const handle=await fs.promises.open(file,'r');let fd=null,created=false,outputBytes=0,epochs=0,records=0;
  const digest=createHash('sha256'),outputDigest=createHash('sha256');let bytes=0,lines=0,headerSaved=false;
  try{
@@ -40,7 +43,7 @@ export async function extractObservations(file,directory,gpsRange=null){
   fs.closeSync(fd);fd=null;
   fs.writeFileSync(path.join(directory,'report.json'),JSON.stringify(report,null,2)+'\n',{flag:'wx'});
   const header=JSON.parse(fs.readFileSync(path.join(directory,'header.json'),'utf8'));
-  const manifest={complete:true,inputAcceptable:report.acceptable,gpsRange,selectedEpochs:epochs,selectedSatelliteRecords:records,
+  const manifest={complete:true,inputAcceptable:report.acceptable,gpsRange:rangeSnapshot,selectedEpochs:epochs,selectedSatelliteRecords:records,
    input:{file:path.basename(file),bytes,lines,sha256:digest.digest('hex')},
    output:{bytes:outputBytes,sha256:outputDigest.digest('hex')},
    source:{license:header.parsed.license,doi:header.parsed.doi,marker:header.parsed.marker},

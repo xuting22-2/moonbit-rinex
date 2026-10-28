@@ -51,6 +51,7 @@ jobs:
         run: |
           node tools/test-public-contract.mjs
           node tools/test-observation-host.mjs
+          node tools/test-observation-range-snapshot.mjs
           node tools/test-observation-output.mjs
           node tools/test-nav-query.mjs
           node tools/test-nav-query-batch.mjs

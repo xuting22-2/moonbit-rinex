@@ -30,6 +30,10 @@ let report = reader.finish()
 
 `tools/extract-observations.mjs` 使用 64KiB 宿主字节块，限制输入和 NDJSON 输出各 512MiB，单行 8192 ASCII 字符，拒绝已存在的输出目录。仅 CRLF 的 CR 在拆行时删除；文件末尾孤立 CR 仍是错误。范围参数为精确字符串，避免 JS Number 损失 100ns 精度。
 
+程序化`extractObservations(file,directory,gpsRange=null)`与CLI使用同一半开范围。参数在调用开始时序列化并交给原生Reader验证，清单保留这同一份参数的独立快照。调用方可在等待提取时为下一次任务修改原数组；本次输出及返回/保存清单仍描述原调用的范围，完成后修改原数组也不会改变返回清单。未修改范围的调用、冻结数组、默认null和CLI输出格式保持兼容；不冻结返回对象或重新解释时标。
+
+`node tools/test-observation-range-snapshot.mjs`用真实四历元合成OBS，在异步打开文件期间修改调用方数组，核对实际第2/3行与独立固定列/整数日历预期、返回和保存范围一致、之后无数组别名，以及冻结数组、CLI、默认全选和原非法参数拒绝。它修复宿主清单的参数所有权，不新增GNSS筛选规则或原OBS真实性认证。
+
 `epochs.ndjson` 的每个已提交时刻都完成整条写入后，才更新输出长度、SHA和时刻计数；低层写入只完成前缀时，完整写入操作会继续处理余下字节。`header.json` 保留原始头；`report.json` 报告整份文件；`manifest.json` 保存输入、输出 SHA-256、来源署名、选择范围及完成状态。写出一个完整时刻并不保证后续输入正常。写入异常可能留下末条前缀，留存NDJSON必须结合 `complete=false` 作为未完成数据看待，不能据此继续交付导航查询结果。退出 2 表示成功读完但检查不合格，不可忽略该区别。
 
 `node tools/test-observation-output.mjs` 以受控正数短写入和部分写入后EIO验证此交付边界，独立回读实际文件的长度/SHA并检查失败时的完成标记、句柄关闭和导航停止。这些是故障注入场景，未制造真实磁盘耗尽或断电。

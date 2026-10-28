@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-27T07:15:22.083745+00:00",
+  "version": "0.1.0",
+  "coreChanged": false,
+  "priorCoreSourceHashesVerified": 10,
+  "currentEvidence": "comparison.json",
+  "previousEvidence": "../public-20260927/LOCAL-CHECKS.json",
+  "scope": "GeoRinex 1.16.2 independently checks CEDA epoch/satellite/signal counts, interval diagnostics and exposed L1/L2 LLI counters; not full value equality or BRUX 4.01 validation",
+  "remoteCIRun": false,
+  "sourceSha256": {
+    "types.mbt": "2671079eecf03b267b8071b4b8056ad87165e30f3cdd12edc488643775248cbf",
+    "time.mbt": "2a0769e7bbfe27d9a42cdcdff4275ca4ec22f2cd5a2b16a9bf6ea0222b3d6d77",
+    "header.mbt": "a1293435123e634ce83d8609da457e3ed069e0b1e81fd07705db527cead6e08a",
+    "checker.mbt": "bf8d373cf71d7c619cfa213fceb4b2369a64cfea66abb309612dccb223f81b0c",
+    "cmd/bridge/main.mbt": "ab049aae9f20532cb038d8a8cb69b83a702f7c0d8f8b27c0c9f5128f7628a001",
+    "tools/check-file.mjs": "60471691a5bf5e0ce041f0b3dc034dd6f8a42d5282ccd9ccf7ad59abd75f2573",
+    "tools/compare-georinex.py": "bb85f1ce428bc743aa85186b83e749223ad639e3c14cac215a32bb8b9986cb62",
+    "pkg.generated.mbti": "1edb3827fe09a8889968e3f318f990d0a5e046cd1c2bf417d5de72f817b640fc"
+  },
+  "sourceHashPolicy": "LF-normalized UTF8"
+}

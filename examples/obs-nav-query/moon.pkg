@@ -1,0 +1,5 @@
+import {
+  "xuting22/rinex" @r,
+}
+
+pkgtype(kind: "executable")

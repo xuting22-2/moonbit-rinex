@@ -1,0 +1,2212 @@
+{
+  "body": {
+    "blank_fields_total": 442622,
+    "body_first_matches_header_first": true,
+    "body_last_matches_header_last": true,
+    "body_nonrecord_line_counts": {},
+    "cycle_slip_epoch_count": 0,
+    "duplicate_sv_examples": [],
+    "duplicate_sv_records_within_epoch": 0,
+    "epoch_declared_satellite_row_mismatch_count": 0,
+    "epoch_declared_satellite_row_mismatch_examples": [],
+    "epoch_flag_semantics": {
+      "0": {
+        "normal observation epoch": 2880
+      }
+    },
+    "epoch_flags": {
+      "0": 2880
+    },
+    "epoch_line_count": 2880,
+    "epoch_line_length_histogram": {
+      "35": 2880
+    },
+    "gap_count": 2879,
+    "gap_seconds_histogram": {
+      "30": 2879
+    },
+    "grid_violations_relative_to_first_epoch": 0,
+    "interval_seconds_declared": "30",
+    "nonempty_fields_total": 2373196,
+    "nonpositive_gap_count": 0,
+    "normal_epochs_by_flag": {
+      "0": 2880,
+      "1": 0
+    },
+    "normal_observation_epoch_count": 2880,
+    "ordinary_epoch_first_stamp_raw": "2026-09-23 00:00:00.0000000",
+    "ordinary_epoch_last_stamp_raw": "2026-09-23 23:59:30.0000000",
+    "power_failure_epoch_count": 0,
+    "receiver_clock_offsets": {
+      "examples": [],
+      "raw_value_histogram": {},
+      "record_count_absent": 2880,
+      "record_count_present": 0
+    },
+    "satellite_observation_record_count": 136993,
+    "satellite_observation_records_by_system": {
+      "C": 34642,
+      "E": 32465,
+      "G": 33319,
+      "I": 8078,
+      "R": 28489
+    },
+    "special_event_expected_record_counts_by_flag": {},
+    "special_event_record_count_mismatches": [],
+    "special_event_record_counts_by_flag": {},
+    "systems": {
+      "C": {
+        "bad_record_examples": [],
+        "blank_fields": 174607,
+        "exact_expected_width_rows": 0,
+        "expected_max_line_length": 387,
+        "fully_omitted_trailing_fields": 16532,
+        "invalid_f14_3_values": 0,
+        "invalid_lli_by_phase_type": {},
+        "invalid_numeric_values": 0,
+        "invalid_ssi_by_type": {},
+        "lli_bits_by_phase_type": {
+          "L1P": {
+            "bit0_cycle_slip_possible": 62
+          },
+          "L2I": {
+            "bit0_cycle_slip_possible": 75
+          },
+          "L5P": {
+            "bit0_cycle_slip_possible": 58
+          },
+          "L6I": {
+            "bit0_cycle_slip_possible": 69
+          },
+          "L7D": {
+            "bit0_cycle_slip_possible": 60
+          },
+          "L7I": {
+            "bit0_cycle_slip_possible": 2
+          }
+        },
+        "lli_by_phase_type": {
+          "L1P": {
+            "0": 30842,
+            "1": 62,
+            "blank": 3738
+          },
+          "L2I": {
+            "0": 33926,
+            "1": 75,
+            "blank": 641
+          },
+          "L5P": {
+            "0": 31328,
+            "1": 58,
+            "blank": 3256
+          },
+          "L6I": {
+            "0": 34175,
+            "1": 69,
+            "blank": 398
+          },
+          "L7D": {
+            "0": 30599,
+            "1": 60,
+            "blank": 3983
+          },
+          "L7I": {
+            "0": 1952,
+            "1": 2,
+            "blank": 32688
+          }
+        },
+        "max_physical_line_length": 385,
+        "min_physical_line_length": 129,
+        "nonempty_fields": 656801,
+        "observation_values_by_type": {
+          "C1P": {
+            "blank_fields": 3377,
+            "nonempty_fields": 31265,
+            "total_fields": 34642
+          },
+          "C2I": {
+            "blank_fields": 132,
+            "nonempty_fields": 34510,
+            "total_fields": 34642
+          },
+          "C5P": {
+            "blank_fields": 3085,
+            "nonempty_fields": 31557,
+            "total_fields": 34642
+          },
+          "C6I": {
+            "blank_fields": 79,
+            "nonempty_fields": 34563,
+            "total_fields": 34642
+          },
+          "C7D": {
+            "blank_fields": 3983,
+            "nonempty_fields": 30659,
+            "total_fields": 34642
+          },
+          "C7I": {
+            "blank_fields": 32645,
+            "nonempty_fields": 1997,
+            "total_fields": 34642
+          },
+          "D1P": {
+            "blank_fields": 3377,
+            "nonempty_fields": 31265,
+            "total_fields": 34642
+          },
+          "D2I": {
+            "blank_fields": 132,
+            "nonempty_fields": 34510,
+            "total_fields": 34642
+          },
+          "D5P": {
+            "blank_fields": 3085,
+            "nonempty_fields": 31557,
+            "total_fields": 34642
+          },
+          "D6I": {
+            "blank_fields": 79,
+            "nonempty_fields": 34563,
+            "total_fields": 34642
+          },
+          "D7D": {
+            "blank_fields": 3983,
+            "nonempty_fields": 30659,
+            "total_fields": 34642
+          },
+          "D7I": {
+            "blank_fields": 32645,
+            "nonempty_fields": 1997,
+            "total_fields": 34642
+          },
+          "L1P": {
+            "blank_fields": 3738,
+            "nonempty_fields": 30904,
+            "total_fields": 34642
+          },
+          "L2I": {
+            "blank_fields": 641,
+            "nonempty_fields": 34001,
+            "total_fields": 34642
+          },
+          "L5P": {
+            "blank_fields": 3256,
+            "nonempty_fields": 31386,
+            "total_fields": 34642
+          },
+          "L6I": {
+            "blank_fields": 398,
+            "nonempty_fields": 34244,
+            "total_fields": 34642
+          },
+          "L7D": {
+            "blank_fields": 3983,
+            "nonempty_fields": 30659,
+            "total_fields": 34642
+          },
+          "L7I": {
+            "blank_fields": 32688,
+            "nonempty_fields": 1954,
+            "total_fields": 34642
+          },
+          "S1P": {
+            "blank_fields": 3377,
+            "nonempty_fields": 31265,
+            "total_fields": 34642
+          },
+          "S2I": {
+            "blank_fields": 132,
+            "nonempty_fields": 34510,
+            "total_fields": 34642
+          },
+          "S5P": {
+            "blank_fields": 3085,
+            "nonempty_fields": 31557,
+            "total_fields": 34642
+          },
+          "S6I": {
+            "blank_fields": 79,
+            "nonempty_fields": 34563,
+            "total_fields": 34642
+          },
+          "S7D": {
+            "blank_fields": 3983,
+            "nonempty_fields": 30659,
+            "total_fields": 34642
+          },
+          "S7I": {
+            "blank_fields": 32645,
+            "nonempty_fields": 1997,
+            "total_fields": 34642
+          }
+        },
+        "overlong_rows": 0,
+        "overwide_records_examples": [],
+        "partial_final_field_rows": 34642,
+        "payload_length_mod_16_histogram": {
+          "14": 34642
+        },
+        "physical_line_length_histogram": {
+          "129": 15,
+          "193": 41,
+          "257": 23,
+          "321": 3904,
+          "385": 30659
+        },
+        "right_trim_ambiguous_final_rows": 0,
+        "right_trim_compatible_final_value_rows": 34642,
+        "satellite_observation_records": 34642,
+        "short_rows": 34642,
+        "ssi_by_type": {
+          "C1P": {
+            "3": 238,
+            "4": 604,
+            "5": 5705,
+            "6": 10771,
+            "7": 7758,
+            "8": 6189,
+            "blank": 3377
+          },
+          "C2I": {
+            "3": 195,
+            "4": 461,
+            "5": 3148,
+            "6": 12727,
+            "7": 8690,
+            "8": 9289,
+            "blank": 132
+          },
+          "C5P": {
+            "3": 100,
+            "4": 329,
+            "5": 1539,
+            "6": 9805,
+            "7": 10087,
+            "8": 9031,
+            "9": 666,
+            "blank": 3085
+          },
+          "C6I": {
+            "3": 147,
+            "4": 414,
+            "5": 2433,
+            "6": 11949,
+            "7": 9825,
+            "8": 9668,
+            "9": 127,
+            "blank": 79
+          },
+          "C7D": {
+            "4": 7,
+            "5": 1554,
+            "6": 10696,
+            "7": 9423,
+            "8": 8965,
+            "9": 14,
+            "blank": 3983
+          },
+          "C7I": {
+            "3": 17,
+            "4": 34,
+            "5": 166,
+            "6": 934,
+            "7": 846,
+            "blank": 32645
+          },
+          "D1P": {
+            "3": 238,
+            "4": 604,
+            "5": 5705,
+            "6": 10771,
+            "7": 7758,
+            "8": 6189,
+            "blank": 3377
+          },
+          "D2I": {
+            "3": 195,
+            "4": 461,
+            "5": 3148,
+            "6": 12727,
+            "7": 8690,
+            "8": 9289,
+            "blank": 132
+          },
+          "D5P": {
+            "3": 100,
+            "4": 329,
+            "5": 1539,
+            "6": 9805,
+            "7": 10087,
+            "8": 9031,
+            "9": 666,
+            "blank": 3085
+          },
+          "D6I": {
+            "3": 147,
+            "4": 414,
+            "5": 2433,
+            "6": 11949,
+            "7": 9825,
+            "8": 9668,
+            "9": 127,
+            "blank": 79
+          },
+          "D7D": {
+            "4": 7,
+            "5": 1554,
+            "6": 10696,
+            "7": 9423,
+            "8": 8965,
+            "9": 14,
+            "blank": 3983
+          },
+          "D7I": {
+            "3": 17,
+            "4": 34,
+            "5": 166,
+            "6": 934,
+            "7": 846,
+            "blank": 32645
+          },
+          "L1P": {
+            "3": 6,
+            "4": 485,
+            "5": 5695,
+            "6": 10771,
+            "7": 7758,
+            "8": 6189,
+            "blank": 3738
+          },
+          "L2I": {
+            "4": 255,
+            "5": 3040,
+            "6": 12727,
+            "7": 8690,
+            "8": 9289,
+            "blank": 641
+          },
+          "L5P": {
+            "3": 8,
+            "4": 266,
+            "5": 1523,
+            "6": 9805,
+            "7": 10087,
+            "8": 9031,
+            "9": 666,
+            "blank": 3256
+          },
+          "L6I": {
+            "3": 1,
+            "4": 297,
+            "5": 2377,
+            "6": 11949,
+            "7": 9825,
+            "8": 9668,
+            "9": 127,
+            "blank": 398
+          },
+          "L7D": {
+            "4": 7,
+            "5": 1554,
+            "6": 10696,
+            "7": 9423,
+            "8": 8965,
+            "9": 14,
+            "blank": 3983
+          },
+          "L7I": {
+            "4": 19,
+            "5": 155,
+            "6": 934,
+            "7": 846,
+            "blank": 32688
+          },
+          "S1P": {
+            "blank": 34642
+          },
+          "S2I": {
+            "blank": 34642
+          },
+          "S5P": {
+            "blank": 34642
+          },
+          "S6I": {
+            "blank": 34642
+          },
+          "S7D": {
+            "blank": 34642
+          },
+          "S7I": {
+            "blank": 34642
+          }
+        },
+        "unexpected_lli_on_nonphase": {},
+        "unique_sv_count": 35,
+        "unique_sv_ids": [
+          "C02",
+          "C06",
+          "C07",
+          "C08",
+          "C09",
+          "C10",
+          "C11",
+          "C12",
+          "C13",
+          "C14",
+          "C19",
+          "C20",
+          "C21",
+          "C22",
+          "C23",
+          "C24",
+          "C25",
+          "C26",
+          "C27",
+          "C28",
+          "C29",
+          "C30",
+          "C31",
+          "C32",
+          "C33",
+          "C34",
+          "C35",
+          "C36",
+          "C37",
+          "C38",
+          "C39",
+          "C41",
+          "C42",
+          "C56",
+          "C58"
+        ],
+        "zero_numeric_fields": 0
+      },
+      "E": {
+        "bad_record_examples": [],
+        "blank_fields": 5629,
+        "exact_expected_width_rows": 0,
+        "expected_max_line_length": 323,
+        "fully_omitted_trailing_fields": 1068,
+        "invalid_f14_3_values": 0,
+        "invalid_lli_by_phase_type": {},
+        "invalid_numeric_values": 0,
+        "invalid_ssi_by_type": {},
+        "lli_bits_by_phase_type": {
+          "L1C": {
+            "bit0_cycle_slip_possible": 53
+          },
+          "L5Q": {
+            "bit0_cycle_slip_possible": 52
+          },
+          "L6B": {
+            "bit0_cycle_slip_possible": 96
+          },
+          "L7Q": {
+            "bit0_cycle_slip_possible": 53
+          },
+          "L8Q": {
+            "bit0_cycle_slip_possible": 51
+          }
+        },
+        "lli_by_phase_type": {
+          "L1C": {
+            "0": 31659,
+            "1": 53,
+            "blank": 753
+          },
+          "L5Q": {
+            "0": 32193,
+            "1": 52,
+            "blank": 220
+          },
+          "L6B": {
+            "0": 31803,
+            "1": 96,
+            "blank": 566
+          },
+          "L7Q": {
+            "0": 32169,
+            "1": 53,
+            "blank": 243
+          },
+          "L8Q": {
+            "0": 32215,
+            "1": 51,
+            "blank": 199
+          }
+        },
+        "max_physical_line_length": 321,
+        "min_physical_line_length": 65,
+        "nonempty_fields": 643671,
+        "observation_values_by_type": {
+          "C1C": {
+            "blank_fields": 326,
+            "nonempty_fields": 32139,
+            "total_fields": 32465
+          },
+          "C5Q": {
+            "blank_fields": 52,
+            "nonempty_fields": 32413,
+            "total_fields": 32465
+          },
+          "C6B": {
+            "blank_fields": 566,
+            "nonempty_fields": 31899,
+            "total_fields": 32465
+          },
+          "C7Q": {
+            "blank_fields": 73,
+            "nonempty_fields": 32392,
+            "total_fields": 32465
+          },
+          "C8Q": {
+            "blank_fields": 199,
+            "nonempty_fields": 32266,
+            "total_fields": 32465
+          },
+          "D1C": {
+            "blank_fields": 326,
+            "nonempty_fields": 32139,
+            "total_fields": 32465
+          },
+          "D5Q": {
+            "blank_fields": 52,
+            "nonempty_fields": 32413,
+            "total_fields": 32465
+          },
+          "D6B": {
+            "blank_fields": 566,
+            "nonempty_fields": 31899,
+            "total_fields": 32465
+          },
+          "D7Q": {
+            "blank_fields": 73,
+            "nonempty_fields": 32392,
+            "total_fields": 32465
+          },
+          "D8Q": {
+            "blank_fields": 199,
+            "nonempty_fields": 32266,
+            "total_fields": 32465
+          },
+          "L1C": {
+            "blank_fields": 753,
+            "nonempty_fields": 31712,
+            "total_fields": 32465
+          },
+          "L5Q": {
+            "blank_fields": 220,
+            "nonempty_fields": 32245,
+            "total_fields": 32465
+          },
+          "L6B": {
+            "blank_fields": 566,
+            "nonempty_fields": 31899,
+            "total_fields": 32465
+          },
+          "L7Q": {
+            "blank_fields": 243,
+            "nonempty_fields": 32222,
+            "total_fields": 32465
+          },
+          "L8Q": {
+            "blank_fields": 199,
+            "nonempty_fields": 32266,
+            "total_fields": 32465
+          },
+          "S1C": {
+            "blank_fields": 326,
+            "nonempty_fields": 32139,
+            "total_fields": 32465
+          },
+          "S5Q": {
+            "blank_fields": 52,
+            "nonempty_fields": 32413,
+            "total_fields": 32465
+          },
+          "S6B": {
+            "blank_fields": 566,
+            "nonempty_fields": 31899,
+            "total_fields": 32465
+          },
+          "S7Q": {
+            "blank_fields": 73,
+            "nonempty_fields": 32392,
+            "total_fields": 32465
+          },
+          "S8Q": {
+            "blank_fields": 199,
+            "nonempty_fields": 32266,
+            "total_fields": 32465
+          }
+        },
+        "overlong_rows": 0,
+        "overwide_records_examples": [],
+        "partial_final_field_rows": 32465,
+        "payload_length_mod_16_histogram": {
+          "14": 32465
+        },
+        "physical_line_length_histogram": {
+          "193": 47,
+          "257": 145,
+          "321": 32266,
+          "65": 7
+        },
+        "right_trim_ambiguous_final_rows": 0,
+        "right_trim_compatible_final_value_rows": 32465,
+        "satellite_observation_records": 32465,
+        "short_rows": 32465,
+        "ssi_by_type": {
+          "C1C": {
+            "3": 235,
+            "4": 924,
+            "5": 7774,
+            "6": 9186,
+            "7": 9075,
+            "8": 4945,
+            "blank": 326
+          },
+          "C5Q": {
+            "3": 119,
+            "4": 353,
+            "5": 2377,
+            "6": 10526,
+            "7": 8946,
+            "8": 10092,
+            "blank": 52
+          },
+          "C6B": {
+            "4": 22,
+            "5": 1791,
+            "6": 9812,
+            "7": 8623,
+            "8": 9183,
+            "9": 2468,
+            "blank": 566
+          },
+          "C7Q": {
+            "3": 126,
+            "4": 357,
+            "5": 2319,
+            "6": 10362,
+            "7": 8848,
+            "8": 10354,
+            "9": 26,
+            "blank": 73
+          },
+          "C8Q": {
+            "3": 4,
+            "4": 176,
+            "5": 786,
+            "6": 6834,
+            "7": 9876,
+            "8": 9357,
+            "9": 5233,
+            "blank": 199
+          },
+          "D1C": {
+            "3": 235,
+            "4": 924,
+            "5": 7774,
+            "6": 9186,
+            "7": 9075,
+            "8": 4945,
+            "blank": 326
+          },
+          "D5Q": {
+            "3": 119,
+            "4": 353,
+            "5": 2377,
+            "6": 10526,
+            "7": 8946,
+            "8": 10092,
+            "blank": 52
+          },
+          "D6B": {
+            "4": 22,
+            "5": 1791,
+            "6": 9812,
+            "7": 8623,
+            "8": 9183,
+            "9": 2468,
+            "blank": 566
+          },
+          "D7Q": {
+            "3": 126,
+            "4": 357,
+            "5": 2319,
+            "6": 10362,
+            "7": 8848,
+            "8": 10354,
+            "9": 26,
+            "blank": 73
+          },
+          "D8Q": {
+            "3": 4,
+            "4": 176,
+            "5": 786,
+            "6": 6834,
+            "7": 9876,
+            "8": 9357,
+            "9": 5233,
+            "blank": 199
+          },
+          "L1C": {
+            "3": 8,
+            "4": 794,
+            "5": 7704,
+            "6": 9186,
+            "7": 9075,
+            "8": 4945,
+            "blank": 753
+          },
+          "L5Q": {
+            "3": 10,
+            "4": 296,
+            "5": 2375,
+            "6": 10526,
+            "7": 8946,
+            "8": 10092,
+            "blank": 220
+          },
+          "L6B": {
+            "4": 22,
+            "5": 1791,
+            "6": 9812,
+            "7": 8623,
+            "8": 9183,
+            "9": 2468,
+            "blank": 566
+          },
+          "L7Q": {
+            "3": 9,
+            "4": 308,
+            "5": 2315,
+            "6": 10362,
+            "7": 8848,
+            "8": 10354,
+            "9": 26,
+            "blank": 243
+          },
+          "L8Q": {
+            "3": 4,
+            "4": 176,
+            "5": 786,
+            "6": 6834,
+            "7": 9876,
+            "8": 9357,
+            "9": 5233,
+            "blank": 199
+          },
+          "S1C": {
+            "blank": 32465
+          },
+          "S5Q": {
+            "blank": 32465
+          },
+          "S6B": {
+            "blank": 32465
+          },
+          "S7Q": {
+            "blank": 32465
+          },
+          "S8Q": {
+            "blank": 32465
+          }
+        },
+        "unexpected_lli_on_nonphase": {},
+        "unique_sv_count": 30,
+        "unique_sv_ids": [
+          "E02",
+          "E03",
+          "E04",
+          "E05",
+          "E06",
+          "E07",
+          "E08",
+          "E09",
+          "E10",
+          "E11",
+          "E12",
+          "E13",
+          "E14",
+          "E15",
+          "E16",
+          "E18",
+          "E19",
+          "E21",
+          "E23",
+          "E25",
+          "E26",
+          "E27",
+          "E28",
+          "E29",
+          "E30",
+          "E31",
+          "E32",
+          "E33",
+          "E34",
+          "E36"
+        ],
+        "zero_numeric_fields": 0
+      },
+      "G": {
+        "bad_record_examples": [],
+        "blank_fields": 163591,
+        "exact_expected_width_rows": 0,
+        "expected_max_line_length": 355,
+        "fully_omitted_trailing_fields": 156280,
+        "invalid_f14_3_values": 0,
+        "invalid_lli_by_phase_type": {},
+        "invalid_numeric_values": 0,
+        "invalid_ssi_by_type": {},
+        "lli_bits_by_phase_type": {
+          "L1C": {
+            "bit0_cycle_slip_possible": 72
+          },
+          "L1L": {
+            "bit0_cycle_slip_possible": 25
+          },
+          "L2L": {
+            "bit0_cycle_slip_possible": 57
+          },
+          "L2W": {
+            "bit0_cycle_slip_possible": 73
+          },
+          "L5Q": {
+            "bit0_cycle_slip_possible": 44
+          }
+        },
+        "lli_by_phase_type": {
+          "L1C": {
+            "0": 32515,
+            "1": 72,
+            "blank": 732
+          },
+          "L1L": {
+            "0": 10312,
+            "1": 25,
+            "blank": 22982
+          },
+          "L2L": {
+            "0": 28248,
+            "1": 57,
+            "blank": 5014
+          },
+          "L2W": {
+            "0": 32419,
+            "1": 73,
+            "blank": 827
+          },
+          "L5Q": {
+            "0": 21477,
+            "1": 44,
+            "blank": 11798
+          }
+        },
+        "max_physical_line_length": 353,
+        "min_physical_line_length": 65,
+        "nonempty_fields": 569427,
+        "observation_values_by_type": {
+          "C1C": {
+            "blank_fields": 219,
+            "nonempty_fields": 33100,
+            "total_fields": 33319
+          },
+          "C1L": {
+            "blank_fields": 22894,
+            "nonempty_fields": 10425,
+            "total_fields": 33319
+          },
+          "C1W": {
+            "blank_fields": 825,
+            "nonempty_fields": 32494,
+            "total_fields": 33319
+          },
+          "C2L": {
+            "blank_fields": 4627,
+            "nonempty_fields": 28692,
+            "total_fields": 33319
+          },
+          "C2W": {
+            "blank_fields": 825,
+            "nonempty_fields": 32494,
+            "total_fields": 33319
+          },
+          "C5Q": {
+            "blank_fields": 11631,
+            "nonempty_fields": 21688,
+            "total_fields": 33319
+          },
+          "D1C": {
+            "blank_fields": 219,
+            "nonempty_fields": 33100,
+            "total_fields": 33319
+          },
+          "D1L": {
+            "blank_fields": 22894,
+            "nonempty_fields": 10425,
+            "total_fields": 33319
+          },
+          "D2L": {
+            "blank_fields": 4627,
+            "nonempty_fields": 28692,
+            "total_fields": 33319
+          },
+          "D2W": {
+            "blank_fields": 825,
+            "nonempty_fields": 32494,
+            "total_fields": 33319
+          },
+          "D5Q": {
+            "blank_fields": 11631,
+            "nonempty_fields": 21688,
+            "total_fields": 33319
+          },
+          "L1C": {
+            "blank_fields": 732,
+            "nonempty_fields": 32587,
+            "total_fields": 33319
+          },
+          "L1L": {
+            "blank_fields": 22982,
+            "nonempty_fields": 10337,
+            "total_fields": 33319
+          },
+          "L2L": {
+            "blank_fields": 5014,
+            "nonempty_fields": 28305,
+            "total_fields": 33319
+          },
+          "L2W": {
+            "blank_fields": 827,
+            "nonempty_fields": 32492,
+            "total_fields": 33319
+          },
+          "L5Q": {
+            "blank_fields": 11798,
+            "nonempty_fields": 21521,
+            "total_fields": 33319
+          },
+          "S1C": {
+            "blank_fields": 219,
+            "nonempty_fields": 33100,
+            "total_fields": 33319
+          },
+          "S1L": {
+            "blank_fields": 22894,
+            "nonempty_fields": 10425,
+            "total_fields": 33319
+          },
+          "S1W": {
+            "blank_fields": 825,
+            "nonempty_fields": 32494,
+            "total_fields": 33319
+          },
+          "S2L": {
+            "blank_fields": 4627,
+            "nonempty_fields": 28692,
+            "total_fields": 33319
+          },
+          "S2W": {
+            "blank_fields": 825,
+            "nonempty_fields": 32494,
+            "total_fields": 33319
+          },
+          "S5Q": {
+            "blank_fields": 11631,
+            "nonempty_fields": 21688,
+            "total_fields": 33319
+          }
+        },
+        "overlong_rows": 0,
+        "overwide_records_examples": [],
+        "partial_final_field_rows": 33319,
+        "payload_length_mod_16_histogram": {
+          "14": 33319
+        },
+        "physical_line_length_histogram": {
+          "161": 4238,
+          "225": 7259,
+          "289": 11271,
+          "353": 10425,
+          "65": 126
+        },
+        "right_trim_ambiguous_final_rows": 0,
+        "right_trim_compatible_final_value_rows": 33319,
+        "satellite_observation_records": 33319,
+        "short_rows": 33319,
+        "ssi_by_type": {
+          "C1C": {
+            "3": 263,
+            "4": 551,
+            "5": 5435,
+            "6": 10127,
+            "7": 8988,
+            "8": 7736,
+            "blank": 219
+          },
+          "C1L": {
+            "3": 63,
+            "4": 154,
+            "5": 1766,
+            "6": 3448,
+            "7": 3313,
+            "8": 1681,
+            "blank": 22894
+          },
+          "C1W": {
+            "1": 852,
+            "2": 2654,
+            "3": 4397,
+            "4": 4899,
+            "5": 4944,
+            "6": 4967,
+            "7": 4604,
+            "8": 3176,
+            "9": 2001,
+            "blank": 825
+          },
+          "C2L": {
+            "2": 1,
+            "3": 275,
+            "4": 699,
+            "5": 6432,
+            "6": 9023,
+            "7": 8788,
+            "8": 3474,
+            "blank": 4627
+          },
+          "C2W": {
+            "1": 852,
+            "2": 2654,
+            "3": 4397,
+            "4": 4899,
+            "5": 4944,
+            "6": 4967,
+            "7": 4604,
+            "8": 3176,
+            "9": 2001,
+            "blank": 825
+          },
+          "C5Q": {
+            "3": 99,
+            "4": 217,
+            "5": 507,
+            "6": 4925,
+            "7": 6807,
+            "8": 5763,
+            "9": 3370,
+            "blank": 11631
+          },
+          "D1C": {
+            "3": 263,
+            "4": 551,
+            "5": 5435,
+            "6": 10127,
+            "7": 8988,
+            "8": 7736,
+            "blank": 219
+          },
+          "D1L": {
+            "3": 63,
+            "4": 154,
+            "5": 1766,
+            "6": 3448,
+            "7": 3313,
+            "8": 1681,
+            "blank": 22894
+          },
+          "D2L": {
+            "2": 1,
+            "3": 275,
+            "4": 699,
+            "5": 6432,
+            "6": 9023,
+            "7": 8788,
+            "8": 3474,
+            "blank": 4627
+          },
+          "D2W": {
+            "1": 852,
+            "2": 2654,
+            "3": 4397,
+            "4": 4899,
+            "5": 4944,
+            "6": 4967,
+            "7": 4604,
+            "8": 3176,
+            "9": 2001,
+            "blank": 825
+          },
+          "D5Q": {
+            "3": 99,
+            "4": 217,
+            "5": 507,
+            "6": 4925,
+            "7": 6807,
+            "8": 5763,
+            "9": 3370,
+            "blank": 11631
+          },
+          "L1C": {
+            "3": 1,
+            "4": 344,
+            "5": 5391,
+            "6": 10127,
+            "7": 8988,
+            "8": 7736,
+            "blank": 732
+          },
+          "L1L": {
+            "3": 3,
+            "4": 126,
+            "5": 1766,
+            "6": 3448,
+            "7": 3313,
+            "8": 1681,
+            "blank": 22982
+          },
+          "L2L": {
+            "3": 10,
+            "4": 583,
+            "5": 6427,
+            "6": 9023,
+            "7": 8788,
+            "8": 3474,
+            "blank": 5014
+          },
+          "L2W": {
+            "1": 852,
+            "2": 2654,
+            "3": 4395,
+            "4": 4899,
+            "5": 4944,
+            "6": 4967,
+            "7": 4604,
+            "8": 3176,
+            "9": 2001,
+            "blank": 827
+          },
+          "L5Q": {
+            "3": 4,
+            "4": 152,
+            "5": 500,
+            "6": 4925,
+            "7": 6807,
+            "8": 5763,
+            "9": 3370,
+            "blank": 11798
+          },
+          "S1C": {
+            "blank": 33319
+          },
+          "S1L": {
+            "blank": 33319
+          },
+          "S1W": {
+            "blank": 33319
+          },
+          "S2L": {
+            "blank": 33319
+          },
+          "S2W": {
+            "blank": 33319
+          },
+          "S5Q": {
+            "blank": 33319
+          }
+        },
+        "unexpected_lli_on_nonphase": {},
+        "unique_sv_count": 32,
+        "unique_sv_ids": [
+          "G01",
+          "G02",
+          "G03",
+          "G04",
+          "G05",
+          "G06",
+          "G07",
+          "G08",
+          "G09",
+          "G10",
+          "G11",
+          "G12",
+          "G13",
+          "G14",
+          "G15",
+          "G16",
+          "G17",
+          "G18",
+          "G19",
+          "G20",
+          "G21",
+          "G22",
+          "G23",
+          "G24",
+          "G25",
+          "G26",
+          "G27",
+          "G28",
+          "G29",
+          "G30",
+          "G31",
+          "G32"
+        ],
+        "zero_numeric_fields": 0
+      },
+      "I": {
+        "bad_record_examples": [],
+        "blank_fields": 0,
+        "exact_expected_width_rows": 0,
+        "expected_max_line_length": 67,
+        "fully_omitted_trailing_fields": 0,
+        "invalid_f14_3_values": 0,
+        "invalid_lli_by_phase_type": {},
+        "invalid_numeric_values": 0,
+        "invalid_ssi_by_type": {},
+        "lli_bits_by_phase_type": {
+          "L5A": {
+            "bit0_cycle_slip_possible": 3
+          }
+        },
+        "lli_by_phase_type": {
+          "L5A": {
+            "0": 8075,
+            "1": 3
+          }
+        },
+        "max_physical_line_length": 65,
+        "min_physical_line_length": 65,
+        "nonempty_fields": 32312,
+        "observation_values_by_type": {
+          "C5A": {
+            "nonempty_fields": 8078,
+            "total_fields": 8078
+          },
+          "D5A": {
+            "nonempty_fields": 8078,
+            "total_fields": 8078
+          },
+          "L5A": {
+            "nonempty_fields": 8078,
+            "total_fields": 8078
+          },
+          "S5A": {
+            "nonempty_fields": 8078,
+            "total_fields": 8078
+          }
+        },
+        "overlong_rows": 0,
+        "overwide_records_examples": [],
+        "partial_final_field_rows": 8078,
+        "payload_length_mod_16_histogram": {
+          "14": 8078
+        },
+        "physical_line_length_histogram": {
+          "65": 8078
+        },
+        "right_trim_ambiguous_final_rows": 0,
+        "right_trim_compatible_final_value_rows": 8078,
+        "satellite_observation_records": 8078,
+        "short_rows": 8078,
+        "ssi_by_type": {
+          "C5A": {
+            "4": 69,
+            "5": 1250,
+            "6": 6758,
+            "7": 1
+          },
+          "D5A": {
+            "4": 69,
+            "5": 1250,
+            "6": 6758,
+            "7": 1
+          },
+          "L5A": {
+            "4": 69,
+            "5": 1250,
+            "6": 6758,
+            "7": 1
+          },
+          "S5A": {
+            "blank": 8078
+          }
+        },
+        "unexpected_lli_on_nonphase": {},
+        "unique_sv_count": 4,
+        "unique_sv_ids": [
+          "I01",
+          "I02",
+          "I06",
+          "I09"
+        ],
+        "zero_numeric_fields": 0
+      },
+      "R": {
+        "bad_record_examples": [],
+        "blank_fields": 98795,
+        "exact_expected_width_rows": 0,
+        "expected_max_line_length": 323,
+        "fully_omitted_trailing_fields": 92332,
+        "invalid_f14_3_values": 0,
+        "invalid_lli_by_phase_type": {},
+        "invalid_numeric_values": 0,
+        "invalid_ssi_by_type": {},
+        "lli_bits_by_phase_type": {
+          "L1C": {
+            "bit0_cycle_slip_possible": 59
+          },
+          "L1P": {
+            "bit0_cycle_slip_possible": 59
+          },
+          "L2C": {
+            "bit0_cycle_slip_possible": 51
+          },
+          "L2P": {
+            "bit0_cycle_slip_possible": 67
+          },
+          "L3Q": {
+            "bit0_cycle_slip_possible": 29
+          }
+        },
+        "lli_by_phase_type": {
+          "L1C": {
+            "0": 27861,
+            "1": 59,
+            "blank": 569
+          },
+          "L1P": {
+            "0": 27669,
+            "1": 59,
+            "blank": 761
+          },
+          "L2C": {
+            "0": 24216,
+            "1": 51,
+            "blank": 4222
+          },
+          "L2P": {
+            "0": 23815,
+            "1": 67,
+            "blank": 4607
+          },
+          "L3Q": {
+            "0": 13567,
+            "1": 29,
+            "blank": 14893
+          }
+        },
+        "max_physical_line_length": 321,
+        "min_physical_line_length": 65,
+        "nonempty_fields": 470985,
+        "observation_values_by_type": {
+          "C1C": {
+            "blank_fields": 322,
+            "nonempty_fields": 28167,
+            "total_fields": 28489
+          },
+          "C1P": {
+            "blank_fields": 740,
+            "nonempty_fields": 27749,
+            "total_fields": 28489
+          },
+          "C2C": {
+            "blank_fields": 4035,
+            "nonempty_fields": 24454,
+            "total_fields": 28489
+          },
+          "C2P": {
+            "blank_fields": 4591,
+            "nonempty_fields": 23898,
+            "total_fields": 28489
+          },
+          "C3Q": {
+            "blank_fields": 14893,
+            "nonempty_fields": 13596,
+            "total_fields": 28489
+          },
+          "D1C": {
+            "blank_fields": 322,
+            "nonempty_fields": 28167,
+            "total_fields": 28489
+          },
+          "D1P": {
+            "blank_fields": 740,
+            "nonempty_fields": 27749,
+            "total_fields": 28489
+          },
+          "D2C": {
+            "blank_fields": 4035,
+            "nonempty_fields": 24454,
+            "total_fields": 28489
+          },
+          "D2P": {
+            "blank_fields": 4591,
+            "nonempty_fields": 23898,
+            "total_fields": 28489
+          },
+          "D3Q": {
+            "blank_fields": 14893,
+            "nonempty_fields": 13596,
+            "total_fields": 28489
+          },
+          "L1C": {
+            "blank_fields": 569,
+            "nonempty_fields": 27920,
+            "total_fields": 28489
+          },
+          "L1P": {
+            "blank_fields": 761,
+            "nonempty_fields": 27728,
+            "total_fields": 28489
+          },
+          "L2C": {
+            "blank_fields": 4222,
+            "nonempty_fields": 24267,
+            "total_fields": 28489
+          },
+          "L2P": {
+            "blank_fields": 4607,
+            "nonempty_fields": 23882,
+            "total_fields": 28489
+          },
+          "L3Q": {
+            "blank_fields": 14893,
+            "nonempty_fields": 13596,
+            "total_fields": 28489
+          },
+          "S1C": {
+            "blank_fields": 322,
+            "nonempty_fields": 28167,
+            "total_fields": 28489
+          },
+          "S1P": {
+            "blank_fields": 740,
+            "nonempty_fields": 27749,
+            "total_fields": 28489
+          },
+          "S2C": {
+            "blank_fields": 4035,
+            "nonempty_fields": 24454,
+            "total_fields": 28489
+          },
+          "S2P": {
+            "blank_fields": 4591,
+            "nonempty_fields": 23898,
+            "total_fields": 28489
+          },
+          "S3Q": {
+            "blank_fields": 14893,
+            "nonempty_fields": 13596,
+            "total_fields": 28489
+          }
+        },
+        "overlong_rows": 0,
+        "overwide_records_examples": [],
+        "partial_final_field_rows": 28489,
+        "payload_length_mod_16_histogram": {
+          "14": 28489
+        },
+        "physical_line_length_histogram": {
+          "129": 3874,
+          "193": 10,
+          "257": 10865,
+          "321": 13596,
+          "65": 144
+        },
+        "right_trim_ambiguous_final_rows": 0,
+        "right_trim_compatible_final_value_rows": 28489,
+        "satellite_observation_records": 28489,
+        "short_rows": 28489,
+        "ssi_by_type": {
+          "C1C": {
+            "3": 113,
+            "4": 306,
+            "5": 1365,
+            "6": 6221,
+            "7": 9042,
+            "8": 11120,
+            "blank": 322
+          },
+          "C1P": {
+            "3": 1,
+            "4": 209,
+            "5": 1481,
+            "6": 7459,
+            "7": 8124,
+            "8": 10454,
+            "9": 21,
+            "blank": 740
+          },
+          "C2C": {
+            "3": 104,
+            "4": 219,
+            "5": 1072,
+            "6": 7470,
+            "7": 8104,
+            "8": 7485,
+            "blank": 4035
+          },
+          "C2P": {
+            "4": 47,
+            "5": 1070,
+            "6": 7566,
+            "7": 7504,
+            "8": 7711,
+            "blank": 4591
+          },
+          "C3Q": {
+            "3": 4,
+            "4": 160,
+            "5": 1566,
+            "6": 4739,
+            "7": 3787,
+            "8": 3340,
+            "blank": 14893
+          },
+          "D1C": {
+            "3": 113,
+            "4": 306,
+            "5": 1365,
+            "6": 6221,
+            "7": 9042,
+            "8": 11120,
+            "blank": 322
+          },
+          "D1P": {
+            "3": 1,
+            "4": 209,
+            "5": 1481,
+            "6": 7459,
+            "7": 8124,
+            "8": 10454,
+            "9": 21,
+            "blank": 740
+          },
+          "D2C": {
+            "3": 104,
+            "4": 219,
+            "5": 1072,
+            "6": 7470,
+            "7": 8104,
+            "8": 7485,
+            "blank": 4035
+          },
+          "D2P": {
+            "4": 47,
+            "5": 1070,
+            "6": 7566,
+            "7": 7504,
+            "8": 7711,
+            "blank": 4591
+          },
+          "D3Q": {
+            "3": 4,
+            "4": 160,
+            "5": 1566,
+            "6": 4739,
+            "7": 3787,
+            "8": 3340,
+            "blank": 14893
+          },
+          "L1C": {
+            "3": 2,
+            "4": 180,
+            "5": 1355,
+            "6": 6221,
+            "7": 9042,
+            "8": 11120,
+            "blank": 569
+          },
+          "L1P": {
+            "3": 1,
+            "4": 192,
+            "5": 1477,
+            "6": 7459,
+            "7": 8124,
+            "8": 10454,
+            "9": 21,
+            "blank": 761
+          },
+          "L2C": {
+            "3": 1,
+            "4": 141,
+            "5": 1066,
+            "6": 7470,
+            "7": 8104,
+            "8": 7485,
+            "blank": 4222
+          },
+          "L2P": {
+            "4": 46,
+            "5": 1055,
+            "6": 7566,
+            "7": 7504,
+            "8": 7711,
+            "blank": 4607
+          },
+          "L3Q": {
+            "3": 4,
+            "4": 160,
+            "5": 1566,
+            "6": 4739,
+            "7": 3787,
+            "8": 3340,
+            "blank": 14893
+          },
+          "S1C": {
+            "blank": 28489
+          },
+          "S1P": {
+            "blank": 28489
+          },
+          "S2C": {
+            "blank": 28489
+          },
+          "S2P": {
+            "blank": 28489
+          },
+          "S3Q": {
+            "blank": 28489
+          }
+        },
+        "unexpected_lli_on_nonphase": {},
+        "unique_sv_count": 26,
+        "unique_sv_ids": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R09",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15",
+          "R16",
+          "R17",
+          "R18",
+          "R19",
+          "R20",
+          "R21",
+          "R22",
+          "R23",
+          "R24",
+          "R26",
+          "R27"
+        ],
+        "zero_numeric_fields": 0
+      }
+    },
+    "time_stamps_converted_to_utc": false,
+    "time_system_label": "GPS",
+    "unique_sv_count": 127,
+    "unique_sv_count_by_system": {
+      "C": 35,
+      "E": 30,
+      "G": 32,
+      "I": 4,
+      "R": 26
+    },
+    "unique_sv_ids": [
+      "C02",
+      "C06",
+      "C07",
+      "C08",
+      "C09",
+      "C10",
+      "C11",
+      "C12",
+      "C13",
+      "C14",
+      "C19",
+      "C20",
+      "C21",
+      "C22",
+      "C23",
+      "C24",
+      "C25",
+      "C26",
+      "C27",
+      "C28",
+      "C29",
+      "C30",
+      "C31",
+      "C32",
+      "C33",
+      "C34",
+      "C35",
+      "C36",
+      "C37",
+      "C38",
+      "C39",
+      "C41",
+      "C42",
+      "C56",
+      "C58",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09",
+      "E10",
+      "E11",
+      "E12",
+      "E13",
+      "E14",
+      "E15",
+      "E16",
+      "E18",
+      "E19",
+      "E21",
+      "E23",
+      "E25",
+      "E26",
+      "E27",
+      "E28",
+      "E29",
+      "E30",
+      "E31",
+      "E32",
+      "E33",
+      "E34",
+      "E36",
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "G07",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13",
+      "G14",
+      "G15",
+      "G16",
+      "G17",
+      "G18",
+      "G19",
+      "G20",
+      "G21",
+      "G22",
+      "G23",
+      "G24",
+      "G25",
+      "G26",
+      "G27",
+      "G28",
+      "G29",
+      "G30",
+      "G31",
+      "G32",
+      "I01",
+      "I02",
+      "I06",
+      "I09",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R26",
+      "R27"
+    ],
+    "unique_sv_ids_by_system": {
+      "C": [
+        "C02",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C19",
+        "C20",
+        "C21",
+        "C22",
+        "C23",
+        "C24",
+        "C25",
+        "C26",
+        "C27",
+        "C28",
+        "C29",
+        "C30",
+        "C31",
+        "C32",
+        "C33",
+        "C34",
+        "C35",
+        "C36",
+        "C37",
+        "C38",
+        "C39",
+        "C41",
+        "C42",
+        "C56",
+        "C58"
+      ],
+      "E": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E16",
+        "E18",
+        "E19",
+        "E21",
+        "E23",
+        "E25",
+        "E26",
+        "E27",
+        "E28",
+        "E29",
+        "E30",
+        "E31",
+        "E32",
+        "E33",
+        "E34",
+        "E36"
+      ],
+      "G": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09",
+        "G10",
+        "G11",
+        "G12",
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G17",
+        "G18",
+        "G19",
+        "G20",
+        "G21",
+        "G22",
+        "G23",
+        "G24",
+        "G25",
+        "G26",
+        "G27",
+        "G28",
+        "G29",
+        "G30",
+        "G31",
+        "G32"
+      ],
+      "I": [
+        "I01",
+        "I02",
+        "I06",
+        "I09"
+      ],
+      "R": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15",
+        "R16",
+        "R17",
+        "R18",
+        "R19",
+        "R20",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R26",
+        "R27"
+      ]
+    },
+    "unknown_system_rows": {},
+    "zero_numeric_fields_total": 0
+  },
+  "checker_limitations": [
+    "stdlib research parser, not a complete RINEX 3/4 implementation",
+    "does not validate geodetic correctness or signal-specific value ranges",
+    "does not execute GeoRust, gnss-js, or another parser as a cross-check",
+    "right-trimmed fields are interpreted as blank through padding; physically omitted trailing blanks cannot be distinguished from absent blank observations",
+    "flag-4 dynamic observation declarations are observed and updated for subsequent records, but other inserted header semantics are not fully modeled"
+  ],
+  "checker_name": "brux_rinex_reference",
+  "checker_sha256": "e4e6a5e5abec5167f7af1bb4ad1221fd66216354962b8138c615624896106dcf",
+  "checker_version": "0.1",
+  "header": {
+    "declared_satellite_count": "131",
+    "file_type_system": "OBSERVATION DATA",
+    "interval_seconds": "30.000",
+    "known_label_start_columns": {
+      "61": 41
+    },
+    "known_label_start_columns_are_61": true,
+    "known_labels_found": {
+      "# OF SATELLITES": 1,
+      "ANT # / TYPE": 1,
+      "ANTENNA: DELTA H/E/N": 1,
+      "APPROX POSITION XYZ": 1,
+      "COMMENT": 7,
+      "DOI": 1,
+      "END OF HEADER": 1,
+      "GLONASS SLOT / FRQ #": 4,
+      "INTERVAL": 1,
+      "LEAP SECONDS": 1,
+      "LICENSE OF USE": 1,
+      "MARKER NAME": 1,
+      "MARKER NUMBER": 1,
+      "MARKER TYPE": 1,
+      "OBSERVER / AGENCY": 1,
+      "PGM / RUN BY / DATE": 2,
+      "REC # / TYPE / VERS": 1,
+      "RINEX VERSION / TYPE": 1,
+      "SIGNAL STRENGTH UNIT": 1,
+      "STATION INFORMATION": 1,
+      "SYS / # / OBS TYPES": 9,
+      "TIME OF FIRST OBS": 1,
+      "TIME OF LAST OBS": 1
+    },
+    "non_column_61_labels": [],
+    "obs_types_by_system": {
+      "C": {
+        "declared_count": 24,
+        "parsed_type_count": 24,
+        "type_count_matches": true,
+        "types": [
+          "C1P",
+          "L1P",
+          "D1P",
+          "S1P",
+          "C5P",
+          "L5P",
+          "D5P",
+          "S5P",
+          "C2I",
+          "L2I",
+          "D2I",
+          "S2I",
+          "C7I",
+          "L7I",
+          "D7I",
+          "S7I",
+          "C6I",
+          "L6I",
+          "D6I",
+          "S6I",
+          "C7D",
+          "L7D",
+          "D7D",
+          "S7D"
+        ]
+      },
+      "E": {
+        "declared_count": 20,
+        "parsed_type_count": 20,
+        "type_count_matches": true,
+        "types": [
+          "C1C",
+          "L1C",
+          "D1C",
+          "S1C",
+          "C6B",
+          "L6B",
+          "D6B",
+          "S6B",
+          "C5Q",
+          "L5Q",
+          "D5Q",
+          "S5Q",
+          "C7Q",
+          "L7Q",
+          "D7Q",
+          "S7Q",
+          "C8Q",
+          "L8Q",
+          "D8Q",
+          "S8Q"
+        ]
+      },
+      "G": {
+        "declared_count": 22,
+        "parsed_type_count": 22,
+        "type_count_matches": true,
+        "types": [
+          "C1C",
+          "L1C",
+          "D1C",
+          "S1C",
+          "C1W",
+          "S1W",
+          "C2W",
+          "L2W",
+          "D2W",
+          "S2W",
+          "C2L",
+          "L2L",
+          "D2L",
+          "S2L",
+          "C5Q",
+          "L5Q",
+          "D5Q",
+          "S5Q",
+          "C1L",
+          "L1L",
+          "D1L",
+          "S1L"
+        ]
+      },
+      "I": {
+        "declared_count": 4,
+        "parsed_type_count": 4,
+        "type_count_matches": true,
+        "types": [
+          "C5A",
+          "L5A",
+          "D5A",
+          "S5A"
+        ]
+      },
+      "R": {
+        "declared_count": 20,
+        "parsed_type_count": 20,
+        "type_count_matches": true,
+        "types": [
+          "C1C",
+          "L1C",
+          "D1C",
+          "S1C",
+          "C1P",
+          "L1P",
+          "D1P",
+          "S1P",
+          "C2P",
+          "L2P",
+          "D2P",
+          "S2P",
+          "C2C",
+          "L2C",
+          "D2C",
+          "S2C",
+          "C3Q",
+          "L3Q",
+          "D3Q",
+          "S3Q"
+        ]
+      }
+    },
+    "prn_observation_count_records": 0,
+    "receiver_clock_offset_applied": null,
+    "time_of_first_obs": {
+      "raw_value": "2026     9    23     0     0    0.0000000     GPS",
+      "scalar": "63925804800",
+      "stamp": "2026-09-23 00:00:00.0000000",
+      "time_system": "GPS"
+    },
+    "time_of_last_obs": {
+      "raw_value": "2026     9    23    23    59   30.0000000     GPS",
+      "scalar": "63925891170",
+      "stamp": "2026-09-23 23:59:30.0000000",
+      "time_system": "GPS"
+    },
+    "version": "4.01"
+  },
+  "input": {
+    "bytes": 41314394,
+    "file": "BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+    "sha256": "0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630"
+  },
+  "spec_reference": {
+    "cached_file": "rinex_4.01.pdf",
+    "cached_file_bytes": 1804065,
+    "cached_file_sha256": "5e917eb6d2224021c5f05adb333b5311b6cde0f58c3ca4e0ae5871ccd15ce0c8",
+    "expected_observation_slot_width": 16,
+    "observation_value_width": 14,
+    "sections_used": [
+      "5.3.2",
+      "6.3",
+      "6.5",
+      "6.7",
+      "6.7.1",
+      "8.2 tables A2-A3"
+    ],
+    "trailing_blank_records": "right-padding to declared arity is applied; section 6.3 permits trailing blanks to be removed",
+    "url": "https://files.igs.org/pub/data/format/rinex_4.01.pdf"
+  },
+  "warnings": [
+    {
+      "body_unique_sv": 127,
+      "difference": -4,
+      "header_declared": 131,
+      "kind": "header_unique_satellite_count_mismatch"
+    },
+    {
+      "header_declared_satellites": 131,
+      "kind": "header_satellite_count_without_prn_observation_records",
+      "prn_observation_count_records": 0
+    }
+  ]
+}

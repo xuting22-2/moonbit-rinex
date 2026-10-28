@@ -1,0 +1,416 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "xuting22/rinex"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn map_legacy_code(String, String, overrides? : Map[String, String]) -> CodeMapping raise CheckError
+
+// Errors
+pub suberror CatalogError {
+  InvalidCatalogInput(String)
+  CatalogCapacityExceeded
+} derive(@debug.Debug)
+pub fn CatalogError::to_repr(Self) -> @debug.Repr
+
+pub suberror CheckError {
+  Rejected(String, Int, String)
+} derive(@debug.Debug)
+pub fn CheckError::to_repr(Self) -> @debug.Repr
+
+pub suberror NavError {
+  InvalidNavigation(String)
+  UnsupportedConstellation(String)
+  EphemerisExpired
+  UnhealthyEphemeris
+  OrbitTypeRequired
+  KeplerDivergence
+} derive(@debug.Debug)
+pub fn NavError::to_repr(Self) -> @debug.Repr
+
+// Types and methods
+pub(all) enum BdsOrbit {
+  MEO_IGSO
+  GEO
+} derive(ToJson, @debug.Debug)
+pub fn BdsOrbit::to_json(Self) -> Json
+pub fn BdsOrbit::to_repr(Self) -> @debug.Repr
+
+pub struct Checker {
+  window : Window?
+  mut line : Int
+  mut bytes : Int
+  mut closed : Bool
+  mut body : Bool
+  mut version : String
+  mut marker : String
+  mut file_system : String
+  mut time_system : String
+  mut last_time_system : String
+  mut header_first : Int64?
+  mut header_last : Int64?
+  mut interval : Int64?
+  mut declared_satellites : Int?
+  mut license : String
+  mut doi : String
+  mut station : String
+  mut clock_applied : Int?
+  types : Map[String, Array[String]]
+  expected_types : Map[String, Int]
+  headers_seen : Map[String, Int]
+  other_labels : Map[String, Bool]
+  mut continuation : String?
+  prn_headers : Map[String, Bool]
+  counts : Map[String, Array[SignalCounter]]
+  system_records : Map[String, Int]
+  satellites : Map[String, Bool]
+  epoch_satellites : Map[String, Bool]
+  mut remaining : Int
+  mut epochs : Int
+  mut records : Int
+  mut first : Int64?
+  mut last : Int64?
+  mut missing : Int
+  mut power : Int
+  mut clocks : Int
+  mut errors : Int
+  findings : Array[Finding]
+  finding_counts : Map[String, Int]
+  mut total_findings : Int
+}
+pub fn Checker::feed_line(Self, String) -> Unit raise CheckError
+pub fn Checker::finish(Self) -> Report raise CheckError
+pub fn Checker::new(window? : Window) -> Self
+
+pub(all) enum CodeMapping {
+  Unknown
+  Ambiguous(Array[String])
+  RuleMapped(String, String)
+  ExplicitOverride(String)
+} derive(ToJson, @debug.Debug)
+pub fn CodeMapping::to_json(Self) -> Json
+pub fn CodeMapping::to_repr(Self) -> @debug.Repr
+
+pub struct CrinexDecoder {
+  // private fields
+}
+pub fn CrinexDecoder::feed_line(Self, String) -> Array[String] raise CheckError
+pub fn CrinexDecoder::finish(Self) -> CrinexReport raise CheckError
+pub fn CrinexDecoder::new(recover? : Bool) -> Self
+
+pub struct CrinexReport {
+  complete : Bool
+  acceptable : Bool
+  epochs : Int
+  recovered_epochs : Int
+  findings : Array[Finding]
+} derive(ToJson, @debug.Debug)
+pub fn CrinexReport::to_json(Self) -> Json
+pub fn CrinexReport::to_repr(Self) -> @debug.Repr
+
+pub(all) struct Finding {
+  code : String
+  line : Int
+  error : Bool
+  detail : String
+} derive(ToJson, @debug.Debug)
+pub fn Finding::to_json(Self) -> Json
+pub fn Finding::to_repr(Self) -> @debug.Repr
+
+pub struct Header {
+  version : String
+  marker : String
+  time_system : String
+  first : Int64
+  last : Int64?
+  interval : Int64?
+  declared_satellites : Int?
+  license : String
+  doi : String
+  observation_types : Map[String, Array[String]]
+  uninterpreted_labels : Array[String]
+} derive(ToJson, @debug.Debug)
+pub fn Header::to_json(Self) -> Json
+pub fn Header::to_repr(Self) -> @debug.Repr
+
+pub struct LegacyEpoch {
+  gps_ticks : Int64
+  flag : Int
+  line : Int
+  end_line : Int
+  receiver_clock : Double?
+  satellites : Array[LegacySatellite]
+} derive(ToJson, @debug.Debug)
+pub fn LegacyEpoch::to_json(Self) -> Json
+pub fn LegacyEpoch::to_repr(Self) -> @debug.Repr
+
+pub struct LegacyEvent {
+  flag : Int
+  line : Int
+  raw_record : String
+  records : Array[String]
+} derive(ToJson, @debug.Debug)
+pub fn LegacyEvent::to_json(Self) -> Json
+pub fn LegacyEvent::to_repr(Self) -> @debug.Repr
+
+pub(all) enum LegacyItem {
+  Epoch(LegacyEpoch)
+  Event(LegacyEvent)
+  CycleSlip(LegacyEpoch)
+} derive(ToJson, @debug.Debug)
+pub fn LegacyItem::to_json(Self) -> Json
+pub fn LegacyItem::to_repr(Self) -> @debug.Repr
+
+pub struct LegacyReader {
+  // private fields
+}
+pub fn LegacyReader::feed_line(Self, String) -> LegacyItem? raise CheckError
+pub fn LegacyReader::finish(Self) -> Unit raise CheckError
+pub fn LegacyReader::header(Self) -> Array[String]
+pub fn LegacyReader::new(overrides? : Map[String, String]) -> Self
+
+pub struct LegacySatellite {
+  satellite : String
+  line : Int
+  values : Array[LegacyValue]
+} derive(ToJson, @debug.Debug)
+pub fn LegacySatellite::to_json(Self) -> Json
+pub fn LegacySatellite::to_repr(Self) -> @debug.Repr
+
+pub struct LegacyValue {
+  raw_code : String
+  mapping : CodeMapping
+  observation : ObservationValue
+} derive(ToJson, @debug.Debug)
+pub fn LegacyValue::to_json(Self) -> Json
+pub fn LegacyValue::to_repr(Self) -> @debug.Repr
+
+pub struct NavAmbiguity {
+  candidates : Array[NavCandidate]
+  tied_records : Int
+  omitted_candidates : Int
+  report : NavQueryReport
+} derive(ToJson, @debug.Debug)
+pub fn NavAmbiguity::to_json(Self) -> Json
+pub fn NavAmbiguity::to_repr(Self) -> @debug.Repr
+
+pub struct NavCandidate {
+  record_index : Int
+  source_line : Int
+  satellite : String
+  message : String
+  toc : NavTime
+  toe : NavTime
+  health : Int
+} derive(ToJson, @debug.Debug)
+pub fn NavCandidate::to_json(Self) -> Json
+pub fn NavCandidate::to_repr(Self) -> @debug.Repr
+
+pub struct NavCatalog {
+  // private fields
+}
+pub fn NavCatalog::add(Self, NavRecord, source_line? : Int) -> Int raise CatalogError
+pub fn NavCatalog::len(Self) -> Int
+pub fn NavCatalog::new(capacity? : Int) -> Self raise CatalogError
+pub fn NavCatalog::query(Self, String, NavTime, bds_orbit? : BdsOrbit, max_age_seconds? : Double) -> NavQueryOutcome raise CatalogError
+pub fn NavCatalog::record(Self, Int) -> NavRecord?
+
+pub(all) enum NavQueryOutcome {
+  Selected(NavSelection)
+  Unavailable(NavQueryReport)
+  Conflict(NavAmbiguity)
+} derive(ToJson, @debug.Debug)
+pub fn NavQueryOutcome::to_json(Self) -> Json
+pub fn NavQueryOutcome::to_repr(Self) -> @debug.Repr
+
+pub struct NavQueryReport {
+  satellite : String
+  at : NavTime
+  candidates : Int
+  eligible : Int
+  rejected : Int
+  rejection_counts : Map[String, Int]
+  rejection_samples : Array[NavRejection]
+  omitted_rejections : Int
+} derive(ToJson, @debug.Debug)
+pub fn NavQueryReport::to_json(Self) -> Json
+pub fn NavQueryReport::to_repr(Self) -> @debug.Repr
+
+pub struct NavReader {
+  // private fields
+}
+pub fn NavReader::feed_line(Self, String) -> NavRecord? raise NavError
+pub fn NavReader::finish(Self) -> Unit raise NavError
+pub fn NavReader::new(skip_unsupported? : Bool) -> Self
+pub fn NavReader::skipped_records(Self) -> Int
+
+pub struct NavRecord {
+  satellite : String
+  message : String
+  toc : NavTime
+  toe : NavTime
+  toe_sow : Double
+  health : Int
+  // private fields
+}
+pub fn NavRecord::satellite_position(Self, NavTime, bds_orbit? : BdsOrbit, max_age_seconds? : Double) -> SatPosition raise NavError
+
+pub struct NavRejection {
+  candidate : NavCandidate
+  reason : NavRejectionReason
+} derive(ToJson, @debug.Debug)
+pub fn NavRejection::to_json(Self) -> Json
+pub fn NavRejection::to_repr(Self) -> @debug.Repr
+
+pub(all) enum NavRejectionReason {
+  Expired
+  Unhealthy
+  OrbitChoiceRequired
+  InvalidModel(String)
+  NonConvergence
+  Unsupported(String)
+} derive(ToJson, @debug.Debug)
+pub fn NavRejectionReason::to_json(Self) -> Json
+pub fn NavRejectionReason::to_repr(Self) -> @debug.Repr
+
+pub struct NavSelection {
+  record : NavCandidate
+  state : SatPosition
+  equivalent_records : Int
+  report : NavQueryReport
+} derive(ToJson, @debug.Debug)
+pub fn NavSelection::to_json(Self) -> Json
+pub fn NavSelection::to_repr(Self) -> @debug.Repr
+
+pub struct NavTime {
+  gps_ticks : Int64
+} derive(ToJson, @debug.Debug)
+pub fn NavTime::calendar(Int, Int, Int, Int, Int, String, bdt? : Bool) -> Self raise CheckError
+pub fn NavTime::from_gps_ticks(Int64) -> Self raise NavError
+pub fn NavTime::offset_seconds(Self, Int) -> Self raise NavError
+pub fn NavTime::to_json(Self) -> Json
+pub fn NavTime::to_repr(Self) -> @debug.Repr
+pub fn NavTime::week(Int, Double, bdt? : Bool) -> Self raise NavError
+
+pub struct ObservationEpoch {
+  gps_ticks : Int64
+  flag : Int
+  line : Int
+  end_line : Int
+  raw_record : String
+  receiver_clock : Double?
+  receiver_clock_raw : String
+  satellites : Array[SatelliteObservation]
+} derive(@debug.Debug)
+pub fn ObservationEpoch::to_json(Self) -> Json
+pub fn ObservationEpoch::to_repr(Self) -> @debug.Repr
+pub impl ToJson for ObservationEpoch
+
+pub struct ObservationHeader {
+  parsed : Header
+  raw_lines : Array[String]
+} derive(ToJson, @debug.Debug)
+pub fn ObservationHeader::to_json(Self) -> Json
+pub fn ObservationHeader::to_repr(Self) -> @debug.Repr
+
+pub struct ObservationValue {
+  code : String
+  column : Int
+  raw_field : String
+  value : Double?
+  lli : Int?
+  ssi : Int?
+} derive(@debug.Debug)
+pub fn ObservationValue::to_json(Self) -> Json
+pub fn ObservationValue::to_repr(Self) -> @debug.Repr
+pub impl ToJson for ObservationValue
+
+pub struct Reader {
+  // private fields
+}
+pub fn Reader::feed_line(Self, String) -> ObservationEpoch? raise CheckError
+pub fn Reader::finish(Self) -> Report raise CheckError
+pub fn Reader::header(Self) -> ObservationHeader?
+pub fn Reader::new(gps_range? : (Int64, Int64)) -> Self raise CheckError
+
+pub struct Report {
+  complete : Bool
+  acceptable : Bool
+  profile : String
+  time_unit : String
+  header : Header
+  epochs : Int
+  records : Int
+  first : Int64
+  last : Int64
+  missing_epoch_slots : Int
+  power_failure_epochs : Int
+  receiver_clock_epochs : Int
+  systems : Array[SystemCounts]
+  findings : Array[Finding]
+  finding_counts : Map[String, Int]
+  omitted_findings : Int
+} derive(ToJson, @debug.Debug)
+pub fn Report::to_json(Self) -> Json
+pub fn Report::to_repr(Self) -> @debug.Repr
+
+pub struct SatPosition {
+  x : Double
+  y : Double
+  z : Double
+  clock_seconds : Double
+  group_delay_seconds : Double
+  frame : String
+  iterations : Int
+} derive(ToJson, @debug.Debug)
+pub fn SatPosition::to_json(Self) -> Json
+pub fn SatPosition::to_repr(Self) -> @debug.Repr
+
+pub struct SatelliteObservation {
+  satellite : String
+  line : Int
+  raw_record : String
+  observations : Array[ObservationValue]
+} derive(ToJson, @debug.Debug)
+pub fn SatelliteObservation::to_json(Self) -> Json
+pub fn SatelliteObservation::to_repr(Self) -> @debug.Repr
+
+type SignalCounter
+
+pub struct SignalCounts {
+  code : String
+  nonempty_fields : Int
+  blank_fields : Int
+  zero_values : Int
+  lli_nonzero : Int
+  lli_bit0 : Int
+  lli_bit1 : Int
+  lli_bit2 : Int
+} derive(ToJson, @debug.Debug)
+pub fn SignalCounts::to_json(Self) -> Json
+pub fn SignalCounts::to_repr(Self) -> @debug.Repr
+
+pub struct SystemCounts {
+  system : String
+  records : Int
+  satellites : Array[String]
+  signals : Array[SignalCounts]
+} derive(ToJson, @debug.Debug)
+pub fn SystemCounts::to_json(Self) -> Json
+pub fn SystemCounts::to_repr(Self) -> @debug.Repr
+
+pub struct Window {
+  start : Int64
+  stop : Int64
+  kind : String
+} derive(ToJson, @debug.Debug)
+pub fn Window::epn_daily(Int, Int, Int) -> Self raise CheckError
+pub fn Window::epn_hourly(Int, Int, Int, Int) -> Self raise CheckError
+pub fn Window::to_json(Self) -> Json
+pub fn Window::to_repr(Self) -> @debug.Repr
+
+// Type aliases
+
+// Traits

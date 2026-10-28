@@ -1,0 +1,8 @@
+     3.05           OBSERVATION DATA    G                   RINEX VERSION / TYPE
+SYNTHETIC OBS TICK WIRE                                      MARKER NAME
+G    1 C1C                                                  SYS / # / OBS TYPES
+  2026    10    25    13     1   40.0000000     GPS         TIME OF FIRST OBS
+MIT; fully synthetic                                        LICENSE OF USE
+                                                            END OF HEADER
+> 2026 10 25 13 01 40.0000000  0  1
+G01  20000000.000 7

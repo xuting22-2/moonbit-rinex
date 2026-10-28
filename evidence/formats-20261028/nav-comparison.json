@@ -1,0 +1,56 @@
+[
+  {
+    "case": "BDS-GEO",
+    "offset": -1800,
+    "positionErrorMeters": 9.313225746154785e-10,
+    "clockErrorSeconds": 0.0
+  },
+  {
+    "case": "BDS-GEO",
+    "offset": 0,
+    "positionErrorMeters": 4.656612873077393e-10,
+    "clockErrorSeconds": 0.0
+  },
+  {
+    "case": "BDS-GEO",
+    "offset": 1800,
+    "positionErrorMeters": 2.3283064365386963e-10,
+    "clockErrorSeconds": 0.0
+  },
+  {
+    "case": "BDS-MEO",
+    "offset": -1800,
+    "positionErrorMeters": 1.862645149230957e-09,
+    "clockErrorSeconds": 0.0
+  },
+  {
+    "case": "BDS-MEO",
+    "offset": 0,
+    "positionErrorMeters": 0.0,
+    "clockErrorSeconds": 0.0
+  },
+  {
+    "case": "BDS-MEO",
+    "offset": 1800,
+    "positionErrorMeters": 0.0,
+    "clockErrorSeconds": 0.0
+  },
+  {
+    "case": "GPS",
+    "offset": -1800,
+    "positionErrorMeters": 1.862645149230957e-09,
+    "clockErrorSeconds": 0.0
+  },
+  {
+    "case": "GPS",
+    "offset": 0,
+    "positionErrorMeters": 4.16500117164066e-09,
+    "clockErrorSeconds": 0.0
+  },
+  {
+    "case": "GPS",
+    "offset": 1800,
+    "positionErrorMeters": 4.16500117164066e-09,
+    "clockErrorSeconds": 0.0
+  }
+]

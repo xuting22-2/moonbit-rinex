@@ -1,0 +1,16 @@
+{
+  "url": "https://epncb.oma.be/pub/RINEX/2026/266/BRUX00BEL_R_20262660000_01D_30S_MO.crx.gz",
+  "provider": "Royal Observatory of Belgium",
+  "license": "CC-BY-4.0",
+  "doi": "10.24414/ROB-GNSS-BRUX00BEL",
+  "sourceSha256": "ce01f694f036e4d8659e0f9e0375a22cb463207ed779574009cc5c4fcd482b58",
+  "prefixSha256": "c14c47f8f833acfe218b9d3f3c6730a916a2e7f7bbf5e8332a23bc41cb1a2286",
+  "headerLines": 43,
+  "selectedEpochs": 2,
+  "satelliteRecords": 98,
+  "command": [
+    "D:\\CodexLocal\\ban\\work\\isolated14-20261027\\reports\\rinex\\re-review-02\\evidence\\official-windows\\RNXCMP_4.2.0_Windows_mingw_64bit\\CRX2RNX.exe",
+    "-"
+  ],
+  "exitCode": 0
+}

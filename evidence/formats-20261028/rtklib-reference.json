@@ -1,0 +1,120 @@
+{
+  "reference": "pyrtklib0.2.7 bundled RTKLIB2.4.3",
+  "api": "readrnx + eph2pos; relativity included, code bias excluded",
+  "sourceUrl": "https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2026/299/BRDC00WRD_R_20262990000_01D_MN.rnx.gz",
+  "compressedSha256": "17d903b3a7082296966b538f1abe03188a2bbca121df0a144895820988f9fe5f",
+  "plainSha256": "a0810bad8bd99029c0f2971e1bdd9032a82746ffe4b9ae15921db0424f0558b9",
+  "results": [
+    {
+      "case": "BDS-GEO",
+      "satellite": "C01",
+      "inputFile": "D:\\CodexLocal\\ban\\work\\isolated14-20261027\\reports\\rinex\\implementation-03\\samples\\BDS-GEO.nav",
+      "inputSha256": "a33656a9ce9d8bc53663ce22d322a19021dc8e0e81ad2ade73300de93663f1ce",
+      "states": [
+        {
+          "offset": -1800,
+          "x": -32274861.902279027,
+          "y": 27119803.724308025,
+          "z": 189376.42544444092,
+          "clock_seconds": -7.539831650086216e-07
+        },
+        {
+          "offset": 0,
+          "x": -32274106.719875127,
+          "y": 27116138.47989116,
+          "z": 153352.1530959378,
+          "clock_seconds": -7.540900149076866e-07
+        },
+        {
+          "offset": 1800,
+          "x": -32273962.106001027,
+          "y": 27111971.648870274,
+          "z": 114680.06349122198,
+          "clock_seconds": -7.542217521595711e-07
+        }
+      ],
+      "parameters": {
+        "A": 42163633.58727476,
+        "e": 0.000555403763428,
+        "toes": 82800.0,
+        "week": 1086,
+        "fit": 0.0,
+        "health": 0
+      }
+    },
+    {
+      "case": "BDS-MEO",
+      "satellite": "C06",
+      "inputFile": "D:\\CodexLocal\\ban\\work\\isolated14-20261027\\reports\\rinex\\implementation-03\\samples\\BDS-MEO.nav",
+      "inputSha256": "d07fb4355737b2c4cdd9fe11fff53fa828466c36e5e6942e35ec9c88cb838b69",
+      "states": [
+        {
+          "offset": -1800,
+          "x": -4789026.294482917,
+          "y": 32726468.338591494,
+          "z": 26348034.95410097,
+          "clock_seconds": 0.00031553033961526826
+        },
+        {
+          "offset": 0,
+          "x": -4056255.382115448,
+          "y": 30162602.39631528,
+          "z": 29356291.658606,
+          "clock_seconds": 0.00031553468896932887
+        },
+        {
+          "offset": 1800,
+          "x": -4013922.1392530836,
+          "y": 27500918.33016715,
+          "z": 31863795.163350765,
+          "clock_seconds": 0.00031553901183353956
+        }
+      ],
+      "parameters": {
+        "A": 42170478.65733933,
+        "e": 0.002767161931843,
+        "toes": 72000.0,
+        "week": 1086,
+        "fit": 0.0,
+        "health": 0
+      }
+    },
+    {
+      "case": "GPS",
+      "satellite": "G01",
+      "inputFile": "D:\\CodexLocal\\ban\\work\\isolated14-20261027\\reports\\rinex\\implementation-03\\samples\\GPS.nav",
+      "inputSha256": "ab4f0858339cfaf2cbf4542003c3322ddbc481b93c56c772a21a088adfa08b6c",
+      "states": [
+        {
+          "offset": -1800,
+          "x": -14654487.416304627,
+          "y": 9094677.537865989,
+          "z": 20162234.832185328,
+          "clock_seconds": 0.00014182483463329144
+        },
+        {
+          "offset": 0,
+          "x": -14899401.736103931,
+          "y": 4296220.714971766,
+          "z": 21546562.403917465,
+          "clock_seconds": 0.00014180920715419274
+        },
+        {
+          "offset": 1800,
+          "x": -15650598.74690744,
+          "y": -593674.95527197,
+          "z": 21452007.709426593,
+          "clock_seconds": 0.00014179390078883486
+        }
+      ],
+      "parameters": {
+        "A": 26561035.06122555,
+        "e": 0.002114486764185,
+        "toes": 50400.0,
+        "week": 2442,
+        "fit": 0.0,
+        "health": 0
+      }
+    }
+  ]
+}

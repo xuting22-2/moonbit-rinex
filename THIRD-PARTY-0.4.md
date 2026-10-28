@@ -1,0 +1,14 @@
+# Sources and rights for local0.4.0
+
+All previous notices in THIRD-PARTY-0.3.md and existing public-data/reference documents remain in force. This version adds original MoonBit catalog/selection code and a boundedNodeIO/query adapter; it is not a foreign source port or binary wrapper.
+
+- examples/catalog-synthetic.nav is fully project-authored synthetic NAV data, not an external measurement. CATALOG-SOURCE.json identifies fields/transformation andSHA256. Its purpose is selection/diagnostic examples, not physical orbital accuracy.
+- examples/catalog-queries.json and examples/nav-query-batch.mjs are project-authored batch request/consumer examples under the root MIT license. They reuse the identified synthetic NAV input; no new external measurements or foreign implementation are embedded.
+- examples/obs-nav-query uses project-authored modern/legacy observation rows and the first authored GPS record from catalog-synthetic.nav. OBS-NAV-REFERENCE.json pins canonical row hashes and an independently evaluated RTKLIB state; no external observation measurement or reference runtime is embedded. The observation values/clock offsets are demonstration data, not station evidence.
+- examples/obs-query-time.rnx, catalog-gps-ticks-queries.json and obs-tick-query.mjs are original GPS-time wire/file workflow examples under MIT. The OBS header explicitly identifies synthetic data; existing extractor manifests retain this provenance. Reference comparisons reuse the identified authored catalog/RTKLIB ledger, without adding external measurements or runtime binaries.
+- examples/CATALOG-REFERENCE.json contains numericalRTKLIB2.4.3b34results on the explicitly eligible healthy subset, with original full-input record ordinals. The reference runtime remains external; no RTKLIBbinary/dependency copied into the source package. ExistingRTKLIBlicense/source terms remain documented in0.3notices.
+- RTKLIB's closestToe selection illustrates established practice: https://github.com/tomojitakasu/RTKLIB/blob/71db0ffa0d9735697c6adfd06fdf766d0e5ce807/src/ephemeris.c . The project explicitly defines its own health/fit filtering, latestToc/conflict policy and bounded evidence; it does not claim universal selector equivalence.
+- Rust rinex0.24.0 offers an ephemeris selection API: https://docs.rs/rinex/0.24.0/rinex/struct.Rinex.html#method.nav_ephemeris_selection . Inspected as ecosystem comparison, with no source copied.
+- jiujitong/nmea-toolkit handles NMEA sentence/fusion/track evidence: https://github.com/jiujitong/moonbit-nmea-toolkit . Inspected as adjacent MoonBit ecosystem work; no code/data/dependency copied.
+
+Bounded liveMooncakes/GitHub research and reference command/hash evidence are preserved in the extension09report. Absence from those searches is not proof of ecosystem absence. All0.4implementation and synthetic input were authored in this project under the rootMITlicense; external reference standards/tools/data retain their own terms.

@@ -1,0 +1,32 @@
+{
+  "target": "js",
+  "separateModule": true,
+  "sourceOrigin": "git checkout including non-ignored new files",
+  "exitCode": 0,
+  "wholeReportMatches": true,
+  "inputSha256": "ac515f3d762a12e255aaef49fa889272eab3b36e4fec4e6f9211cce0a7882896",
+  "selectedEpochs": 2,
+  "selectedSatelliteRecords": 98,
+  "complete": true,
+  "inputAcceptable": false,
+  "sourceSha256": {
+    "moon.mod": "560211fe7b2f6f327689e5ffc1fa2cd3e8a5ef4e416ab8a39a7ed3186f2785f2",
+    "moon.pkg": "f99d9449622d2919e781652b37066efa4d6af43044b581a4677e96961001a2d5",
+    "types.mbt": "2671079eecf03b267b8071b4b8056ad87165e30f3cdd12edc488643775248cbf",
+    "time.mbt": "2a0769e7bbfe27d9a42cdcdff4275ca4ec22f2cd5a2b16a9bf6ea0222b3d6d77",
+    "header.mbt": "a1293435123e634ce83d8609da457e3ed069e0b1e81fd07705db527cead6e08a",
+    "checker.mbt": "581adc466bf466603c9c1d71a0c3a84ec8aebd2a9213700f700e03f179db7161",
+    "reader.mbt": "c20e3f5ffffcee618f9e807e884955b0770a650c53c0b49b4fd38255e904e6b6",
+    "observation_types.mbt": "ce468f5643a721c136ab50f6e3ec74addd0ea4c6a0a71e44751bf3a2842d4930",
+    "pkg.generated.mbti": "d1e0bc91eefb39bf27720029faad8247ac9a3ccd96cbd66c718ee5a93ed8fdac",
+    "examples/observation-consumer/main.mbt": "c5911be20788faedf010b9df0a1d3ebe90a42fbccc5562d3f21a01dacb76921a",
+    "examples/observation-consumer/moon.mod": "d99eab4872c3a7ccfd19992a5f550c31e239e7b9b694a50f82ba95ea335a1eac",
+    "examples/observation-consumer/moon.pkg": "55f1b5788be937cb44ec2bbcadffdb220eb9fb26bd0771c148d03b96b6a47c3a",
+    "tools/run-observation-consumer.py": "149b0459ecf05bbe4f813172a914be4a6e8a32657ebbe96bbb22413a5f6bc7ba"
+  },
+  "limits": [
+    "project-authored separate module, not external adoption",
+    "prefix has complete epochs but retains full-day header; unacceptable input is not hidden",
+    "stored numbers, exact GPS ticks, raw slots and header retained; no positioning or corrections applied"
+  ]
+}

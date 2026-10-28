@@ -1,0 +1,317 @@
+{
+  "runDate": "2026-09-27",
+  "outcome": "success",
+  "parser": "nav-solutions/rinex",
+  "parserVersion": "0.22.0",
+  "parserTagUrl": "https://github.com/nav-solutions/rinex/tree/v0.22.0",
+  "apiUrl": "https://docs.rs/rinex/0.22.0/rinex/struct.Rinex.html",
+  "license": "MPL-2.0",
+  "crateChecksum": "06ea2e0db35ff726e319b7e7d0db1f9a5bc252f1dd1de95244cd2a4d528dc220",
+  "toolchain": {
+    "cargo": "1.85.1 (d73d2caf9 2024-12-31)",
+    "rustc": "1.85.1 (4eb161250 2025-03-15)",
+    "environment": "Ubuntu-D WSL; task-specific RUSTUP_HOME/CARGO_HOME/TMPDIR/CARGO_TARGET_DIR in /tmp; no HOME changes"
+  },
+  "input": {
+    "unchanged": true,
+    "source": "https://epncb.oma.be/pub/RINEX/2026/266/BRUX00BEL_R_20262660000_01D_30S_MO.crx.gz",
+    "path": "work/reassessment-20260927/rinex-reference/BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+    "license": "CC-BY-4.0",
+    "sha256": "0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630",
+    "bytes": 41314394
+  },
+  "command": "cargo run --locked --offline --quiet --manifest-path reference-cli/Cargo.toml -- <original BRUX .rnx>; exit 0",
+  "results": {
+    "parseExit": 0,
+    "revision": "4.01",
+    "type": "ObservationData",
+    "epochs": 2880,
+    "firstEpoch": "2026-09-23T00:00:00 GPST",
+    "lastEpoch": "2026-09-23T23:59:30 GPST",
+    "uniqueSv": 127,
+    "uniqueSvBySystem": {
+      "C": 35,
+      "E": 30,
+      "R": 26,
+      "G": 32,
+      "I": 4
+    },
+    "epochSvRows": 136993,
+    "epochSvRowsBySystem": {
+      "C": 34642,
+      "E": 32465,
+      "R": 28489,
+      "G": 33319,
+      "I": 8078
+    },
+    "nonemptyValues": 2373196,
+    "systemObservationCodePairsCompared": 90,
+    "systemObservationCodeMismatches": [],
+    "phaseLliPairsCompared": 22,
+    "phaseLliMismatches": [],
+    "populatedPhaseValuesWithoutLli": 0,
+    "firstC06NonemptyValuesCompared": 20,
+    "firstC06ValueOrLliMismatches": []
+  },
+  "comparisonLimits": [
+    "Parser iterator omits blank measurement slots; blank count 442622 remains from independent fixed-field Python reference only.",
+    "Only aggregate per-system/code counts and first C06 populated row values were compared; not every measurement value.",
+    "No positioning, physical quality, full RINEX conformance, EPN acceptance, or CRINEX decompression verification."
+  ],
+  "comparatorCorrections": [
+    "Final keys are (system, code); earlier merged cross-system codes and reported false mismatches.",
+    "Final raw-row comparator decodes all 24 declared C06 slots and matches iterator populated values; earlier 18-slot cutoff caused four false mismatches."
+  ],
+  "artifacts": {
+    "rawOutput": "work/substantive-20260927/rinex/reference-run.log",
+    "adapter": "work/substantive-20260927/rinex/reference-cli/src/main.rs",
+    "manifest": "work/substantive-20260927/rinex/reference-cli/Cargo.toml",
+    "hashes": {
+      "rawOutput": "b5ec51816b0cfc2489d7cb600a728bec3565c946d2c9afce2b1e8664ad49545a",
+      "cargoLock": "2308d27e5f81e90ace6b50b9242a270b588fd9795945bb00d168b1bc0d38bcb4",
+      "mainRs": "5316094c6b94a085c1eb2965faa3e6459eb9584e96f84f6491d0464e9a159303",
+      "cargoToml": "c3234848b2ed4ea46a8e25e83d32f3843b002c9b06415f1c09165c3a9d8cbd2b"
+    },
+    "lockfile": "work/substantive-20260927/rinex/reference-cli/Cargo.lock",
+    "exitCode": "work/substantive-20260927/rinex/reference-exit.txt",
+    "detailedComparison": "work/substantive-20260927/rinex/comparison.json"
+  },
+  "detailedComparison": {
+    "sourceSha256": "0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630",
+    "parserExitCode": 0,
+    "referenceVersion": "nav-solutions/rinex 0.22.0",
+    "epochCountParser": 2880,
+    "epochCountFixedReference": 2880,
+    "firstEpochParser": "2026-09-23T00:00:00 GPST",
+    "lastEpochParser": "2026-09-23T23:59:30 GPST",
+    "svUniqueParser": 127,
+    "svUniqueFixedReference": 127,
+    "recordCountParser": 136993,
+    "recordCountsFixedReference": 136993,
+    "rowCountsBySystemParser": {
+      "I": 8078,
+      "E": 32465,
+      "R": 28489,
+      "C": 34642,
+      "G": 33319
+    },
+    "rowCountsBySystemFixedReference": {
+      "I": 8078,
+      "E": 32465,
+      "R": 28489,
+      "C": 34642,
+      "G": 33319
+    },
+    "rowMismatches": [],
+    "nonemptyParser": 2373196,
+    "nonemptyFixedReference": 2373196,
+    "signalTypeCodesCompared": 90,
+    "signalTypeMismatches": [],
+    "lliCodesCompared": 0,
+    "lliAbsentOnReturnedPhaseValues": [],
+    "rawFirstC06SignalSlots": 20,
+    "rawFirstC06ValueOrLliMismatch": [],
+    "firstC06Samples": [
+      {
+        "code": "C1P",
+        "raw": "38989284.432",
+        "parser": "38989284.432",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "L1P",
+        "raw": "204890086.843",
+        "parser": "204890086.843",
+        "valueMatch": true,
+        "rawLLI": "0",
+        "parserLLI": "0",
+        "lliMatch": true
+      },
+      {
+        "code": "D1P",
+        "raw": "-408.674",
+        "parser": "-408.674",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "S1P",
+        "raw": "40.188",
+        "parser": "40.188",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "C5P",
+        "raw": "38989283.279",
+        "parser": "38989283.279",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "L5P",
+        "raw": "153002360.023",
+        "parser": "153002360.023",
+        "valueMatch": true,
+        "rawLLI": "0",
+        "parserLLI": "0",
+        "lliMatch": true
+      },
+      {
+        "code": "D5P",
+        "raw": "-305.098",
+        "parser": "-305.098",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "S5P",
+        "raw": "43.906",
+        "parser": "43.906",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "C2I",
+        "raw": "38989281.479",
+        "parser": "38989281.479",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "L2I",
+        "raw": "203027450.933",
+        "parser": "203027450.933",
+        "valueMatch": true,
+        "rawLLI": "0",
+        "parserLLI": "0",
+        "lliMatch": true
+      },
+      {
+        "code": "D2I",
+        "raw": "-404.872",
+        "parser": "-404.872",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "S2I",
+        "raw": "42.781",
+        "parser": "42.781",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "C6I",
+        "raw": "38989281.638",
+        "parser": "38989281.638",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "L6I",
+        "raw": "164976444.923",
+        "parser": "164976444.923",
+        "valueMatch": true,
+        "rawLLI": "0",
+        "parserLLI": "0",
+        "lliMatch": true
+      },
+      {
+        "code": "D6I",
+        "raw": "-328.925",
+        "parser": "-328.925",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "S6I",
+        "raw": "43.656",
+        "parser": "43.656",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "C7D",
+        "raw": "38989281.517",
+        "parser": "38989281.517",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "L7D",
+        "raw": "156993716.452",
+        "parser": "156993716.452",
+        "valueMatch": true,
+        "rawLLI": "0",
+        "parserLLI": "0",
+        "lliMatch": true
+      },
+      {
+        "code": "D7D",
+        "raw": "-313.087",
+        "parser": "-313.087",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      },
+      {
+        "code": "S7D",
+        "raw": "43.844",
+        "parser": "43.844",
+        "valueMatch": true,
+        "rawLLI": "",
+        "parserLLI": "absent",
+        "lliMatch": true
+      }
+    ],
+    "blankSlotsLimitation": "GeoRust signal_observations_iter returns populated values, so it does not independently count absent observation slots. Python fixed-field reference owns the blank-slot total.",
+    "uniqueSvCountsBySystemParser": {
+      "G": 32,
+      "R": 26,
+      "I": 4,
+      "E": 30,
+      "C": 35
+    },
+    "uniqueSvCountsBySystemFixedReference": {
+      "G": 32,
+      "R": 26,
+      "I": 4,
+      "E": 30,
+      "C": 35
+    },
+    "uniqueSvCountMismatches": [],
+    "lliPhaseCodesCompared": 22,
+    "lliBitMismatches": [],
+    "lliAbsentOnPopulatedPhaseValues": 0,
+    "lliComparedBy": "Per-system and per-observable 0/1 LLI counts; absent slots remain outside the Rust populated-value iterator."
+  }
+}

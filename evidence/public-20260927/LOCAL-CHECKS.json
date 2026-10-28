@@ -1,0 +1,160 @@
+{
+  "utc": "2026-09-26T21:11:32.835615+00:00",
+  "version": "0.1.0",
+  "checks": [
+    {
+      "name": "format",
+      "command": [
+        "moon",
+        "fmt"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "api",
+      "command": [
+        "moon",
+        "info"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "check",
+      "command": [
+        "moon",
+        "check",
+        "--target",
+        "all"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "js",
+      "command": [
+        "moon",
+        "test",
+        "--target",
+        "js"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "wasm",
+      "command": [
+        "moon",
+        "test",
+        "--target",
+        "wasm-gc"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "build",
+      "command": [
+        "moon",
+        "build",
+        "--target",
+        "js",
+        "--release"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "public-contract",
+      "command": [
+        "node",
+        "tools/test-public-contract.mjs"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "consumer-js",
+      "command": [
+        "moon",
+        "run",
+        "examples/consumer",
+        "--target",
+        "js"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "consumer-wasm",
+      "command": [
+        "moon",
+        "run",
+        "examples/consumer",
+        "--target",
+        "wasm-gc"
+      ],
+      "exitCode": 0,
+      "expected": 0,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "full-public-file",
+      "command": [
+        "node",
+        "tools/check-file.mjs",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\reassessment-20260927\\rinex-reference\\BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+        "2026",
+        "9",
+        "23",
+        "-1"
+      ],
+      "exitCode": 2,
+      "expected": 2,
+      "reusedPassedEarlierInThisRun": true
+    },
+    {
+      "name": "independent-comparison",
+      "command": [
+        "python",
+        "tools/compare-reference.py",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\public-20260927\\moonbit-report.json",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\public-20260927\\independent-reference.json",
+        "--report",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\public-20260927\\comparison.json"
+      ],
+      "exitCode": 0,
+      "expected": 0
+    }
+  ],
+  "sourceHashPolicy": "LF-normalized source",
+  "sources": {
+    "types.mbt": "2671079eecf03b267b8071b4b8056ad87165e30f3cdd12edc488643775248cbf",
+    "time.mbt": "2a0769e7bbfe27d9a42cdcdff4275ca4ec22f2cd5a2b16a9bf6ea0222b3d6d77",
+    "header.mbt": "a1293435123e634ce83d8609da457e3ed069e0b1e81fd07705db527cead6e08a",
+    "checker.mbt": "bf8d373cf71d7c619cfa213fceb4b2369a64cfea66abb309612dccb223f81b0c",
+    "cmd/bridge/main.mbt": "ab049aae9f20532cb038d8a8cb69b83a702f7c0d8f8b27c0c9f5128f7628a001",
+    "pkg.generated.mbti": "1edb3827fe09a8889968e3f318f990d0a5e046cd1c2bf417d5de72f817b640fc",
+    "moon.mod": "4752238ba7e39456cffa9b724d4771be2ceb32c2073816b474a4877295a184df",
+    "tools/check-file.mjs": "60471691a5bf5e0ce041f0b3dc034dd6f8a42d5282ccd9ccf7ad59abd75f2573",
+    "tools/test-public-contract.mjs": "8340ff2b6d69cbe2ad68fadc0f41acb892b4f20a996402278fb38260be0bde97",
+    "tools/compare-reference.py": "3b31e15ede541b257dc386f7e7a5408e3be383603fbc311af773e3a4855d9a6b"
+  },
+  "referenceScriptRawSha256": "e4e6a5e5abec5167f7af1bb4ad1221fd66216354962b8138c615624896106dcf",
+  "limits": [
+    "GPS OBS subset only",
+    "public file has known header discrepancy and correctly exits 2",
+    "Python oracle is independently authored, not GeoRust/gnss-js",
+    "EPN subset is not certification",
+    "no real deployment or public repository"
+  ]
+}

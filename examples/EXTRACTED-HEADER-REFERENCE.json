@@ -1,0 +1,34 @@
+{
+  "source": "Fully authored supported3.04input; TableA2format-confirmed literal header and integer calendar expectation",
+  "input": {
+    "file": "obs-header-context.rnx",
+    "bytes": 769,
+    "lines": 11,
+    "sha256": "3aa871911478c4732a521cf09be8c7d73cf4ac7d3e05fcc2e69207a4b1d34dc0"
+  },
+  "headerRawLines": [
+    "     3.04           OBSERVATION DATA    G                   RINEX VERSION / TYPE",
+    "SYNTHETIC HEADER CONTEXT                                    MARKER NAME",
+    "G    2 C1C L2S                                              SYS / # / OBS TYPES",
+    "  2026    10    25    12     0    0.0000000     GPS         TIME OF FIRST OBS",
+    "MIT; fully synthetic                                        LICENSE OF USE",
+    "     0                                                      RCV CLOCK OFFS APPL",
+    "G   10   1 C1C                                              SYS / SCALE FACTOR",
+    "G L2S -0.25000  01 G01                                      SYS / PHASE SHIFT",
+    "                                                            END OF HEADER"
+  ],
+  "gps_ticks": "14773968000000000",
+  "observationTypes": [
+    "C1C",
+    "L2S"
+  ],
+  "storedValues": [
+    1000,
+    200
+  ],
+  "uninterpretedLabels": [
+    "SYS / PHASE SHIFT",
+    "SYS / SCALE FACTOR"
+  ],
+  "limit": "Returns stored context/measurements without applying transformations; not originalOBSauthentication, headersemanticcertification or physical-quality validation"
+}

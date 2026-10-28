@@ -1,0 +1,21 @@
+///|
+fn main {
+  let c = @r.Checker::new()
+  for
+    line in [
+      "     4.01           OBSERVATION DATA    M                   RINEX VERSION / TYPE",
+      "TEST00AAA                                                   MARKER NAME",
+      "G    2 C1C L1C                                              SYS / # / OBS TYPES",
+      "  2026     9    23     0     0    0.0000000     GPS         TIME OF FIRST OBS",
+      "  2026     9    23     0     0   30.0000000     GPS         TIME OF LAST OBS",
+      "    30.000                                                  INTERVAL", "                                                            END OF HEADER",
+      "> 2026 09 23 00 00  0.0000000  0  1", "G01  20000000.000 7    123456.00017",
+      "> 2026 09 23 00 00 30.0000000  0  1", "G01  20000000.000 7    123456.00017",
+    ] {
+    c.feed_line(line) catch {
+      _ => abort("invalid input")
+    }
+  }
+  let report = c.finish() catch { _ => abort("incomplete input") }
+  println(report.to_json().stringify())
+}

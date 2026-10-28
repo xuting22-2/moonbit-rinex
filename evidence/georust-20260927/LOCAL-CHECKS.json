@@ -1,0 +1,98 @@
+{
+  "recordedAt": "2026-09-27T11:09:11.323899+00:00",
+  "version": "0.1.1",
+  "localOnly": true,
+  "baselineCommit": "96f2c9cf8657ca0d099acebe93cf2b5fda21dc3b",
+  "coreChanged": false,
+  "unchangedCoreFiles": 10,
+  "input": {
+    "unchanged": true,
+    "source": "https://epncb.oma.be/pub/RINEX/2026/266/BRUX00BEL_R_20262660000_01D_30S_MO.crx.gz",
+    "path": "work/reassessment-20260927/rinex-reference/BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+    "license": "CC-BY-4.0",
+    "sha256": "0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630",
+    "bytes": 41314394
+  },
+  "reference": {
+    "parser": "nav-solutions/rinex",
+    "version": "0.22.0",
+    "license": "MPL-2.0",
+    "toolchain": {
+      "cargo": "1.85.1 (d73d2caf9 2024-12-31)",
+      "rustc": "1.85.1 (4eb161250 2025-03-15)",
+      "environment": "Ubuntu-D WSL; task-specific RUSTUP_HOME/CARGO_HOME/TMPDIR/CARGO_TARGET_DIR in /tmp; no HOME changes"
+    }
+  },
+  "checks": [
+    {
+      "command": "cargo run --locked --offline --quiet --manifest-path reference-cli/Cargo.toml -- <original BRUX .rnx>",
+      "exit": 0,
+      "artifact": "reference-run.log",
+      "provenance": "reference-provenance.json"
+    },
+    {
+      "command": "moon build --target js --release",
+      "exit": 0
+    },
+    {
+      "command": "node tools/check-file.mjs <original BRUX .rnx> 2026 9 23 -1",
+      "exit": 2,
+      "expected": true,
+      "artifact": "moonbit-report.json"
+    },
+    {
+      "command": "python tools/reference/compare-georust-brux.py <product report> <Rust report> --report <result>",
+      "exit": 0,
+      "artifact": "product-comparison.json"
+    },
+    {
+      "command": "same comparator with C/C1P reference count altered +1",
+      "exit": 1,
+      "expected": true,
+      "artifact": "comparator-rejection.json"
+    },
+    {
+      "command": "re-run full-day Node checker with canonical Git LF host script",
+      "exit": 2,
+      "expected": true,
+      "outputByteIdentical": true,
+      "reason": "source/package fingerprint check exposed Windows checkout line-ending difference"
+    }
+  ],
+  "sourceFingerprints": {
+    "GEORUST-REFERENCE.md": "e14dbcdbdcb9dcb1efeb5db603532ee7e51459deb7818f527b8d33e9c4e80712",
+    "PROPOSAL.md": "5bafa2c66ec2e8636ba01103a760828caeaf0b22dec087854fd5a3b7741cafd2",
+    "PUBLIC-DATA.md": "816d5ccf22e9dfd46f6f09122468abb25b86e7cd9f4f0abe0629abe0e2eb0d06",
+    "README.md": "22c5db047baac96e7d0464cf9da4bab8c3b05e64785b0c4c74d45c436470aaf9",
+    "SUBMISSION.json": "51d670cd75e35b6025182dce1999e3420962f7cbf1d08dfa7c7661f7cedd19fd",
+    "TESTING.md": "86135cf862cb9107e99e2f5d9676b15c205240667631f419e95c8d65a101b724",
+    "capacity_wbtest.mbt": "91a2150ee814c36ba26bd33243670cd937b9a13ee0dd61ae6ff653f5fccb8399",
+    "checker.mbt": "bf8d373cf71d7c619cfa213fceb4b2369a64cfea66abb309612dccb223f81b0c",
+    "checker_wbtest.mbt": "d832db344fadd99a2c78c2fc007ccdc9b008da0de806ad21a83a0a590ebead98",
+    "cmd/bridge/main.mbt": "ab049aae9f20532cb038d8a8cb69b83a702f7c0d8f8b27c0c9f5128f7628a001",
+    "examples/consumer/main.mbt": "900c94e48b279348d71b6e94f993dac7fdbfa0ad0d48d878d0727dc01f83a83d",
+    "examples/consumer/pkg.generated.mbti": "e9e70684260ef1317d08a6db88be6dba9ca68836f2570a04bbf3a59e1abc5bca",
+    "header.mbt": "a1293435123e634ce83d8609da457e3ed069e0b1e81fd07705db527cead6e08a",
+    "moon.mod": "04020d0fafe2f6a7137c8991f41a46832b1f34448ae1c48aa7a1bccdcc6ff602",
+    "pkg.generated.mbti": "1edb3827fe09a8889968e3f318f990d0a5e046cd1c2bf417d5de72f817b640fc",
+    "time.mbt": "2a0769e7bbfe27d9a42cdcdff4275ca4ec22f2cd5a2b16a9bf6ea0222b3d6d77",
+    "tools/check-file.mjs": "60471691a5bf5e0ce041f0b3dc034dd6f8a42d5282ccd9ccf7ad59abd75f2573",
+    "tools/reference/compare-georust-brux.py": "a1083fe12c5c0957bf4aa2cb8d75d0eeb0add8af2a1680bb69cf6e8756de60b3",
+    "tools/reference/georust/Cargo.lock": "2308d27e5f81e90ace6b50b9242a270b588fd9795945bb00d168b1bc0d38bcb4",
+    "tools/reference/georust/Cargo.toml": "c3234848b2ed4ea46a8e25e83d32f3843b002c9b06415f1c09165c3a9d8cbd2b",
+    "tools/reference/georust/src/main.rs": "5316094c6b94a085c1eb2965faa3e6459eb9584e96f84f6491d0464e9a159303",
+    "types.mbt": "2671079eecf03b267b8071b4b8056ad87165e30f3cdd12edc488643775248cbf",
+    ".gitattributes": "e3a17649a78bfffb4a77c3fb2fa7bc23f789175bdd9e76fdf31bc15db5bed2ad",
+    ".gitignore": "677ec61ffc83cb5b777cff6de529043653d02a5c10b1aeb93abdb3c6c116596c"
+  },
+  "notRun": [
+    "unchanged core JS/Wasm full suite; retain earlier baseline",
+    "positioning",
+    "all raw values cross-comparison",
+    "Rust direct blank-slot counts",
+    "remote CI"
+  ],
+  "baselineCoreEvidence": "evidence/public-20260927/LOCAL-CHECKS.json",
+  "additionalGeoRinexEvidence": "evidence/georinex-20260927/LOCAL-CHECKS.json",
+  "documentationClarification": "GPS names the supported time system, not a restriction to GPS satellites; OBS may contain the declared supported constellations. No code or result change."
+}

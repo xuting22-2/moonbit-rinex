@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "reference": "nav-solutions/rinex 0.22.0 (obs)",
+  "sourceSha256": "0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630",
+  "revision": "4.01",
+  "epochs": 2880,
+  "satelliteRecords": 136993,
+  "uniqueSatellites": 127,
+  "systems": 5,
+  "systemSignalKeysCompared": 90,
+  "phaseSignalKeysCompared": 22,
+  "nonemptySignalValues": 2373196,
+  "productAcceptable": false,
+  "productFindings": {
+    "header-satellite-total": 1,
+    "header-prn-details": 1
+  },
+  "notCompared": [
+    "all raw numerical values",
+    "blank-slot counts directly from Rust",
+    "product QC verdict against another QC engine",
+    "positioning or observation quality"
+  ]
+}

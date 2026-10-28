@@ -1,0 +1,24 @@
+{
+  "reference": "pyrtklib0.2.7 RTKLIB2.4.3b34",
+  "inputSha256": "1c6a1a7d5b565030fb6f914f2307b1be94f30a762d807c67ed700cf64d85f22d",
+  "transformation": "Intentional RINEX3->2.11 GPS field-preserving test conversion:2digit year,2charPRN,22columnclock,3blankcontinuation; original3.05file unchanged",
+  "status": 1,
+  "records": 1,
+  "comparisons": [
+    {
+      "offset": -1800,
+      "positionErrorMeters": 0.0,
+      "clockErrorSeconds": 0.0
+    },
+    {
+      "offset": 0,
+      "positionErrorMeters": 0.0,
+      "clockErrorSeconds": 0.0
+    },
+    {
+      "offset": 1800,
+      "positionErrorMeters": 0.0,
+      "clockErrorSeconds": 0.0
+    }
+  ]
+}

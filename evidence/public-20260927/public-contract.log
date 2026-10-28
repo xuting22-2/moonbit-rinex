@@ -1,0 +1,1 @@
+{"publicPrefixCases":15,"sourceUnchanged":true,"noPartialSuccess":true,"includes":"exact 100ns lattice, duplicate/truncated records, unsupported event, invalid number, clock metadata, host byte/type/capacity errors"}

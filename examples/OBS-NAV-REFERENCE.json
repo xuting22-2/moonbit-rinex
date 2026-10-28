@@ -1,0 +1,41 @@
+{
+  "source": "Fully project-authored modern/legacy observation rows and first GPS record from catalog-synthetic.nav",
+  "canonicalInputs": "LF-joined rows from examples/obs-nav-query/fixtures.mbt with final LF; raw inputs retained in local round14 report",
+  "inputs": {
+    "modern.obs": {
+      "sha256": "314e3644f108ec44a91d7f809f913f5831fdd7c2832765b2208cc93ce69ac200",
+      "bytes": 542,
+      "lines": 8
+    },
+    "legacy.obs": {
+      "sha256": "a915968d0cbfe56506cde63834fd3431e639e25dd298be83b8ab69985c0a0598",
+      "bytes": 563,
+      "lines": 8
+    },
+    "single.nav": {
+      "sha256": "eeccc64444b29d3062940a12b8fd875a7b33f772f55a44affcb7a3653021672c",
+      "bytes": 872,
+      "lines": 11
+    }
+  },
+  "gps_ticks": "14774041000000001",
+  "timeUnit": "100ns GPS calendar ticks since 1980-01-01",
+  "receiverClockSeconds": 0.0001234,
+  "receiverClockApplied": false,
+  "independentReference": "pyrtklib0.2.7 / RTKLIB2.4.3b34 readrnx + eph2pos, identical authored GPS record",
+  "satellite": "G01",
+  "gpsWeek": 2442,
+  "toeSow": 46800,
+  "evaluationOffsetSeconds": "3700.0000001",
+  "state": {
+    "x": -15789254.26762028,
+    "y": -11845667.979850149,
+    "z": 17454897.504236296,
+    "clock_seconds": 0.00010998992248758549
+  },
+  "selectedRecordIndex": 1,
+  "selectedSourceLine": 4,
+  "xyzComponentToleranceMeters": 1e-05,
+  "clockToleranceSeconds": 1e-13,
+  "limit": "Original authored fixtures; numerical same-model comparison, not physical orbital accuracy or receiver positioning"
+}

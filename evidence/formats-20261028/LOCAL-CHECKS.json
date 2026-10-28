@@ -1,0 +1,273 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "label": "final-format",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "fmt"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.2977290153503418,
+      "stdout": "final-format.stdout",
+      "stderr": "final-format.stderr"
+    },
+    {
+      "label": "final-info",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "info"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.24710869789123535,
+      "stdout": "final-info.stdout",
+      "stderr": "final-info.stderr"
+    },
+    {
+      "label": "final-check",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "check",
+        "--target",
+        "all",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 1.5588948726654053,
+      "stdout": "final-check.stdout",
+      "stderr": "final-check.stderr"
+    },
+    {
+      "label": "final-tests-js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "js",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 2.1786391735076904,
+      "stdout": "final-tests-js.stdout",
+      "stderr": "final-tests-js.stderr"
+    },
+    {
+      "label": "final-tests-wasm",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "wasm-gc",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 2.958899974822998,
+      "stdout": "final-tests-wasm.stdout",
+      "stderr": "final-tests-wasm.stderr"
+    },
+    {
+      "label": "final-build-js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "build",
+        "--target",
+        "js",
+        "--release",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.9887709617614746,
+      "stdout": "final-build-js.stdout",
+      "stderr": "final-build-js.stderr"
+    },
+    {
+      "label": "final-build-wasm",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "build",
+        "--target",
+        "wasm-gc",
+        "--release",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.9758062362670898,
+      "stdout": "final-build-wasm.stdout",
+      "stderr": "final-build-wasm.stderr"
+    },
+    {
+      "label": "final-consumer-js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "run",
+        "examples/formats-consumer",
+        "--target",
+        "js",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 1.0092642307281494,
+      "stdout": "final-consumer-js.stdout",
+      "stderr": "final-consumer-js.stderr"
+    },
+    {
+      "label": "final-consumer-wasm",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "run",
+        "examples/formats-consumer",
+        "--target",
+        "wasm-gc",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.9462246894836426,
+      "stdout": "final-consumer-wasm.stdout",
+      "stderr": "final-consumer-wasm.stderr"
+    },
+    {
+      "label": "final-public-contract",
+      "command": [
+        "node",
+        "tools/test-public-contract.mjs"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.3225395679473877,
+      "stdout": "final-public-contract.stdout",
+      "stderr": "final-public-contract.stderr"
+    },
+    {
+      "label": "final-observation-host",
+      "command": [
+        "node",
+        "tools/test-observation-host.mjs"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.6297414302825928,
+      "stdout": "final-observation-host.stdout",
+      "stderr": "final-observation-host.stderr"
+    },
+    {
+      "label": "final-brux-crx",
+      "command": [
+        "node",
+        "tools/formats.mjs",
+        "crx",
+        "examples/brux-original-first-two.crx"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.21075034141540527,
+      "stdout": "final-brux-crx.stdout",
+      "stderr": "final-brux-crx.stderr"
+    },
+    {
+      "label": "final-legacy-cli",
+      "command": [
+        "node",
+        "tools/formats.mjs",
+        "legacy",
+        "examples/legacy-continued.rnx"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.20175504684448242,
+      "stdout": "final-legacy-cli.stdout",
+      "stderr": "final-legacy-cli.stderr"
+    },
+    {
+      "label": "final-nav-BDS-GEO",
+      "command": [
+        "node",
+        "tools/formats.mjs",
+        "nav",
+        "D:\\CodexLocal\\ban\\work\\isolated14-20261027\\reports\\rinex\\implementation-03\\samples\\BDS-GEO.nav",
+        "--geo"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.17913484573364258,
+      "stdout": "final-nav-BDS-GEO.stdout",
+      "stderr": "final-nav-BDS-GEO.stderr"
+    },
+    {
+      "label": "final-nav-BDS-MEO",
+      "command": [
+        "node",
+        "tools/formats.mjs",
+        "nav",
+        "D:\\CodexLocal\\ban\\work\\isolated14-20261027\\reports\\rinex\\implementation-03\\samples\\BDS-MEO.nav",
+        "--meo-igso"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.1865081787109375,
+      "stdout": "final-nav-BDS-MEO.stdout",
+      "stderr": "final-nav-BDS-MEO.stderr"
+    },
+    {
+      "label": "final-nav-GPS",
+      "command": [
+        "node",
+        "tools/formats.mjs",
+        "nav",
+        "D:\\CodexLocal\\ban\\work\\isolated14-20261027\\reports\\rinex\\implementation-03\\samples\\GPS.nav",
+        "--meo-igso"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "seconds": 0.18590164184570312,
+      "stdout": "final-nav-GPS.stdout",
+      "stderr": "final-nav-GPS.stderr"
+    },
+    {
+      "label": "final-truncated-cli",
+      "command": [
+        "node",
+        "tools/formats.mjs",
+        "crx",
+        "D:\\CodexLocal\\ban\\work\\isolated14-20261027\\reports\\rinex\\implementation-03\\samples\\truncated.crx"
+      ],
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "seconds": 0.1783761978149414,
+      "stdout": "final-truncated-cli.stdout",
+      "stderr": "final-truncated-cli.stderr"
+    }
+  ],
+  "publicConsumerBothTargets": true,
+  "realCrxExactAfterLF": true,
+  "navStates": 9,
+  "maxPositionErrorMeters": 4.16500117164066e-09,
+  "maxClockErrorSeconds": 0.0,
+  "productAcceptance": "Local declared-scope only; not publication or official contest acceptance",
+  "supplementalNav2": {
+    "js": {
+      "command": "moon test formats_nav2_wbtest.mbt --target js --deny-warn",
+      "exitCode": 0,
+      "tests": 1,
+      "passed": 1,
+      "log": "nav2-test-js.log"
+    },
+    "wasm-gc": {
+      "command": "moon test formats_nav2_wbtest.mbt --target wasm-gc --deny-warn",
+      "exitCode": 0,
+      "tests": 1,
+      "passed": 1,
+      "log": "nav2-test-wasm.log"
+    },
+    "note": "Added test-only advertisedNAV2branch after58case final run; no production-code changes, no repeat of passing suite."
+  },
+  "distinctCoreTestsPerTarget": 59
+}

@@ -1,0 +1,515 @@
+{
+  "checkedUtc": "2026-09-30T12:32:02.097749+00:00",
+  "version": "0.2.0",
+  "checks": [
+    {
+      "label": "format",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "fmt",
+        "--check"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "consumer-format",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "fmt",
+        "--check"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "info",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "info"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "check-all",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "check",
+        "--target",
+        "all",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "js",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "wasm",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "wasm-gc",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "build-debug",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "build",
+        "--target",
+        "js",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "build-release",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "build",
+        "--target",
+        "js",
+        "--release",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "old-public-contract",
+      "command": [
+        "node",
+        "tools/test-public-contract.mjs"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "new-host-contract",
+      "command": [
+        "node",
+        "tools/test-observation-host.mjs"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "old-consumer-js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "run",
+        "examples/consumer",
+        "--target",
+        "js",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "old-consumer-wasm-gc",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "run",
+        "examples/consumer",
+        "--target",
+        "wasm-gc",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "old-full-day",
+      "command": [
+        "node",
+        "tools/check-file.mjs",
+        "D:\\CodexLocal\\ban\\work\\reassessment-20260927\\rinex-reference\\BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+        "2026",
+        "9",
+        "23",
+        "-1"
+      ],
+      "exitCode": 2,
+      "expectedExitCode": 2
+    },
+    {
+      "label": "old-independent-full",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "tools/reference/brux_reference.py",
+        "D:\\CodexLocal\\ban\\work\\reassessment-20260927\\rinex-reference\\BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+        "--output",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\observations-20260930\\independent-full.json"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "old-independent-compare",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "tools/compare-reference.py",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\observations-20260930\\checker-full.json",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\observations-20260930\\independent-full.json",
+        "--report",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\observations-20260930\\full-statistics-comparison.json"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "extract-full",
+      "command": [
+        "node",
+        "tools/extract-observations.mjs",
+        "D:\\CodexLocal\\ban\\work\\reassessment-20260927\\rinex-reference\\BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-extract-full-final",
+        "14745888000000000",
+        "14745888600000000"
+      ],
+      "exitCode": 2,
+      "expectedExitCode": 2
+    },
+    {
+      "label": "extract-prefix",
+      "command": [
+        "node",
+        "tools/extract-observations.mjs",
+        "examples/brux-first-two-epochs.rnx",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-extract-prefix-final",
+        "14745888000000000",
+        "14745888600000000"
+      ],
+      "exitCode": 2,
+      "expectedExitCode": 2
+    },
+    {
+      "label": "new-independent-full",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "tools/reference/compare-observations.py",
+        "D:\\CodexLocal\\ban\\work\\reassessment-20260927\\rinex-reference\\BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-extract-full-final",
+        "--rust",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-rust-observations-final\\stdout.raw",
+        "--report",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\observations-20260930\\all-selected-observations.json"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "new-independent-prefix",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "tools/reference/compare-observations.py",
+        "examples/brux-first-two-epochs.rnx",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-extract-prefix-final",
+        "--rust",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-rust-observations-final\\stdout.raw",
+        "--report",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\observations-20260930\\prefix-observations.json"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "new-consumer-js",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "tools/run-observation-consumer.py",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-observation-consumer-final-js",
+        "--target",
+        "js",
+        "--expected",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-extract-prefix-final"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "new-consumer-wasm-gc",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "tools/run-observation-consumer.py",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-observation-consumer-final-wasm-gc",
+        "--target",
+        "wasm-gc",
+        "--expected",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-extract-prefix-final"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "workflow",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\actionlint\\actionlint.exe",
+        ".github/workflows/ci.yml"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    },
+    {
+      "label": "package",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "package",
+        "--frozen"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0
+    }
+  ],
+  "testsPerBackend": 35,
+  "newCoreTests": 4,
+  "newHostIntegrationChecks": 9,
+  "proposalPreserved": true,
+  "proposalVersion": "0.1.2",
+  "unchangedLegacySources": [
+    "capacity_wbtest.mbt",
+    "checker_wbtest.mbt",
+    "derived_extensions.mbt",
+    "header.mbt",
+    "time.mbt",
+    "types.mbt"
+  ],
+  "wholeLegacyReportByteSemanticsMatch": true,
+  "sourceSha256": {
+    "moon.mod": "560211fe7b2f6f327689e5ffc1fa2cd3e8a5ef4e416ab8a39a7ed3186f2785f2",
+    "moon.pkg": "f99d9449622d2919e781652b37066efa4d6af43044b581a4677e96961001a2d5",
+    "types.mbt": "2671079eecf03b267b8071b4b8056ad87165e30f3cdd12edc488643775248cbf",
+    "time.mbt": "2a0769e7bbfe27d9a42cdcdff4275ca4ec22f2cd5a2b16a9bf6ea0222b3d6d77",
+    "header.mbt": "a1293435123e634ce83d8609da457e3ed069e0b1e81fd07705db527cead6e08a",
+    "checker.mbt": "581adc466bf466603c9c1d71a0c3a84ec8aebd2a9213700f700e03f179db7161",
+    "reader.mbt": "c20e3f5ffffcee618f9e807e884955b0770a650c53c0b49b4fd38255e904e6b6",
+    "observation_types.mbt": "ce468f5643a721c136ab50f6e3ec74addd0ea4c6a0a71e44751bf3a2842d4930",
+    "pkg.generated.mbti": "d1e0bc91eefb39bf27720029faad8247ac9a3ccd96cbd66c718ee5a93ed8fdac",
+    "cmd/bridge/main.mbt": "ab049aae9f20532cb038d8a8cb69b83a702f7c0d8f8b27c0c9f5128f7628a001",
+    "cmd/bridge/reader.mbt": "f4481fb6248d4d4c21730af119b82c5785891f9bef711a3695b4b7d380f7913f",
+    "cmd/bridge/moon.pkg": "a320ceee80c2daca0fd38be4ce1de6f6ed237399c9eb0eaccc995c1113ea79d1",
+    "tools/extract-observations.mjs": "5cd998c54d16db0c2f0e8b4578f1abd0ad202a3b6a002fba87000e06eef1b430",
+    "tools/reference/compare-observations.py": "970771ab9406a48da391389fe09d61687a6c70ff11e50c87dd872c90464ea310",
+    "tools/run-observation-consumer.py": "149b0459ecf05bbe4f813172a914be4a6e8a32657ebbe96bbb22413a5f6bc7ba",
+    "tools/test-observation-host.mjs": "51192f3b88ec7a22d7a870de4a9a72713d8d666546e944bf616f4331e2500bfa"
+  },
+  "publicInput": {
+    "complete": true,
+    "inputAcceptable": false,
+    "gpsRange": [
+      "14745888000000000",
+      "14745888600000000"
+    ],
+    "selectedEpochs": 2,
+    "selectedSatelliteRecords": 98,
+    "input": {
+      "file": "BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+      "bytes": 41314394,
+      "lines": 139914,
+      "sha256": "0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630"
+    },
+    "output": {
+      "bytes": 224511,
+      "sha256": "b7d580f7b275d6bdeeae21c40f7f6a11642dfcad131996dbc2b3a456148160f1"
+    },
+    "source": {
+      "license": "CC-BY-4.0",
+      "doi": "https://doi.org/10.24414/ROB-GNSS-BRUX00BEL",
+      "marker": "BRUX00BEL"
+    },
+    "semantics": {
+      "time": "100ns GPS calendar ticks since 1980-01-01; not UTC",
+      "values": "stored raw numbers; numeric zero is retained and may mean missing",
+      "corrections": "no scale/phase/clock corrections applied; original header retained",
+      "lines": "one-based source lines; raw strings exclude line terminators"
+    },
+    "limits": [
+      "complete validates the entire file; inputAcceptable and findings remain separate",
+      "returned complete epochs are provisional until finish",
+      "existing listed OBS versions, GPS time and flags 0/1 only; no positioning or full RINEX certification"
+    ]
+  },
+  "independentOracle": {
+    "passed": true,
+    "sourceSha256": "0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630",
+    "wholeInputEpochs": 2880,
+    "wholeInputSatelliteRecords": 136993,
+    "selectedEpochs": 2,
+    "selectedSatelliteRecords": 98,
+    "allRawSlotsCompared": 2012,
+    "populatedValuesCompared": 1660,
+    "blankValuesCompared": 352,
+    "presentLliCompared": 397,
+    "presentSsiCompared": 1231,
+    "rawHeaderLinesCompared": 41,
+    "complete": true,
+    "inputAcceptable": false,
+    "matureReader": {
+      "reference": "rinex@0.22.0",
+      "populatedValuesCompared": 1660,
+      "exactValueMatches": 1659,
+      "allNumericValuesAgree": false,
+      "differences": [
+        {
+          "gpsTicks": "14745888300000000",
+          "satellite": "E25",
+          "code": "L7Q",
+          "rawField": " 114931467.86314",
+          "f14Text": " 114931467.863",
+          "productValue": 114931467.863,
+          "referenceValue": 114931467.8631,
+          "lli": 1
+        }
+      ],
+      "phaseLliCompared": 397,
+      "differenceExplanation": "Pinned parse_sig_v3 starts numeric slice at SVNN_SIZE + 1; its 14-byte slice includes the LLI byte. Fixed-column/Decimal and MoonBit use the declared F14 field.",
+      "source": "https://docs.rs/crate/rinex/0.22.0/source/src/observation/parsing.rs",
+      "outputSha256": "318b234709c46ca4b7d9e9cc64f7cfdc072fc9de0ec12636265b14dd5ac8982f"
+    },
+    "limits": [
+      "stored values only; no scale, phase or receiver-clock corrections applied",
+      "Rust checked populated values and phase LLI",
+      "fixed-column oracle checked blank slots, SSI and raw positions",
+      "project-authored reference adapters; no independent adoption or positioning acceptance"
+    ]
+  },
+  "separateModuleConsumers": {
+    "js": {
+      "target": "js",
+      "separateModule": true,
+      "sourceOrigin": "git checkout including non-ignored new files",
+      "exitCode": 0,
+      "wholeReportMatches": true,
+      "inputSha256": "ac515f3d762a12e255aaef49fa889272eab3b36e4fec4e6f9211cce0a7882896",
+      "selectedEpochs": 2,
+      "selectedSatelliteRecords": 98,
+      "complete": true,
+      "inputAcceptable": false,
+      "sourceSha256": {
+        "moon.mod": "560211fe7b2f6f327689e5ffc1fa2cd3e8a5ef4e416ab8a39a7ed3186f2785f2",
+        "moon.pkg": "f99d9449622d2919e781652b37066efa4d6af43044b581a4677e96961001a2d5",
+        "types.mbt": "2671079eecf03b267b8071b4b8056ad87165e30f3cdd12edc488643775248cbf",
+        "time.mbt": "2a0769e7bbfe27d9a42cdcdff4275ca4ec22f2cd5a2b16a9bf6ea0222b3d6d77",
+        "header.mbt": "a1293435123e634ce83d8609da457e3ed069e0b1e81fd07705db527cead6e08a",
+        "checker.mbt": "581adc466bf466603c9c1d71a0c3a84ec8aebd2a9213700f700e03f179db7161",
+        "reader.mbt": "c20e3f5ffffcee618f9e807e884955b0770a650c53c0b49b4fd38255e904e6b6",
+        "observation_types.mbt": "ce468f5643a721c136ab50f6e3ec74addd0ea4c6a0a71e44751bf3a2842d4930",
+        "pkg.generated.mbti": "d1e0bc91eefb39bf27720029faad8247ac9a3ccd96cbd66c718ee5a93ed8fdac",
+        "examples/observation-consumer/main.mbt": "c5911be20788faedf010b9df0a1d3ebe90a42fbccc5562d3f21a01dacb76921a",
+        "examples/observation-consumer/moon.mod": "d99eab4872c3a7ccfd19992a5f550c31e239e7b9b694a50f82ba95ea335a1eac",
+        "examples/observation-consumer/moon.pkg": "55f1b5788be937cb44ec2bbcadffdb220eb9fb26bd0771c148d03b96b6a47c3a",
+        "tools/run-observation-consumer.py": "149b0459ecf05bbe4f813172a914be4a6e8a32657ebbe96bbb22413a5f6bc7ba"
+      },
+      "limits": [
+        "project-authored separate module, not external adoption",
+        "prefix has complete epochs but retains full-day header; unacceptable input is not hidden",
+        "stored numbers, exact GPS ticks, raw slots and header retained; no positioning or corrections applied"
+      ]
+    },
+    "wasm-gc": {
+      "target": "wasm-gc",
+      "separateModule": true,
+      "sourceOrigin": "git checkout including non-ignored new files",
+      "exitCode": 0,
+      "wholeReportMatches": true,
+      "inputSha256": "ac515f3d762a12e255aaef49fa889272eab3b36e4fec4e6f9211cce0a7882896",
+      "selectedEpochs": 2,
+      "selectedSatelliteRecords": 98,
+      "complete": true,
+      "inputAcceptable": false,
+      "sourceSha256": {
+        "moon.mod": "560211fe7b2f6f327689e5ffc1fa2cd3e8a5ef4e416ab8a39a7ed3186f2785f2",
+        "moon.pkg": "f99d9449622d2919e781652b37066efa4d6af43044b581a4677e96961001a2d5",
+        "types.mbt": "2671079eecf03b267b8071b4b8056ad87165e30f3cdd12edc488643775248cbf",
+        "time.mbt": "2a0769e7bbfe27d9a42cdcdff4275ca4ec22f2cd5a2b16a9bf6ea0222b3d6d77",
+        "header.mbt": "a1293435123e634ce83d8609da457e3ed069e0b1e81fd07705db527cead6e08a",
+        "checker.mbt": "581adc466bf466603c9c1d71a0c3a84ec8aebd2a9213700f700e03f179db7161",
+        "reader.mbt": "c20e3f5ffffcee618f9e807e884955b0770a650c53c0b49b4fd38255e904e6b6",
+        "observation_types.mbt": "ce468f5643a721c136ab50f6e3ec74addd0ea4c6a0a71e44751bf3a2842d4930",
+        "pkg.generated.mbti": "d1e0bc91eefb39bf27720029faad8247ac9a3ccd96cbd66c718ee5a93ed8fdac",
+        "examples/observation-consumer/main.mbt": "c5911be20788faedf010b9df0a1d3ebe90a42fbccc5562d3f21a01dacb76921a",
+        "examples/observation-consumer/moon.mod": "d99eab4872c3a7ccfd19992a5f550c31e239e7b9b694a50f82ba95ea335a1eac",
+        "examples/observation-consumer/moon.pkg": "55f1b5788be937cb44ec2bbcadffdb220eb9fb26bd0771c148d03b96b6a47c3a",
+        "tools/run-observation-consumer.py": "149b0459ecf05bbe4f813172a914be4a6e8a32657ebbe96bbb22413a5f6bc7ba"
+      },
+      "limits": [
+        "project-authored separate module, not external adoption",
+        "prefix has complete epochs but retains full-day header; unacceptable input is not hidden",
+        "stored numbers, exact GPS ticks, raw slots and header retained; no positioning or corrections applied"
+      ]
+    }
+  },
+  "fullAndPrefixSelectedBytesMatch": true,
+  "newRemoteCiObserved": false,
+  "published": false,
+  "limits": [
+    "stored raw values only; no scale, phase or clock corrections",
+    "project-authored consumers; no external adoption",
+    "listed OBS versions, GPS time and flags 0/1 only",
+    "complete and acceptable are separate",
+    "local maintenance; original submitted proposals frozen"
+  ],
+  "resolvedVerificationAttempts": [
+    {
+      "label": "new-independent-full",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "tools/reference/compare-observations.py",
+        "D:\\CodexLocal\\ban\\work\\reassessment-20260927\\rinex-reference\\BRUX00BEL_R_20262660000_01D_30S_MO.rnx",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-extract-full-final",
+        "--rust",
+        "D:\\CodexLocal\\ban\\work\\maintenance-20260930\\rinex-rust-observations-final\\stdout.raw",
+        "--report",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-rinex\\evidence\\observations-20260930\\all-selected-observations.json"
+      ],
+      "exitCode": 1,
+      "expectedExitCode": 0
+    }
+  ],
+  "allRequiredChecksPassed": true,
+  "matureReferenceNumericalDisagreementRetained": [
+    {
+      "gpsTicks": "14745888300000000",
+      "satellite": "E25",
+      "code": "L7Q",
+      "rawField": " 114931467.86314",
+      "f14Text": " 114931467.863",
+      "productValue": 114931467.863,
+      "referenceValue": 114931467.8631,
+      "lli": 1
+    }
+  ],
+  "unknownReferenceDifferenceNegativeControlRejected": true
+}

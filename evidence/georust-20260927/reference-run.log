@@ -1,0 +1,171 @@
+parse=ok
+revision=4.01
+rinex_type=ObservationData
+epoch_iter_count=2880
+first_epoch=2026-09-23T00:00:00 GPST
+last_epoch=2026-09-23T23:59:30 GPST
+unique_sv_count=127
+constellations=[GPS, Glonass, BeiDou, Galileo, IRNSS]
+unique_epoch_sv_rows=136993
+rows_by_system={"C": 34642, "E": 32465, "G": 33319, "I": 8078, "R": 28489}
+unique_sv_by_system={"C": 35, "E": 30, "G": 32, "I": 4, "R": 26}
+unknown_system_rows=0
+signal_value_count=2373196
+type_count	C	C1P	31265
+type_count	C	C2I	34510
+type_count	C	C5P	31557
+type_count	C	C6I	34563
+type_count	C	C7D	30659
+type_count	C	C7I	1997
+type_count	C	D1P	31265
+type_count	C	D2I	34510
+type_count	C	D5P	31557
+type_count	C	D6I	34563
+type_count	C	D7D	30659
+type_count	C	D7I	1997
+type_count	C	L1P	30904
+type_count	C	L2I	34001
+type_count	C	L5P	31386
+type_count	C	L6I	34244
+type_count	C	L7D	30659
+type_count	C	L7I	1954
+type_count	C	S1P	31265
+type_count	C	S2I	34510
+type_count	C	S5P	31557
+type_count	C	S6I	34563
+type_count	C	S7D	30659
+type_count	C	S7I	1997
+type_count	E	C1C	32139
+type_count	E	C5Q	32413
+type_count	E	C6B	31899
+type_count	E	C7Q	32392
+type_count	E	C8Q	32266
+type_count	E	D1C	32139
+type_count	E	D5Q	32413
+type_count	E	D6B	31899
+type_count	E	D7Q	32392
+type_count	E	D8Q	32266
+type_count	E	L1C	31712
+type_count	E	L5Q	32245
+type_count	E	L6B	31899
+type_count	E	L7Q	32222
+type_count	E	L8Q	32266
+type_count	E	S1C	32139
+type_count	E	S5Q	32413
+type_count	E	S6B	31899
+type_count	E	S7Q	32392
+type_count	E	S8Q	32266
+type_count	G	C1C	33100
+type_count	G	C1L	10425
+type_count	G	C1W	32494
+type_count	G	C2L	28692
+type_count	G	C2W	32494
+type_count	G	C5Q	21688
+type_count	G	D1C	33100
+type_count	G	D1L	10425
+type_count	G	D2L	28692
+type_count	G	D2W	32494
+type_count	G	D5Q	21688
+type_count	G	L1C	32587
+type_count	G	L1L	10337
+type_count	G	L2L	28305
+type_count	G	L2W	32492
+type_count	G	L5Q	21521
+type_count	G	S1C	33100
+type_count	G	S1L	10425
+type_count	G	S1W	32494
+type_count	G	S2L	28692
+type_count	G	S2W	32494
+type_count	G	S5Q	21688
+type_count	I	C5A	8078
+type_count	I	D5A	8078
+type_count	I	L5A	8078
+type_count	I	S5A	8078
+type_count	R	C1C	28167
+type_count	R	C1P	27749
+type_count	R	C2C	24454
+type_count	R	C2P	23898
+type_count	R	C3Q	13596
+type_count	R	D1C	28167
+type_count	R	D1P	27749
+type_count	R	D2C	24454
+type_count	R	D2P	23898
+type_count	R	D3Q	13596
+type_count	R	L1C	27920
+type_count	R	L1P	27728
+type_count	R	L2C	24267
+type_count	R	L2P	23882
+type_count	R	L3Q	13596
+type_count	R	S1C	28167
+type_count	R	S1P	27749
+type_count	R	S2C	24454
+type_count	R	S2P	23898
+type_count	R	S3Q	13596
+lli_count	C	L1P	0	30842
+lli_count	C	L1P	1	62
+lli_count	C	L2I	0	33926
+lli_count	C	L2I	1	75
+lli_count	C	L5P	0	31328
+lli_count	C	L5P	1	58
+lli_count	C	L6I	0	34175
+lli_count	C	L6I	1	69
+lli_count	C	L7D	0	30599
+lli_count	C	L7D	1	60
+lli_count	C	L7I	0	1952
+lli_count	C	L7I	1	2
+lli_count	E	L1C	0	31659
+lli_count	E	L1C	1	53
+lli_count	E	L5Q	0	32193
+lli_count	E	L5Q	1	52
+lli_count	E	L6B	0	31803
+lli_count	E	L6B	1	96
+lli_count	E	L7Q	0	32169
+lli_count	E	L7Q	1	53
+lli_count	E	L8Q	0	32215
+lli_count	E	L8Q	1	51
+lli_count	G	L1C	0	32515
+lli_count	G	L1C	1	72
+lli_count	G	L1L	0	10312
+lli_count	G	L1L	1	25
+lli_count	G	L2L	0	28248
+lli_count	G	L2L	1	57
+lli_count	G	L2W	0	32419
+lli_count	G	L2W	1	73
+lli_count	G	L5Q	0	21477
+lli_count	G	L5Q	1	44
+lli_count	I	L5A	0	8075
+lli_count	I	L5A	1	3
+lli_count	R	L1C	0	27861
+lli_count	R	L1C	1	59
+lli_count	R	L1P	0	27669
+lli_count	R	L1P	1	59
+lli_count	R	L2C	0	24216
+lli_count	R	L2C	1	51
+lli_count	R	L2P	0	23815
+lli_count	R	L2P	1	67
+lli_count	R	L3Q	0	13567
+lli_count	R	L3Q	1	29
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PseudoRange("C1P")	38989284.432	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PhaseRange("L1P")	204890086.843	0
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	Doppler("D1P")	-408.674	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	SSI("S1P")	40.188	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PseudoRange("C5P")	38989283.279	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PhaseRange("L5P")	153002360.023	0
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	Doppler("D5P")	-305.098	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	SSI("S5P")	43.906	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PseudoRange("C2I")	38989281.479	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PhaseRange("L2I")	203027450.933	0
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	Doppler("D2I")	-404.872	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	SSI("S2I")	42.781	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PseudoRange("C6I")	38989281.638	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PhaseRange("L6I")	164976444.923	0
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	Doppler("D6I")	-328.925	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	SSI("S6I")	43.656	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PseudoRange("C7D")	38989281.517	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	PhaseRange("L7D")	156993716.452	0
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	Doppler("D7D")	-313.087	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 6, constellation: BeiDou }	SSI("S7D")	43.844	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 9, constellation: BeiDou }	PseudoRange("C2I")	38081305.640	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 9, constellation: BeiDou }	PhaseRange("L2I")	198299392.918	0
+sample	2026-09-22T23:59:42 UTC	SV { prn: 9, constellation: BeiDou }	Doppler("D2I")	467.870	absent
+sample	2026-09-22T23:59:42 UTC	SV { prn: 9, constellation: BeiDou }	SSI("S2I")	44.625	absent

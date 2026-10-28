@@ -1,0 +1,9 @@
+# Attribution for BRUX-derived data and reports
+
+Original measurements: **GNSSatROB, Royal Observatory of Belgium; BRUX00BEL**, 2026-09-23. Dataset: [ROB GNSS BRUX00BEL](https://doi.org/10.24414/ROB-GNSS-BRUX00BEL), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Source: [original EPN CRINEX archive](https://epncb.oma.be/pub/RINEX/2026/266/BRUX00BEL_R_20262660000_01D_30S_MO.crx.gz).
+
+This project used the previously declared GSI RNXCMP 4.2.0 conversion to ordinary RNX; conversion provenance and hashes remain in [examples/SOURCE.json](../../examples/SOURCE.json). The unchanged offline byte prefix remains in [examples/brux-first-two-epochs.rnx](../../examples/brux-first-two-epochs.rnx). No new conversion was performed in this maintenance run.
+
+Changes made by this project: select the first minute, serialize the same stored observation values and exact source text/positions into NDJSON/JSON, derive structural statistics and comparisons, and serialize the independent parser's populated values into TSV. The original whole-day header is retained. No scale, phase or receiver-clock correction is applied; no positioning or physical-quality conclusion is made. Data-derived files in `exchange-files.zip`, `rust-values.tsv` and the accompanying measurement reports retain the original CC BY 4.0 attribution; the project's original code remains MIT. Third-party Rust crate sources and toolchains are obtained separately and are not bundled in the project package.
+
+The complete source RNX SHA-256 is `0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630`; the unchanged two-epoch prefix SHA-256 is `ac515f3d762a12e255aaef49fa889272eab3b36e4fec4e6f9211cce0a7882896`. The complete 41MB source file is not redistributed here. This attribution does not imply endorsement by ROB, EPN, GSI or an independent parser's authors.

@@ -1,0 +1,7 @@
+{
+  "source": "Fully project-authored synthetic orbital parameters/clock values;not a station measurement or physical-accuracy claim",
+  "file": "catalog-synthetic.nav",
+  "sha256": "fc3c1f5dd5e9e5d3211582419fcdf35a441e83b1711c894d1d4050f2560db459",
+  "transformation": "3GPS records at13/14/15h with middle record unhealthy;BDS C01/C06atBDT00h;all values authored for deterministic selection examples",
+  "reference": "External RTKLIB2.4.3b34,eligible-healthy subset for selection-state comparison;query policy separately specified"
+}

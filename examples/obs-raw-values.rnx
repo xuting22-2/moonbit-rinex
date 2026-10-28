@@ -1,0 +1,12 @@
+     3.05           OBSERVATION DATA    M                   RINEX VERSION / TYPE
+SYNTHETIC RAW ARTIFACT CLIENT                               MARKER NAME
+G    3 C1C L1C D1C                                          SYS / # / OBS TYPES
+C    1 C2I                                                  SYS / # / OBS TYPES
+E    1 C1C                                                  SYS / # / OBS TYPES
+  2026    10    25    12     0    0.0000001     GPS         TIME OF FIRST OBS
+MIT; fully synthetic                                        LICENSE OF USE
+                                                            END OF HEADER
+> 2026 10 25 12 00 00.0000001  1  3
+G01         0.00007      -123.25015                
+C06      1234.500 3
+E25

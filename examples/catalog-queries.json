@@ -1,0 +1,6 @@
+[
+  {"satellite":"G01","week":2442,"sow":50500},
+  {"satellite":"C06","week":1086,"sow":0,"bdt":true,"orbit":2},
+  {"satellite":"G99","week":2442,"sow":50500},
+  {"satellite":"G01","week":2442,"sow":64800}
+]

@@ -1,0 +1,11 @@
+_build/
+_target/
+.mooncakes/
+node_modules/
+
+# Optional independent Rust reference build output
+tools/reference/georust/target/
+tools/reference/georust-observations/target/
+
+__pycache__/
+*.pyc

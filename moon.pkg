@@ -1,0 +1,5 @@
+import {
+  "moonbitlang/core/string" @strconv,
+  "moonbitlang/core/debug",
+  "moonbitlang/core/math",
+}

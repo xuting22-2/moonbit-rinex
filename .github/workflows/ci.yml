@@ -1,0 +1,85 @@
+name: RINEX CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  linux-js-wasm-consumers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.11.0'
+          package-manager-cache: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14.0'
+      - name: Install pinned MoonBit from official installer
+        shell: bash
+        env:
+          MOON_HOME: ${{ runner.temp }}/rinex-moon
+        run: |
+          set -euo pipefail
+          installer="$RUNNER_TEMP/rinex-moon-install.sh"
+          curl --fail --silent --show-error --location https://cli.moonbitlang.com/install/unix.sh --output "$installer"
+          printf '%s  %s\n' '46495f8cdc0050f79b6cb195d66478d101cb3601d68506568fbe377fcdf2a9fe' "$installer" | sha256sum --check --strict
+          bash "$installer" "$(cat .moonbit-version)"
+          printf '%s\n' "$MOON_HOME/bin" >> "$GITHUB_PATH"
+          printf 'MOON_HOME=%s\n' "$MOON_HOME" >> "$GITHUB_ENV"
+      - name: Record actual tool versions
+        run: |
+          moon version --all
+          node --version
+          python --version
+      - name: Check formatting and public interfaces
+        run: |
+          moon fmt --check
+          moon info
+          git diff --exit-code
+      - name: Check declared supported targets
+        run: moon check --target all --deny-warn
+      - name: Test native format, time and navigation contracts on JS
+        run: moon test --target js --deny-warn
+      - name: Test native format, time and navigation contracts on Wasm-GC
+        run: moon test --target wasm-gc --deny-warn
+      - name: Build the JS file adapter
+        run: moon build --target js --release --deny-warn
+      - name: Check file, query and saved-epoch error paths
+        run: |
+          node tools/test-public-contract.mjs
+          node tools/test-observation-host.mjs
+          node tools/test-observation-output.mjs
+          node tools/test-nav-query.mjs
+          node tools/test-nav-query-batch.mjs
+          node tools/test-nav-query-ticks.mjs
+          node tools/test-query-extracted-epoch.mjs
+          node tools/test-read-extracted-epoch.mjs
+          node tools/test-extracted-header.mjs
+      - name: Run public consumers on both backends
+        run: |
+          moon run examples/consumer --target js --deny-warn
+          moon run examples/consumer --target wasm-gc --deny-warn
+          moon run examples/formats-consumer --target js --deny-warn
+          moon run examples/formats-consumer --target wasm-gc --deny-warn
+          moon run examples/nav-query --target js --deny-warn
+          moon run examples/nav-query --target wasm-gc --deny-warn
+          moon run examples/obs-nav-query --target js --deny-warn
+          moon run examples/obs-nav-query --target wasm-gc --deny-warn
+      - name: Extract original prefix without hiding its quality failure
+        shell: bash
+        run: |
+          if node tools/extract-observations.mjs examples/brux-first-two-epochs.rnx "$RUNNER_TEMP/rinex-prefix" 14745888000000000 14745888600000000; then
+            echo "Expected original full-day header to remain unacceptable"
+            exit 1
+          else
+            test "$?" -eq 2
+          fi
+      - name: Compare all selected raw slots with independent fixed-column reference
+        run: python tools/reference/compare-observations.py examples/brux-first-two-epochs.rnx "$RUNNER_TEMP/rinex-prefix"
+      - name: Run cold independent MoonBit consumer modules
+        run: |
+          python tools/run-observation-consumer.py "$RUNNER_TEMP/rinex-consumer-js" --target js --expected "$RUNNER_TEMP/rinex-prefix"
+          python tools/run-observation-consumer.py "$RUNNER_TEMP/rinex-consumer-wasm" --target wasm-gc --expected "$RUNNER_TEMP/rinex-prefix"

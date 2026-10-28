@@ -1,0 +1,7 @@
+{
+  "reference": "GeoRinex 1.16.2",
+  "input": "examples/brux-first-two-epochs.rnx",
+  "returncode": 1,
+  "outcome": "rejects original RINEX4.01; input header not altered",
+  "error": "ValueError: unknown RINEX {'version': 4.01, 'filetype': 'O', 'rinextype': 'obs', 'systems': 'M'}  outputs\\repos\\moonbit-rinex\\examples\\brux-first-two-epochs.rnx"
+}

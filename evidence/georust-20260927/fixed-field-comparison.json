@@ -1,0 +1,238 @@
+{
+  "sourceSha256": "0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630",
+  "parserExitCode": 0,
+  "referenceVersion": "nav-solutions/rinex 0.22.0",
+  "epochCountParser": 2880,
+  "epochCountFixedReference": 2880,
+  "firstEpochParser": "2026-09-23T00:00:00 GPST",
+  "lastEpochParser": "2026-09-23T23:59:30 GPST",
+  "svUniqueParser": 127,
+  "svUniqueFixedReference": 127,
+  "recordCountParser": 136993,
+  "recordCountsFixedReference": 136993,
+  "rowCountsBySystemParser": {
+    "I": 8078,
+    "E": 32465,
+    "R": 28489,
+    "C": 34642,
+    "G": 33319
+  },
+  "rowCountsBySystemFixedReference": {
+    "I": 8078,
+    "E": 32465,
+    "R": 28489,
+    "C": 34642,
+    "G": 33319
+  },
+  "rowMismatches": [],
+  "nonemptyParser": 2373196,
+  "nonemptyFixedReference": 2373196,
+  "signalTypeCodesCompared": 90,
+  "signalTypeMismatches": [],
+  "lliCodesCompared": 0,
+  "lliAbsentOnReturnedPhaseValues": [],
+  "rawFirstC06SignalSlots": 20,
+  "rawFirstC06ValueOrLliMismatch": [],
+  "firstC06Samples": [
+    {
+      "code": "C1P",
+      "raw": "38989284.432",
+      "parser": "38989284.432",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "L1P",
+      "raw": "204890086.843",
+      "parser": "204890086.843",
+      "valueMatch": true,
+      "rawLLI": "0",
+      "parserLLI": "0",
+      "lliMatch": true
+    },
+    {
+      "code": "D1P",
+      "raw": "-408.674",
+      "parser": "-408.674",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "S1P",
+      "raw": "40.188",
+      "parser": "40.188",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "C5P",
+      "raw": "38989283.279",
+      "parser": "38989283.279",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "L5P",
+      "raw": "153002360.023",
+      "parser": "153002360.023",
+      "valueMatch": true,
+      "rawLLI": "0",
+      "parserLLI": "0",
+      "lliMatch": true
+    },
+    {
+      "code": "D5P",
+      "raw": "-305.098",
+      "parser": "-305.098",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "S5P",
+      "raw": "43.906",
+      "parser": "43.906",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "C2I",
+      "raw": "38989281.479",
+      "parser": "38989281.479",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "L2I",
+      "raw": "203027450.933",
+      "parser": "203027450.933",
+      "valueMatch": true,
+      "rawLLI": "0",
+      "parserLLI": "0",
+      "lliMatch": true
+    },
+    {
+      "code": "D2I",
+      "raw": "-404.872",
+      "parser": "-404.872",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "S2I",
+      "raw": "42.781",
+      "parser": "42.781",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "C6I",
+      "raw": "38989281.638",
+      "parser": "38989281.638",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "L6I",
+      "raw": "164976444.923",
+      "parser": "164976444.923",
+      "valueMatch": true,
+      "rawLLI": "0",
+      "parserLLI": "0",
+      "lliMatch": true
+    },
+    {
+      "code": "D6I",
+      "raw": "-328.925",
+      "parser": "-328.925",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "S6I",
+      "raw": "43.656",
+      "parser": "43.656",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "C7D",
+      "raw": "38989281.517",
+      "parser": "38989281.517",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "L7D",
+      "raw": "156993716.452",
+      "parser": "156993716.452",
+      "valueMatch": true,
+      "rawLLI": "0",
+      "parserLLI": "0",
+      "lliMatch": true
+    },
+    {
+      "code": "D7D",
+      "raw": "-313.087",
+      "parser": "-313.087",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    },
+    {
+      "code": "S7D",
+      "raw": "43.844",
+      "parser": "43.844",
+      "valueMatch": true,
+      "rawLLI": "",
+      "parserLLI": "absent",
+      "lliMatch": true
+    }
+  ],
+  "blankSlotsLimitation": "GeoRust signal_observations_iter returns populated values, so it does not independently count absent observation slots. Python fixed-field reference owns the blank-slot total.",
+  "uniqueSvCountsBySystemParser": {
+    "G": 32,
+    "R": 26,
+    "I": 4,
+    "E": 30,
+    "C": 35
+  },
+  "uniqueSvCountsBySystemFixedReference": {
+    "G": 32,
+    "R": 26,
+    "I": 4,
+    "E": 30,
+    "C": 35
+  },
+  "uniqueSvCountMismatches": [],
+  "lliPhaseCodesCompared": 22,
+  "lliBitMismatches": [],
+  "lliAbsentOnPopulatedPhaseValues": 0,
+  "lliComparedBy": "Per-system and per-observable 0/1 LLI counts; absent slots remain outside the Rust populated-value iterator."
+}

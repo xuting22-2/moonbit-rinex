@@ -1,0 +1,18 @@
+* text=auto eol=lf
+*.rnx -text
+/tools/reference/brux_reference.py -text
+
+# Preserve exact manifest bytes recorded for the independent parser run.
+/tools/reference/georust/Cargo.toml -text
+
+/tools/reference/georust-observations/Cargo.toml -text
+
+# Preserve imported fixture/reference bytes and their recorded SHA256 values.
+*.nav -text
+*.crx -text
+/examples/*.json -text
+/evidence/** -text
+/tools/extracted-epoch.mjs -text
+/tools/query-extracted-epoch.mjs -text
+/THIRD-PARTY-0.3.md -text
+/docs/FORMATS-0.3.md -text

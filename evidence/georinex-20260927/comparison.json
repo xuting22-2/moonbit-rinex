@@ -1,0 +1,247 @@
+{
+  "date": "2026-09-27T07:13:36.117530+00:00",
+  "passed": true,
+  "input": {
+    "name": "CEDA00USA_R_20182100000_23H_15S_MO.rnx",
+    "sha256": "2563103ee2803a16f81c068658b6c7a210dd379f53327ff79b7de29afb034ee9",
+    "bytes": 2185774
+  },
+  "reference": {
+    "project": "https://github.com/geospace-code/georinex",
+    "version": "1.16.2",
+    "python": "3.12.14",
+    "dependencies": {
+      "numpy": "2.2.6",
+      "pandas": "2.2.3",
+      "xarray": "2025.1.2",
+      "georinex": "1.16.2"
+    },
+    "sourceSha256": {
+      "base.py": "71b9942e9d0de6a9b70107384daa00fc75b7f0d9630c13ea2f37d3145e8def02",
+      "obs3.py": "5a9de49273ce806bb5861f0d8533fe1161e77a5e987266abb87d10c634059412",
+      "rio.py": "389680a57d8419e565dcbd1746e12fc4df4b2220d87bbb2f428481e132ba9c23"
+    }
+  },
+  "epochs": 4675,
+  "satellites": 19,
+  "systemSignalsCompared": 27,
+  "nonemptyValuesCompared": 107714,
+  "numericZerosCompared": 0,
+  "intervalFindingsCompared": 814,
+  "lliSignalsCompared": 5,
+  "lliNotExposedByReference": [
+    "E:L6C",
+    "E:L5Q",
+    "E:L7Q",
+    "E:L8Q"
+  ],
+  "rows": [
+    {
+      "system": "E",
+      "code": "C1C",
+      "nonempty": 12956,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "L1C",
+      "nonempty": 12952,
+      "zero": 0,
+      "lliNonzero": 47,
+      "lliBit0": 47,
+      "lliBit1": 0,
+      "lliBit2": 0
+    },
+    {
+      "system": "E",
+      "code": "S1C",
+      "nonempty": 12956,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "C6C",
+      "nonempty": 11143,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "L6C",
+      "nonempty": 11137,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "S6C",
+      "nonempty": 11143,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "C5Q",
+      "nonempty": 2954,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "L5Q",
+      "nonempty": 2920,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "S5Q",
+      "nonempty": 2954,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "C7Q",
+      "nonempty": 4426,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "L7Q",
+      "nonempty": 4413,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "S7Q",
+      "nonempty": 4426,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "C8Q",
+      "nonempty": 1217,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "L8Q",
+      "nonempty": 1210,
+      "zero": 0
+    },
+    {
+      "system": "E",
+      "code": "S8Q",
+      "nonempty": 1217,
+      "zero": 0
+    },
+    {
+      "system": "R",
+      "code": "C1C",
+      "nonempty": 1318,
+      "zero": 0
+    },
+    {
+      "system": "R",
+      "code": "L1C",
+      "nonempty": 42,
+      "zero": 0,
+      "lliNonzero": 18,
+      "lliBit0": 18,
+      "lliBit1": 0,
+      "lliBit2": 0
+    },
+    {
+      "system": "R",
+      "code": "S1C",
+      "nonempty": 1318,
+      "zero": 0
+    },
+    {
+      "system": "R",
+      "code": "C1P",
+      "nonempty": 1350,
+      "zero": 0
+    },
+    {
+      "system": "R",
+      "code": "L1P",
+      "nonempty": 69,
+      "zero": 0,
+      "lliNonzero": 46,
+      "lliBit0": 46,
+      "lliBit1": 0,
+      "lliBit2": 0
+    },
+    {
+      "system": "R",
+      "code": "S1P",
+      "nonempty": 1350,
+      "zero": 0
+    },
+    {
+      "system": "R",
+      "code": "C2P",
+      "nonempty": 574,
+      "zero": 0
+    },
+    {
+      "system": "R",
+      "code": "L2P",
+      "nonempty": 16,
+      "zero": 0,
+      "lliNonzero": 16,
+      "lliBit0": 16,
+      "lliBit1": 0,
+      "lliBit2": 0
+    },
+    {
+      "system": "R",
+      "code": "S2P",
+      "nonempty": 574,
+      "zero": 0
+    },
+    {
+      "system": "R",
+      "code": "C2C",
+      "nonempty": 1453,
+      "zero": 0
+    },
+    {
+      "system": "R",
+      "code": "L2C",
+      "nonempty": 173,
+      "zero": 0,
+      "lliNonzero": 20,
+      "lliBit0": 20,
+      "lliBit1": 0,
+      "lliBit2": 0
+    },
+    {
+      "system": "R",
+      "code": "S2C",
+      "nonempty": 1453,
+      "zero": 0
+    }
+  ],
+  "moonbitExitCode": 2,
+  "moonbitFindings": {
+    "epoch-interval": 814,
+    "header-prn-details": 1
+  },
+  "sourceHashPolicy": "LF-normalized UTF8",
+  "sourceSha256": {
+    "types.mbt": "2671079eecf03b267b8071b4b8056ad87165e30f3cdd12edc488643775248cbf",
+    "time.mbt": "2a0769e7bbfe27d9a42cdcdff4275ca4ec22f2cd5a2b16a9bf6ea0222b3d6d77",
+    "header.mbt": "a1293435123e634ce83d8609da457e3ed069e0b1e81fd07705db527cead6e08a",
+    "checker.mbt": "bf8d373cf71d7c619cfa213fceb4b2369a64cfea66abb309612dccb223f81b0c",
+    "cmd/bridge/main.mbt": "ab049aae9f20532cb038d8a8cb69b83a702f7c0d8f8b27c0c9f5128f7628a001",
+    "tools/check-file.mjs": "60471691a5bf5e0ce041f0b3dc034dd6f8a42d5282ccd9ccf7ad59abd75f2573",
+    "tools/compare-georinex.py": "bb85f1ce428bc743aa85186b83e749223ad639e3c14cac215a32bb8b9986cb62",
+    "pkg.generated.mbti": "1edb3827fe09a8889968e3f318f990d0a5e046cd1c2bf417d5de72f817b640fc"
+  },
+  "elapsedSeconds": 113.5,
+  "referenceWarnings": [],
+  "limits": [
+    "CEDA upstream test fixture, not an entire claimed daily production observation set",
+    "Dataset NaN cannot distinguish absent satellite rows from all-blank records; raw row/blank-slot counts are not independently proved here",
+    "GeoRinex 1.16.2 rejects BRUX RINEX 4.01; this new check does not replace the prior BRUX reference",
+    "Reference does not expose LLI outside L1/L2; those counters remain outside this comparison",
+    "Times are GPS calendar labels, not a UTC conversion; no physical observation/positioning validation"
+  ]
+}

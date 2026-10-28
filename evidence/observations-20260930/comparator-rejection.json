@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "unknownValueDisagreementRejected": true,
+  "mutation": "one populated C06/C1P value +1, separate reference-output copy only",
+  "originalSourceAndReferenceUnchanged": true,
+  "originalReferenceSha256": "318b234709c46ca4b7d9e9cc64f7cfdc072fc9de0ec12636265b14dd5ac8982f",
+  "mutatedReferenceSha256": "c2fc46d4c5e2926dd646382e5346c8f7d333cd94e65fe8bba33e32194a54a977",
+  "comparatorSha256": "970771ab9406a48da391389fe09d61687a6c70ff11e50c87dd872c90464ea310"
+}

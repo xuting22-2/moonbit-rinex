@@ -1,0 +1,10 @@
+{
+  "sourceCommit": "8d1210a0f1ada71ff7b8d0484cfaf22ff154a38e",
+  "sourcePath": "src/georinex/tests/data/CEDA00USA_R_20182100000_23H_15S_MO.rnx.gz",
+  "compressedSha256": "781d445832492015533e3b7aaac435568d80da26f38b3528fb1a07f2a451556b",
+  "input": "CEDA00USA_R_20182100000_23H_15S_MO.rnx",
+  "bytes": 2185774,
+  "sha256": "2563103ee2803a16f81c068658b6c7a210dd379f53327ff79b7de29afb034ee9",
+  "transformation": "gzip decompression only, original header retained",
+  "redistributed": false
+}

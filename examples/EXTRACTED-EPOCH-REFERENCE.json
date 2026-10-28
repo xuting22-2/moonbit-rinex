@@ -1,0 +1,36 @@
+{
+  "source": "Project-authored two-epoch OBS derived from obs-query-time.rnx; first GPS record of catalog-synthetic.nav",
+  "canonicalInputs": "LF-joined rows with final LF",
+  "inputs": {
+    "two-epochs.rnx": {
+      "bytes": 573,
+      "lines": 10,
+      "sha256": "55205208fbeec517fbf1019d7f185311dcd808eaf6bef05e7ff625e790d3c0a6"
+    },
+    "single.nav": {
+      "bytes": 872,
+      "lines": 11,
+      "sha256": "eeccc64444b29d3062940a12b8fd875a7b33f772f55a44affcb7a3653021672c"
+    }
+  },
+  "epochIndex": 2,
+  "observationSourceLine": 9,
+  "observationEndLine": 10,
+  "gps_ticks": "14774005300000000",
+  "independentReference": "Python datetime integer calendar seconds; pyrtklib0.2.7 / RTKLIB2.4.3b34 readrnx + eph2pos",
+  "satellite": "G01",
+  "gpsWeek": 2442,
+  "sow": 46930,
+  "evaluationOffsetSeconds": 130,
+  "state": {
+    "x": -22060695.542440157,
+    "y": -11329580.833924849,
+    "z": 8749070.299145363,
+    "clock_seconds": 0.0001099973853110844
+  },
+  "selectedRecordIndex": 1,
+  "selectedSourceLine": 4,
+  "xyzComponentToleranceMeters": 1e-05,
+  "clockToleranceSeconds": 1e-13,
+  "limit": "Numerical same-model comparison on authored parameters, not physical accuracy or receiver positioning"
+}

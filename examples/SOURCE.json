@@ -1,0 +1,22 @@
+{
+  "source": "https://epncb.oma.be/pub/RINEX/2026/266/BRUX00BEL_R_20262660000_01D_30S_MO.crx.gz",
+  "attribution": "GNSSatROB, Royal Observatory of Belgium; BRUX00BEL",
+  "doi": "https://doi.org/10.24414/ROB-GNSS-BRUX00BEL",
+  "license": "CC-BY-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "originalGzipSha256": "ce01f694f036e4d8659e0f9e0375a22cb463207ed779574009cc5c4fcd482b58",
+  "converter": {
+    "name": "GSI CRX2RNX",
+    "version": "4.2.0",
+    "source": "https://terras.gsi.go.jp/ja/crx2rnx.html",
+    "windowsZipSha256": "58080794cda5a14d7088b921fd75728257e70182d242573e6926d7f8efaa3eae",
+    "exeSha256": "bd8f57ce6a314764305a038816e643d9b7d8759f702197108e65fb732e7f1cca",
+    "redistributed": false
+  },
+  "decodedSha256": "0fe5e99ad02768434dc53b4c9d89603aa97e5ae924cf704e080b6c51279cd630",
+  "subset": {
+    "file": "brux-first-two-epochs.rnx",
+    "processing": "byte prefix through two complete epochs; original whole-day header retained; intentionally incomplete",
+    "sha256": "ac515f3d762a12e255aaef49fa889272eab3b36e4fec4e6f9211cce0a7882896"
+  }
+}

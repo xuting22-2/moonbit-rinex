@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "sourceSha256": "ac515f3d762a12e255aaef49fa889272eab3b36e4fec4e6f9211cce0a7882896",
+  "wholeInputEpochs": 2,
+  "wholeInputSatelliteRecords": 98,
+  "selectedEpochs": 2,
+  "selectedSatelliteRecords": 98,
+  "allRawSlotsCompared": 2012,
+  "populatedValuesCompared": 1660,
+  "blankValuesCompared": 352,
+  "presentLliCompared": 397,
+  "presentSsiCompared": 1231,
+  "rawHeaderLinesCompared": 41,
+  "complete": true,
+  "inputAcceptable": false,
+  "matureReader": {
+    "reference": "rinex@0.22.0",
+    "populatedValuesCompared": 1660,
+    "exactValueMatches": 1659,
+    "allNumericValuesAgree": false,
+    "differences": [
+      {
+        "gpsTicks": "14745888300000000",
+        "satellite": "E25",
+        "code": "L7Q",
+        "rawField": " 114931467.86314",
+        "f14Text": " 114931467.863",
+        "productValue": 114931467.863,
+        "referenceValue": 114931467.8631,
+        "lli": 1
+      }
+    ],
+    "phaseLliCompared": 397,
+    "differenceExplanation": "Pinned parse_sig_v3 starts numeric slice at SVNN_SIZE + 1; its 14-byte slice includes the LLI byte. Fixed-column/Decimal and MoonBit use the declared F14 field.",
+    "source": "https://docs.rs/crate/rinex/0.22.0/source/src/observation/parsing.rs",
+    "outputSha256": "318b234709c46ca4b7d9e9cc64f7cfdc072fc9de0ec12636265b14dd5ac8982f"
+  },
+  "limits": [
+    "stored values only; no scale, phase or receiver-clock corrections applied",
+    "Rust checked populated values and phase LLI",
+    "fixed-column oracle checked blank slots, SSI and raw positions",
+    "project-authored reference adapters; no independent adoption or positioning acceptance"
+  ]
+}

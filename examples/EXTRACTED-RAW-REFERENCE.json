@@ -1,0 +1,82 @@
+{
+  "source": "Fully project-authored fixed-width OBS; literal raw fields/columns and integer Python datetime expectation",
+  "input": {
+    "file": "obs-raw-values.rnx",
+    "bytes": 732,
+    "lines": 12,
+    "sha256": "85629b3f23cff1efebfdcbc509498fc754c8611888c471d19e77b9b70a7182d1"
+  },
+  "epoch": {
+    "gps_ticks": "14773968000000001",
+    "flag": 1,
+    "line": 9,
+    "end_line": 12,
+    "raw_record": "> 2026 10 25 12 00 00.0000001  1  3",
+    "receiver_clock": null,
+    "receiver_clock_raw": "",
+    "satellites": [
+      {
+        "satellite": "G01",
+        "line": 10,
+        "raw_record": "G01         0.00007      -123.25015                ",
+        "observations": [
+          {
+            "code": "C1C",
+            "column": 4,
+            "raw_field": "         0.00007",
+            "value": 0,
+            "lli": 0,
+            "ssi": 7
+          },
+          {
+            "code": "L1C",
+            "column": 20,
+            "raw_field": "      -123.25015",
+            "value": -123.25,
+            "lli": 1,
+            "ssi": 5
+          },
+          {
+            "code": "D1C",
+            "column": 36,
+            "raw_field": "                ",
+            "value": null,
+            "lli": null,
+            "ssi": null
+          }
+        ]
+      },
+      {
+        "satellite": "C06",
+        "line": 11,
+        "raw_record": "C06      1234.500 3",
+        "observations": [
+          {
+            "code": "C2I",
+            "column": 4,
+            "raw_field": "      1234.500 3",
+            "value": 1234.5,
+            "lli": null,
+            "ssi": 3
+          }
+        ]
+      },
+      {
+        "satellite": "E25",
+        "line": 12,
+        "raw_record": "E25",
+        "observations": [
+          {
+            "code": "C1C",
+            "column": 4,
+            "raw_field": "",
+            "value": null,
+            "lli": null,
+            "ssi": null
+          }
+        ]
+      }
+    ]
+  },
+  "limit": "Stored measurements only;0may mean missing; no correction, physical-quality, positioning or original-source authentication claim"
+}

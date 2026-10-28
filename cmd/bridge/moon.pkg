@@ -1,0 +1,41 @@
+import {
+  "xuting22/rinex" @r,
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+  "moonbitlang/core/string" @strconv,
+}
+
+supported_targets = "js"
+
+pkgtype(kind: "executable")
+
+options(
+  link: {
+    "js": {
+      "exports": [
+        "create",
+        "feed",
+        "finish",
+        "reader_create",
+        "reader_feed",
+        "reader_header",
+        "reader_finish",
+        "legacy_create",
+        "legacy_feed",
+        "legacy_finish",
+        "crx_create",
+        "crx_feed",
+        "crx_finish",
+        "nav_create",
+        "nav_feed",
+        "nav_finish",
+        "nav_catalog_create",
+        "nav_catalog_feed",
+        "nav_catalog_finish",
+        "nav_catalog_query",
+        "nav_catalog_query_batch",
+      ],
+      "format": "esm",
+    },
+  },
+)

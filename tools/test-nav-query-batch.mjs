@@ -131,10 +131,115 @@ try {
   const bom=await fixture('bom.json',Buffer.concat([Buffer.from([239,187,191]),Buffer.from(JSON.stringify([query]))]));
   assert.equal(run(input,bom).code,0);
   for(const flags of [['--capacity'],['--capacity','1.5'],['--skip-unsupported','--skip-unsupported'],['--other']])failed(run(input,valid,flags),/capacity|duplicate|unknown/);
+  // Same process/API instance, real independent files, no awaits between calls.
+  // Legal header comments make both successful streams cross a 64KiB block.
+  const intactRows=raw.toString('ascii').split('\n');assert.equal(intactRows.pop(),'');
+  const intactHeader=intactRows.slice(0,3);
+  const intactRecords=Array.from({length:5},(_,i)=>intactRows.slice(3+i*8,11+i*8));
+  const comments=(count,name)=>Array.from({length:count},(_,i)=>
+    ('CONCURRENT '+name+' '+String(i).padStart(4,'0')).padEnd(60)+'COMMENT'.padEnd(20));
+  const encode=lines=>Buffer.from(lines.join('\n')+'\n','ascii');
+  const isolationCases=[
+    {name:'truncated',bytes:encode(intactHeader.concat(intactRecords[0],intactRecords[4].slice(0,7))),
+      requests:[{satellite:'G01',week:2442,sow:46900}]},
+    {name:'full',bytes:encode(intactHeader.slice(0,-1).concat(comments(1000,'FULL'),intactHeader.at(-1),...intactRecords)),
+      requests:[{satellite:'G01',week:2442,sow:50500}],records:5,lines:1043,
+      expected:[{ref:'gps-fallback',record:3,line:1020}]},
+    {name:'subset',bytes:encode(intactHeader.slice(0,-1).concat(comments(900,'SUBSET'),intactHeader.at(-1),intactRecords[4],intactRecords[0])),
+      requests:[{satellite:'C06',week:1086,sow:1200,bdt:true,orbit:2},{satellite:'G01',week:2442,sow:46900}],records:2,lines:919,
+      expected:[{ref:'bds-igso-bdt',record:1,line:904},{ref:'gps-old',record:2,line:912}]},
+  ];
+  for(const item of isolationCases){
+    item.file=await fixture('parallel-'+item.name+'.nav',item.bytes);
+    item.requestSnapshot=JSON.stringify(item.requests);
+  }
+  assert(isolationCases[1].bytes.length>65536&&isolationCases[2].bytes.length>65536);
+  const audits=Object.fromEntries(isolationCases.map(item=>[item.name,{opens:0,closeCalls:0,closed:0,
+    fdAfterClose:null,delivered:false,closedAtSettlement:false}]));
+  const events=[];
+  let launched=0,inFlight=0,maxInFlight=0,handles=0,maxHandles=0,failureWithOtherCallPending=false;
+  const previousOpen=fs.open;
+  // Observe actual handles only: no mocked API, stream, failure or scheduling.
+  fs.open=async function(file,...args){
+    const handle=await previousOpen.call(this,file,...args);
+    const item=isolationCases.find(item=>path.resolve(String(file))===item.file);
+    if(item){
+      const audit=audits[item.name],close=handle.close.bind(handle);let recorded=false;
+      audit.opens++;handles++;maxHandles=Math.max(maxHandles,handles);
+      events.push({event:'open',name:item.name,handles});
+      handle.close=async function(...args){
+        audit.closeCalls++;
+        const value=await close(...args);
+        if(!recorded){
+          recorded=true;audit.closed++;audit.fdAfterClose=handle.fd;handles--;
+          events.push({event:'close',name:item.name,handles});
+        }
+        return value;
+      };
+    }
+    return handle;
+  };
+  let outcomes;
+  try{
+    const pending=isolationCases.map(item=>{
+      launched++;inFlight++;maxInFlight=Math.max(maxInFlight,inFlight);
+      events.push({event:'start',name:item.name,launched,inFlight});
+      return queryNavigationBatch(item.file,item.requests).then(value=>{
+        audits[item.name].delivered=true;
+        audits[item.name].closedAtSettlement=audits[item.name].closed===1&&audits[item.name].fdAfterClose===-1;
+        events.push({event:'fulfilled',name:item.name,launched,inFlight});inFlight--;return value;
+      },error=>{
+        audits[item.name].closedAtSettlement=audits[item.name].closed===1&&audits[item.name].fdAfterClose===-1;
+        if(item.name==='truncated')failureWithOtherCallPending=inFlight>1;
+        events.push({event:'rejected',name:item.name,launched,inFlight});inFlight--;throw error;
+      });
+    });
+    assert.equal(launched,3);assert.equal(inFlight,3);
+    outcomes=await Promise.allSettled(pending);apiCases+=3;
+  }finally{fs.open=previousOpen;}
+  assert.deepEqual(outcomes.map(item=>item.status),['rejected','fulfilled','fulfilled']);
+  assert(outcomes[0].reason instanceof Error);assert.match(outcomes[0].reason.message,/truncated/i);
+  assert(!Object.hasOwn(outcomes[0],'value'));
+  assert(!Object.hasOwn(outcomes[0].reason,'results')&&!Object.hasOwn(outcomes[0].reason,'receipt'));
+  assert.equal(audits.truncated.delivered,false);
+  assert.equal(maxInFlight,3);assert(maxHandles>=2);assert.equal(handles,0);assert.equal(inFlight,0);
+  assert.equal(failureWithOtherCallPending,true);
+  for(const audit of Object.values(audits)){
+    assert.equal(audit.opens,1);assert(audit.closeCalls>=1);assert.equal(audit.closed,1);
+    assert.equal(audit.fdAfterClose,-1);assert.equal(audit.closedAtSettlement,true);
+  }
+  const isolationComparisons=[];
+  for(let i=1;i<isolationCases.length;i++){
+    const item=isolationCases[i],actual=outcomes[i].value;
+    assert.equal(actual.results.length,item.expected.length);
+    for(const [key,value] of Object.entries({complete:true,stored_records:item.records,lines:item.lines,bytes:item.bytes.length,
+      queries:item.expected.length,selected:item.expected.length,unavailable:0,ambiguous:0,all_selected:true})){
+      assert.equal(actual.receipt[key],value);
+    }
+    for(let j=0;j<item.expected.length;j++){
+      const expected=item.expected[j],ref=refs.find(ref=>ref.case===expected.ref),entry=actual.results[j];
+      assert(ref);assert.equal(entry.query_index,j+1);assert.equal(entry.result.status,'selected');
+      const selected=entry.result.selection;
+      assert.equal(selected.record.record_index,expected.record);assert.equal(selected.record.source_line,expected.line);
+      const errors=Object.fromEntries(['x','y','z'].map(axis=>[axis,Math.abs(selected.state[axis]-ref[axis])]));
+      assert(Object.values(errors).every(error=>error<=1e-5));
+      const clockError=Math.abs(selected.state.clock_seconds-ref.clock_seconds);assert(clockError<=1e-13);
+      isolationComparisons.push({input:item.name,reference:expected.ref,record:expected.record,sourceLine:expected.line,errors,clockError});
+    }
+  }
+  for(const item of isolationCases){
+    assert.equal(digest(await fs.readFile(item.file)),digest(item.bytes));
+    assert.equal(JSON.stringify(item.requests),item.requestSnapshot);
+  }
+  const concurrentIsolation={maxCallsInFlight:maxInFlight,maxOpenHandles:maxHandles,failureWithOtherCallPending,
+    outcomes:outcomes.map(item=>item.status),failure:outcomes[0].reason.message,audits,events,
+    comparisons:isolationComparisons,inputsAndRequestsUnchanged:true,
+    inputs:isolationCases.map(item=>({name:item.name,bytes:item.bytes.length,sha256:digest(item.bytes),
+      expectedRecords:item.records??null,expectedLines:item.lines??18}))};
   assert.equal(digest(await fs.readFile(input)),digest(raw));
   summary={status:'passed',cliCases,apiCases,bridgeGateCases:3,independentReferenceCases:refs.length,navigationOpensPerObservedBatch:1,
     maximumQueriesAccepted:256,requestSnapshotVerified:true,mixedStatusesPreserved:true,noPartialResultOnFailure:true,inputUnchanged:true,
-    utf8ByteBoundary:byteBoundary};
+    utf8ByteBoundary:byteBoundary,concurrentIsolation};
 } finally {
   const actual=await fs.realpath(directory),relative=path.relative(buildRoot,actual);
   assert(relative&&!path.isAbsolute(relative)&&relative!=='..'&&!relative.startsWith('..'+path.sep));

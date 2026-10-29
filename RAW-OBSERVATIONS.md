@@ -4,6 +4,8 @@
 
 现代OBS的显式gzip容器入口为`extractGzipObservations`或`tools/extract-gzip-observations.mjs`。它完整验证gzip流后仍使用同一Reader和四文件交付合同，已保存历元消费者无需修改。`manifest.input`记录解压后OBS的精确字节/行数/SHA，`compressedInput`另外记录物理gzip；源行号对应解压后的文本。完整流与原生质量边界见[专门合同](docs/GZIP-OBSERVATIONS.md)，默认未压缩入口不自动探测容器。
 
+需要普通RINEX子文件时，`ObservationClipper`/`clipObservationFile`组合原Reader的半开范围和完整源质量决定，保留所选原始正文，只适配已有首末时刻并删除旧可选文件汇总。原始头另存，不应用额外scale/phase/clock改正。新RNX实际重读合格后才交付，完整源不合格或范围无历元均不发布合格文件；详见[裁剪合同](docs/OBSERVATION-CLIP.md)。
+
 ## 公共接口
 
 `Reader::new(gps_range? : (Int64, Int64))` 可选择半开范围 `[start, stop)`。参数采用自 1980-01-01 00:00:00 GPS 起算的 100ns 日历 ticks，范围必须非负、递增并在 1980..2100 之内。`Reader::feed_line(String)` 返回 `ObservationEpoch?`：只有当该时刻声明的全部卫星记录均通过检查，才返回完整对象；0 条卫星的时刻即时返回。选择范围外的数据也完整验证，但不构造观测字段对象。

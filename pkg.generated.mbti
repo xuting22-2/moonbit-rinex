@@ -306,6 +306,27 @@ pub fn NavTime::to_json(Self) -> Json
 pub fn NavTime::to_repr(Self) -> @debug.Repr
 pub fn NavTime::week(Int, Double, bdt? : Bool) -> Self raise NavError
 
+pub struct ObservationClipReport {
+  input_report : Report
+  gps_range : (Int64, Int64)
+  selected_epochs : Int
+  selected_satellite_records : Int
+  first_gps_ticks : Int64?
+  last_gps_ticks : Int64?
+  output_header : Array[String]?
+  omitted_summary_lines : Int
+} derive(ToJson, @debug.Debug)
+pub fn ObservationClipReport::to_json(Self) -> Json
+pub fn ObservationClipReport::to_repr(Self) -> @debug.Repr
+
+pub struct ObservationClipper {
+  // private fields
+}
+pub fn ObservationClipper::feed_line(Self, String) -> Array[String] raise CheckError
+pub fn ObservationClipper::finish(Self) -> ObservationClipReport raise CheckError
+pub fn ObservationClipper::header(Self) -> ObservationHeader?
+pub fn ObservationClipper::new(Int64, Int64) -> Self raise CheckError
+
 pub struct ObservationCsvReader {
   // private fields
 }

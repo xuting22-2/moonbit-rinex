@@ -27,3 +27,5 @@ CI不执行第三方 SDK、Rust、GSI 或 RTKLIB 的在线安装，也不把历�
 R08新增`Run raw OBS CSV export and Decimal file recipient`，运行`node tools/test-observation-csv.mjs`。原始OBS/完整CSV/Decimal预期先于实现冻结，真实Python进程重读CSV后核对精确tick文本、逐槽原文、空历元、原生质量与完整性。另用1024历元的小样本跨宿主读取块，无末LF，并核对全部CSV字节；不重跑512MiB样本或旧科学参照生成器。原双后端与既有必要门保留。当前执行计划和本地复现见根CI-PLAN.md；是否通过仍以相同最终提交的真实run/job/step为准。
 
 R09新增`Run gzip OBS ingestion and existing file recipients`，运行`node tools/test-gzip-observations.mjs`。固定Python gzip/完整逻辑OBS/逐字段整数日历预期，覆盖正常与多成员、CRLF/无末LF、CRC/ISIZE/尾截断/垃圾尾、压缩正确但原生截断、原生质量拒绝及实际旧目录接收；存储块小样本让正确首历元先写出、坏CRC后到，仍不得交付合格目录。未压缩四文件和CLI原字节不变；相关旧host/短写/range快照门保留。512MiB上限检查为静态/已有界限证据，本轮不执行大预算样本或旧科学生成器。
+
+R10新增`Run raw OBS time-window RINEX file clipping and recipients`，运行`node tools/test-observation-clip.mjs`，另有3组原生裁剪合同进入JS/Wasm-GC套件。完整独立输入/预期RNX在实现前固定，验证跨午夜、精确半开边界、空历元/无选择、可选末时刻缺省、全部既有版本标签、原始测量与scale/clock/许可上下文、源质量/源末尾截断不被裁剪隐藏，以及新文件的真实Checker/Reader读回和接收者身份。原Reader/Checker源码不改；不重跑512MiB或旧科学参考生成器。

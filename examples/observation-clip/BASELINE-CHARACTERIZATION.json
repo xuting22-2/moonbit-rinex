@@ -1,0 +1,1483 @@
+[
+  {
+    "name": "source",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.05",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779583700000007",
+        "last": "14779584900000007",
+        "interval": "300000000",
+        "declared_satellites": 3,
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "PRN / # OF OBS",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 5,
+      "records": 5,
+      "first": "14779583700000007",
+      "last": "14779584900000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 5,
+          "satellites": [
+            "G01",
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 3,
+              "lli_bit0": 1,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 20,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 20,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1499,
+        "lines": 25,
+        "sha256": "a3261d0c9353c324a45d5bc1a637ae89ed379ded96e07bfbe9c06f6b3ec83497"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "clipped.expected",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.05",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779584000000007",
+        "last": "14779584600000007",
+        "interval": "300000000",
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 3,
+      "records": 3,
+      "first": "14779584000000007",
+      "last": "14779584600000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 3,
+          "satellites": [
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 2,
+              "lli_bit0": 0,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 14,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 14,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1061,
+        "lines": 17,
+        "sha256": "f2e9a09aa23b10b799a28499b498d952d8f71645742faec6afbbc29fe0e50934"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "empty-epoch.expected",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.05",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779584300000007",
+        "last": "14779584300000007",
+        "interval": "300000000",
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 1,
+      "records": 0,
+      "first": "14779584300000007",
+      "last": "14779584300000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 0,
+      "systems": [
+        {
+          "system": "G",
+          "records": 0,
+          "satellites": [],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 0,
+              "blank_fields": 0,
+              "zero_values": 0,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 0,
+              "blank_fields": 0,
+              "zero_values": 0,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 12,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 12,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 876,
+        "lines": 12,
+        "sha256": "7563ac6c83a60097a4349368ac5d8a7b6d3a6844297cca2d2888982946ce6674"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "no-last-source",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.05",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779583700000007",
+        "interval": "300000000",
+        "declared_satellites": 3,
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "PRN / # OF OBS",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 5,
+      "records": 5,
+      "first": "14779583700000007",
+      "last": "14779584900000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 5,
+          "satellites": [
+            "G01",
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 3,
+              "lli_bit0": 1,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 19,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 19,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1422,
+        "lines": 24,
+        "sha256": "c1f45730bc7d1a791717ccbead3c8802760e464ea562249e6be2cce92b982ef2"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "no-last.expected",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.05",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779584000000007",
+        "interval": "300000000",
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 3,
+      "records": 3,
+      "first": "14779584000000007",
+      "last": "14779584600000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 3,
+          "satellites": [
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 2,
+              "lli_bit0": 0,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 13,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 13,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 980,
+        "lines": 16,
+        "sha256": "7d6b0991585128054efd11dca68d6546f48a29496d1e0edcdb56d2dfd7d90549"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "naive-unfixed-header",
+    "expectedExit": 2,
+    "actualExit": 2,
+    "report": {
+      "complete": true,
+      "acceptable": false,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.05",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779583700000007",
+        "last": "14779584900000007",
+        "interval": "300000000",
+        "declared_satellites": 3,
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "PRN / # OF OBS",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 3,
+      "records": 3,
+      "first": "14779584000000007",
+      "last": "14779584600000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 3,
+          "satellites": [
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 2,
+              "lli_bit0": 0,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 18,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 18,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        },
+        {
+          "code": "header-first",
+          "line": 4,
+          "error": true,
+          "detail": "first observed epoch differs from header"
+        },
+        {
+          "code": "header-last",
+          "line": 5,
+          "error": true,
+          "detail": "last observed epoch differs from header"
+        },
+        {
+          "code": "header-satellite-total",
+          "line": 11,
+          "error": true,
+          "detail": "declared 3; observed 2"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1,
+        "header-first": 1,
+        "header-last": 1,
+        "header-satellite-total": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1355,
+        "lines": 21,
+        "sha256": "77c5e6c4c8169db9e1d7fd498d105a5b9383ca21784b0718984d9594055fa48a"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "source-quality",
+    "expectedExit": 2,
+    "actualExit": 2,
+    "report": {
+      "complete": true,
+      "acceptable": false,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.05",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779583700000007",
+        "last": "14779585200000007",
+        "interval": "300000000",
+        "declared_satellites": 3,
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "PRN / # OF OBS",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 5,
+      "records": 5,
+      "first": "14779583700000007",
+      "last": "14779584900000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 5,
+          "satellites": [
+            "G01",
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 3,
+              "lli_bit0": 1,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 20,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 20,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        },
+        {
+          "code": "header-last",
+          "line": 5,
+          "error": true,
+          "detail": "last observed epoch differs from header"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1,
+        "header-last": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1499,
+        "lines": 25,
+        "sha256": "abbe47ed8576324d13c12f2f01eafad7a73a5076286ae8ced1a12699b9afae2b"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "source-truncated",
+    "expectedExit": 1,
+    "actualExit": 1,
+    "report": {
+      "complete": false,
+      "acceptable": false,
+      "error": "Rejected(\n  \"truncated-epoch\",\n  24,\n  \"EOF before declared satellite records completed\",\n)"
+    }
+  },
+  {
+    "name": "source-3.03",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.03",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779583700000007",
+        "last": "14779584900000007",
+        "interval": "300000000",
+        "declared_satellites": 3,
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "PRN / # OF OBS",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 5,
+      "records": 5,
+      "first": "14779583700000007",
+      "last": "14779584900000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 5,
+          "satellites": [
+            "G01",
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 3,
+              "lli_bit0": 1,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 20,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 20,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1499,
+        "lines": 25,
+        "sha256": "82797cd416edd25b03fee4648afc21fb1dc8e7fd55649d1308deaa6897c36492"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "clipped-3.03.expected",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.03",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779584000000007",
+        "last": "14779584600000007",
+        "interval": "300000000",
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 3,
+      "records": 3,
+      "first": "14779584000000007",
+      "last": "14779584600000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 3,
+          "satellites": [
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 2,
+              "lli_bit0": 0,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 14,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 14,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1061,
+        "lines": 17,
+        "sha256": "8bbc9034c377bb3ae5e00ef2fff97b7ae7a9a8f49b5b79f8927fd4ae61c167a9"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "source-3.04",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.04",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779583700000007",
+        "last": "14779584900000007",
+        "interval": "300000000",
+        "declared_satellites": 3,
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "PRN / # OF OBS",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 5,
+      "records": 5,
+      "first": "14779583700000007",
+      "last": "14779584900000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 5,
+          "satellites": [
+            "G01",
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 3,
+              "lli_bit0": 1,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 20,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 20,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1499,
+        "lines": 25,
+        "sha256": "6f0063383effc9a7fde91f85aea6e16e74810214798be32b06ca9bfd21430417"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "clipped-3.04.expected",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "3.04",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779584000000007",
+        "last": "14779584600000007",
+        "interval": "300000000",
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 3,
+      "records": 3,
+      "first": "14779584000000007",
+      "last": "14779584600000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 3,
+          "satellites": [
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 2,
+              "lli_bit0": 0,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 14,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 14,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1061,
+        "lines": 17,
+        "sha256": "1c15742a1af0b833b8f4e1dddd254e8fe32de0f06a4ca93dab19c2b51e942f5b"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "source-4.00",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "4.00",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779583700000007",
+        "last": "14779584900000007",
+        "interval": "300000000",
+        "declared_satellites": 3,
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "PRN / # OF OBS",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 5,
+      "records": 5,
+      "first": "14779583700000007",
+      "last": "14779584900000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 5,
+          "satellites": [
+            "G01",
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 3,
+              "lli_bit0": 1,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 20,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 20,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1499,
+        "lines": 25,
+        "sha256": "c9e5795664c813b62d9ea84b8e675a9f5c534588ea6b09056ec28002017e7573"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "clipped-4.00.expected",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "4.00",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779584000000007",
+        "last": "14779584600000007",
+        "interval": "300000000",
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 3,
+      "records": 3,
+      "first": "14779584000000007",
+      "last": "14779584600000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 3,
+          "satellites": [
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 2,
+              "lli_bit0": 0,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 14,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 14,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1061,
+        "lines": 17,
+        "sha256": "ed0185307aa8ab33e246c7ad1546cd4762c32a8c39649ae75602125b8ef315d4"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "source-4.01",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "4.01",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779583700000007",
+        "last": "14779584900000007",
+        "interval": "300000000",
+        "declared_satellites": 3,
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "PRN / # OF OBS",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 5,
+      "records": 5,
+      "first": "14779583700000007",
+      "last": "14779584900000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 5,
+          "satellites": [
+            "G01",
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 4,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 3,
+              "lli_bit0": 1,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 20,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 20,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1499,
+        "lines": 25,
+        "sha256": "4535bd4a57102223721e8f81d08a5ad09df4aae67173ffdf6b452f040d11922e"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  },
+  {
+    "name": "clipped-4.01.expected",
+    "expectedExit": 0,
+    "actualExit": 0,
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "profile": "bounded OBS structural/time checks",
+      "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+      "header": {
+        "version": "4.01",
+        "marker": "R10 project-authored window",
+        "time_system": "GPS",
+        "first": "14779584000000007",
+        "last": "14779584600000007",
+        "interval": "300000000",
+        "license": "MIT; fully synthetic, no measurements",
+        "doi": "",
+        "observation_types": {
+          "G": [
+            "C1C",
+            "L1C"
+          ]
+        },
+        "uninterpreted_labels": [
+          "COMMENT",
+          "SYS / SCALE FACTOR"
+        ]
+      },
+      "epochs": 3,
+      "records": 3,
+      "first": "14779584000000007",
+      "last": "14779584600000007",
+      "missing_epoch_slots": 0,
+      "power_failure_epochs": 1,
+      "receiver_clock_epochs": 1,
+      "systems": [
+        {
+          "system": "G",
+          "records": 3,
+          "satellites": [
+            "G02",
+            "G03"
+          ],
+          "signals": [
+            {
+              "code": "C1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 0,
+              "lli_bit0": 0,
+              "lli_bit1": 0,
+              "lli_bit2": 0
+            },
+            {
+              "code": "L1C",
+              "nonempty_fields": 2,
+              "blank_fields": 1,
+              "zero_values": 1,
+              "lli_nonzero": 2,
+              "lli_bit0": 0,
+              "lli_bit1": 1,
+              "lli_bit2": 1
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "code": "empty-epoch",
+          "line": 14,
+          "error": false,
+          "detail": "epoch contains no satellite observations"
+        },
+        {
+          "code": "power-failure",
+          "line": 14,
+          "error": false,
+          "detail": "receiver power interruption flag"
+        }
+      ],
+      "finding_counts": {
+        "empty-epoch": 1,
+        "power-failure": 1
+      },
+      "omitted_findings": 0,
+      "input": {
+        "bytes": 1061,
+        "lines": 17,
+        "sha256": "17885dc90d98c571074b3ddf894370b29e2ec8922ce9746050838b548d6c0fa5"
+      },
+      "limits": "bounded OBS subset; not full RINEX/EPN certification; no numerical positioning"
+    }
+  }
+]

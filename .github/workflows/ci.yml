@@ -69,6 +69,8 @@ jobs:
         run: node tools/test-observation-csv.mjs
       - name: Run gzip OBS ingestion and existing file recipients
         run: node tools/test-gzip-observations.mjs
+      - name: Run raw OBS time-window RINEX file clipping and recipients
+        run: node tools/test-observation-clip.mjs
       - name: Run public consumers on both backends
         run: |
           moon run examples/consumer --target js --deny-warn

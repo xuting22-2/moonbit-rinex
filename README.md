@@ -55,6 +55,7 @@ MoonBit生成长表，始终保留历元标记行（含零卫星历元），再�
 | NavTime.from_gps_ticks/calendar/week/offset_seconds | GPS日历100ns ticks，直接接收OBS整数时间；既有GPST/BDT原点、连续周及14秒转换；不是UTC |
 | NavCatalog.add/query/record | 显式容量内保存广播记录；按卫星/时刻筛选可用状态，返回来源、淘汰原因与同优先级冲突 |
 | ObservationCsvReader.feed_line/header/finish | 在既有Reader上生成含空历元标记的原值CSV，原生统计行数并保留完整输入报告 |
+| ObservationClipper.feed_line/header/finish | 按已有半开时间窗保存原始RINEX正文，完整源检查后生成适配子文件的已有首末头，移除旧可选汇总 |
 
 LegacyValue保留raw_code/mapping及原ObservationValue字段；空与0分开，不应用scale/phase/接收机钟差改正。旧码默认规则只有标准明确的系统/码组合，其他未知或多义。详见 [接口合同](docs/FORMATS-0.3.md)、pkg.generated.mbti。
 
@@ -77,6 +78,15 @@ node tools/read-extracted-epochs.mjs NEW_GZIP_DIRECTORY 1 3 --header
 ```
 
 `extractGzipObservations`使用Node标准gzip流，压缩与解压后输入分别计数/SHA，所有成员及尾部校验完成后才调用原生finish；仅选早期历元也不能略过坏尾部。`manifest.input`是解压后OBS身份/行号，`compressedInput`另记物理gzip身份；原生质量与完成仍分开，旧未压缩入口字节保持兼容。详见[gzip完整接收合同](docs/GZIP-OBSERVATIONS.md)。
+
+要把时间窗交给普通RINEX文件工具，可运行完整原值裁剪流程：
+
+```sh
+node tools/clip-observations.mjs examples/observation-clip/source.rnx NEW_CLIP_DIRECTORY 14779584000000007 14779584900000007
+node examples/consume-clipped-observations.mjs NEW_CLIP_DIRECTORY
+```
+
+`clipObservationFile`使用原生半开窗口，保留所选全部历元/卫星原文和空历元，不作额外测量改正；只校准已有首末时刻头，移除已不属于子文件的可选卫星/PRN计数，保留完整原头作来源。完整源必须合格，实际新RNX重读通过后才写合格清单；无所选历元不会制造空正文成功文件。详见[时间窗RINEX文件合同](docs/OBSERVATION-CLIP.md)。
 
 OBS文件提取在每条NDJSON完整写入后才更新输出长度/SHA；低层短写入不会被当成整条成功。写入异常保留complete=false的暂定文件，末条可能不完整；文件例程会在此停止，不能用暂定数据继续当作已完成输入查询导航。详见[原始观测文件交付约定](RAW-OBSERVATIONS.md)。
 

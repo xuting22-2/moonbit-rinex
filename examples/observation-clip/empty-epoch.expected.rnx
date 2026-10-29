@@ -1,0 +1,12 @@
+     3.05           OBSERVATION DATA    G                   RINEX VERSION / TYPE
+R10 project-authored window                                 MARKER NAME
+G    2 C1C L1C                                              SYS / # / OBS TYPES
+  2026    11     1     0     0   30.0000007     GPS         TIME OF FIRST OBS   
+  2026    11     1     0     0   30.0000007     GPS         TIME OF LAST OBS    
+    30.000                                                  INTERVAL
+     0                                                      RCV CLOCK OFFS APPL
+G   10   2 C1C L1C                                          SYS / SCALE FACTOR
+MIT; fully synthetic, no measurements                       LICENSE OF USE
+Keep stored values/flags; apply no extra corrections        COMMENT
+                                                            END OF HEADER
+> 2026 11 01 00 00 30.0000007  1  0

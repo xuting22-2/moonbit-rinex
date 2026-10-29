@@ -17,3 +17,7 @@
 `.gitattributes`为固定列 NAV/CRX、原始 RINEX、参考 JSON 和历史证据保留原始字节，避免 checkout 的换行归一化破坏既有来源散列。许可证、原始模块名 `xuting22/rinex` 和原作者来源保留；仅维护仓库地址按实际发布位置更新。
 
 CI不执行第三方 SDK、Rust、GSI 或 RTKLIB 的在线安装，也不把历史参照运行冒充本次运行。它检查已提交实现、固定样本、独立预期与实际消费者，不能认证物理轨道精度、全部 RINEX/ICD、数据源真实性、Mooncakes 发布或赛事验收。临时构建、依赖缓存和认证 helper 不属于源码提交。
+
+新独立步骤`Run restored-file delivery and physical consumers`运行`node tools/test-crinex-file-delivery.mjs`，核对两版修改前手写CRX/RNX、保存包及原CRX移走后的实际接收、恢复/OBS质量分离、截断/丢失、真实短写/EIO、输入变化、回读不匹配及重命名后元数据失败。错误清单也可能无法持久化，文件名存在不等于合格。
+
+输出预算以真实约38MiB合成CRX生成超过512MiB的原生RNX流，核对实际预算前缀长度/行数及固定基线字节身份。输入由独立Python配方生成；零值`.000`拼写是旧原生字节复制预期，数值/字段宽度和预算独立核对。成功后仅清理本次在`_build`创建的临时目录。原十二条合同脚本、原生双后端及全部公共消费者门保留。

@@ -1,0 +1,9 @@
+     2.11           OBSERVATION DATA    G                   RINEX VERSION / TYPE
+SYNTHETIC RESTORE DELIVERY                                  MARKER NAME
+MIT                                                         LICENSE OF USE
+     1    L1                                                # / TYPES OF OBSERV
+  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS
+    30.000                                                  INTERVAL
+                                                            END OF HEADER
+ 26 10 29  0  0  0.0000001  0  1G01
+        -3.250

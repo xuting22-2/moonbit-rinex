@@ -1,0 +1,419 @@
+{
+  "source": "Hand ASCII lines and Decimal integer initialization; Gregorian integer calendar; frozen before product edits",
+  "cases": {
+    "modern": {
+      "input": {
+        "bytes": 745,
+        "lines": 12,
+        "sha256": "8752ed08b4891e0f6d94cde508cea3b1ff2e6e33c75f87ea120fb0b58d6a566c"
+      },
+      "output": {
+        "bytes": 583,
+        "lines": 9,
+        "sha256": "4af483441db87ec897fb5f413fbd072dd3846a35796bee7fc8792a4d39b32f07"
+      },
+      "nativeReport": {
+        "complete": true,
+        "acceptable": true,
+        "epochs": 1,
+        "recovered_epochs": 0,
+        "findings": []
+      },
+      "gps_ticks": "14776992000000001",
+      "storedValue": 1.234,
+      "rawField": "         1.234",
+      "downstream": {
+        "satellite": "G01",
+        "code": "C1C",
+        "storedValue": 1.234,
+        "rawField": "         1.234",
+        "lli": null,
+        "ssi": null,
+        "gpsTicks": "14776992000000001"
+      }
+    },
+    "legacy": {
+      "input": {
+        "bytes": 737,
+        "lines": 12,
+        "sha256": "ca6c8bfbe2bc3c6c1e204210bbfa1c90763792d049459badcbae27bc2dbf4f95"
+      },
+      "output": {
+        "bytes": 580,
+        "lines": 9,
+        "sha256": "dff585a4646492f94f55a3f8637adf73b5af41001889d627e5ab900891e9d350"
+      },
+      "nativeReport": {
+        "complete": true,
+        "acceptable": true,
+        "epochs": 1,
+        "recovered_epochs": 0,
+        "findings": []
+      },
+      "gps_ticks": "14776992000000001",
+      "storedValue": -3.25,
+      "rawField": "        -3.250",
+      "downstream": {
+        "satellite": "G01",
+        "rawCode": "L1",
+        "storedValue": -3.25,
+        "rawField": "        -3.250",
+        "lliFieldPresent": true,
+        "ssiFieldPresent": true,
+        "gpsTicks": "14776992000000001",
+        "mapping": "Preserve native ambiguous mapping; do not invent a tracking-code identity",
+        "lli": null,
+        "ssi": null,
+        "receiverClockFieldPresent": false
+      }
+    },
+    "late": {
+      "input": {
+        "bytes": 790,
+        "lines": 13,
+        "sha256": "27a5c7c5d0a954678fdf50fd503283b3eec868bed9361b572788ed4f1736c7de"
+      },
+      "output": {
+        "bytes": 583,
+        "lines": 9,
+        "sha256": "4af483441db87ec897fb5f413fbd072dd3846a35796bee7fc8792a4d39b32f07"
+      },
+      "failure": {
+        "code": "crx-truncated",
+        "line": 13,
+        "qualified": false,
+        "oldCliExit": 1
+      }
+    },
+    "loss": {
+      "input": {
+        "bytes": 854,
+        "lines": 18,
+        "sha256": "e1e3278004c71aa23e9419af42304a56e0968cb154e6ef17c9372183a6caaace"
+      },
+      "output": {
+        "bytes": 637,
+        "lines": 11,
+        "sha256": "b4d0babccc1e81cad7f915bb7575ae7610e9cf12f09f09a3905116ec88a88ffb"
+      },
+      "nativeReport": {
+        "complete": false,
+        "acceptable": false,
+        "epochs": 2,
+        "recovered_epochs": 1,
+        "findingCode": "crx-unsynchronized",
+        "findingLine": 15
+      },
+      "oldCliExit": 2
+    },
+    "quality": {
+      "input": {
+        "bytes": 821,
+        "lines": 13,
+        "sha256": "b379140f35f6d9b568ed4d5b0ace98fd59107cb301c3454425dc2a4973f01964"
+      },
+      "output": {
+        "bytes": 659,
+        "lines": 10,
+        "sha256": "3cd51aea58c338396bd0a0e00c33500be222f3262cc89ebff43626f370ca038a"
+      },
+      "nativeReport": {
+        "complete": true,
+        "acceptable": true,
+        "epochs": 1,
+        "recovered_epochs": 0,
+        "findings": []
+      },
+      "downstream": {
+        "complete": true,
+        "acceptable": false,
+        "findingCode": "header-satellite-total",
+        "consumerCliExit": 2
+      }
+    }
+  },
+  "failureContracts": {
+    "late": "No qualified manifest; prior RNX prefix provisional",
+    "loss": "Native false flags/findings unchanged; .part only",
+    "short": "Exact full output despite positive short writes",
+    "EIO": "Actual prefix readback identity or explicit unknown",
+    "inputMutation": "Fail before qualified publish",
+    "readbackMismatch": "Fail before qualified publish",
+    "postRenameMetadataFailure": "Renamed RNX may remain; only final complete manifest qualifies",
+    "metadataFailureCannotPersist": "Absent complete manifest is failure"
+  },
+  "compatibility": "Old formats stdout/stderr/default return shape will be captured on this base after the independent expectations are frozen",
+  "hand": {
+    "status": "Written here before implementation; neither candidate fixtures nor product were executed",
+    "representation": "Arrays below mean exact ASCII lines joined by LF with a final LF. Empty strings are actual blank clock lines.",
+    "gpsCalendarTicks": "14776992000000001",
+    "timeDerivation": "Hand integer Gregorian calendar offset from 1980-01-01 to 2026-10-29 00:00:00 plus one 100ns tick; this is the existing GPST calendar coordinate, not GPS-week zero or UTC.",
+    "modern": {
+      "inputLines": [
+        "3.0                 COMPACT RINEX FORMAT                    CRINEX VERS   / TYPE",
+        "PROJECT AUTHORED HAND EXPECTATION                           CRINEX PROG / DATE",
+        "     3.04           OBSERVATION DATA    G                   RINEX VERSION / TYPE",
+        "SYNTHETIC RESTORE DELIVERY                                  MARKER NAME",
+        "MIT                                                         LICENSE OF USE",
+        "G    1 C1C                                                  SYS / # / OBS TYPES",
+        "  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS",
+        "    30.000                                                  INTERVAL",
+        "                                                            END OF HEADER",
+        "> 2026 10 29 00 00  0.0000001  0  1      G01",
+        "",
+        "0&1234 &&"
+      ],
+      "expectedRinexLines": [
+        "     3.04           OBSERVATION DATA    G                   RINEX VERSION / TYPE",
+        "SYNTHETIC RESTORE DELIVERY                                  MARKER NAME",
+        "MIT                                                         LICENSE OF USE",
+        "G    1 C1C                                                  SYS / # / OBS TYPES",
+        "  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS",
+        "    30.000                                                  INTERVAL",
+        "                                                            END OF HEADER",
+        "> 2026 10 29 00 00  0.0000001  0  1",
+        "G01         1.234"
+      ],
+      "nativeReport": {
+        "complete": true,
+        "acceptable": true,
+        "epochs": 1,
+        "recovered_epochs": 0,
+        "findings": []
+      },
+      "downstream": {
+        "satellite": "G01",
+        "code": "C1C",
+        "storedValue": 1.234,
+        "rawField": "         1.234",
+        "lli": null,
+        "ssi": null,
+        "gpsTicks": "14776992000000001"
+      },
+      "note": "A 0th-order 1234 stored integer in the existing 1e-3 observation unit gives literal 1.234; no product-generated numeric oracle."
+    },
+    "legacy": {
+      "inputLines": [
+        "1.0                 COMPACT RINEX FORMAT                    CRINEX VERS   / TYPE",
+        "PROJECT AUTHORED HAND EXPECTATION                           CRINEX PROG / DATE",
+        "     2.11           OBSERVATION DATA    G                   RINEX VERSION / TYPE",
+        "SYNTHETIC RESTORE DELIVERY                                  MARKER NAME",
+        "MIT                                                         LICENSE OF USE",
+        "     1    L1                                                # / TYPES OF OBSERV",
+        "  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS",
+        "    30.000                                                  INTERVAL",
+        "                                                            END OF HEADER",
+        "&26 10 29  0  0  0.0000001  0  1G01",
+        "",
+        "0&-3250 &&"
+      ],
+      "expectedRinexLines": [
+        "     2.11           OBSERVATION DATA    G                   RINEX VERSION / TYPE",
+        "SYNTHETIC RESTORE DELIVERY                                  MARKER NAME",
+        "MIT                                                         LICENSE OF USE",
+        "     1    L1                                                # / TYPES OF OBSERV",
+        "  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS",
+        "    30.000                                                  INTERVAL",
+        "                                                            END OF HEADER",
+        " 26 10 29  0  0  0.0000001  0  1G01",
+        "        -3.250"
+      ],
+      "nativeReport": {
+        "complete": true,
+        "acceptable": true,
+        "epochs": 1,
+        "recovered_epochs": 0,
+        "findings": []
+      },
+      "downstream": {
+        "satellite": "G01",
+        "rawCode": "L1",
+        "storedValue": -3.25,
+        "rawField": "        -3.250",
+        "lliFieldPresent": true,
+        "ssiFieldPresent": true,
+        "gpsTicks": "14776992000000001",
+        "mapping": "Preserve native ambiguous mapping; do not invent a tracking-code identity",
+        "lli": null,
+        "ssi": null,
+        "receiverClockFieldPresent": false
+      },
+      "note": "LegacyEpoch omits an absent receiver_clock under its derived serializer. Nested ObservationValue uses its explicit ToJson and retains lli/ssi as JSON null; neither wire convention is changed."
+    },
+    "lateTruncation": "Extend either handwritten stream with a later initialized descriptor but omit its clock/observation tail. The earlier valid RNX prefix may exist only as .part; native finish fails and no complete delivery or downstream result is allowed.",
+    "recoveryLoss": "Three initialized modern epochs: first valid, second has an invalid observation token at a known boundary, third fully reinitializes. With recover=true expect native complete=false, acceptable=false, epochs=2, recovered_epochs=1 and the original crx-unsynchronized error finding; no qualified publication.",
+    "ioIdentity": "Successful short writes must reconstruct the exact handwritten LF output. A partial write followed by injected EIO, input mutation, output readback mismatch or output budget exhaustion cannot produce a complete receipt; byte identities are actual or unknown.",
+    "futureFreeze": "Before implementing, freeze full handwritten CRX/RNX files and standard-library hashes. Preserve any malformed authored fixture separately; never derive expected values/format from a new product run or loosen expectations."
+  },
+  "budget": {
+    "kind": "Independent byte-count/prefix formula plus frozen unchanged-base canonical wire SHA, not a new-decoder numerical oracle",
+    "input": {
+      "file": "budget.crx",
+      "bytes": 37873269,
+      "sha256": "4dcc93d67d27068254b3813f180f78c68c10a4798047f9ee5d50d95a2bad2011"
+    },
+    "epochs": 13100,
+    "satellites": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06",
+      "G07",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13",
+      "G14",
+      "G15",
+      "G16",
+      "G17",
+      "G18",
+      "G19",
+      "G20",
+      "G21",
+      "G22",
+      "G23",
+      "G24",
+      "G25",
+      "G26",
+      "G27",
+      "G28",
+      "G29",
+      "G30",
+      "G31",
+      "G32"
+    ],
+    "types": [
+      "C1C",
+      "L1C",
+      "D1C",
+      "S1C",
+      "C1S",
+      "L1S",
+      "D1S",
+      "S1S",
+      "C1L",
+      "L1L",
+      "D1L",
+      "S1L",
+      "C1X",
+      "L1X",
+      "D1X",
+      "S1X",
+      "C1P",
+      "L1P",
+      "D1P",
+      "S1P",
+      "C1W",
+      "L1W",
+      "D1W",
+      "S1W",
+      "C1Y",
+      "L1Y",
+      "D1Y",
+      "S1Y",
+      "C1M",
+      "L1M",
+      "D1M",
+      "S1M",
+      "C2C",
+      "L2C",
+      "D2C",
+      "S2C",
+      "C2D",
+      "L2D",
+      "D2D",
+      "S2D",
+      "C2S",
+      "L2S",
+      "D2S",
+      "S2S",
+      "C2L",
+      "L2L",
+      "D2L",
+      "S2L",
+      "C2X",
+      "L2X",
+      "D2X",
+      "S2X",
+      "C2P",
+      "L2P",
+      "D2P",
+      "S2P",
+      "C2W",
+      "L2W",
+      "D2W",
+      "S2W",
+      "C2Y",
+      "L2Y",
+      "D2Y",
+      "S2Y",
+      "C2M",
+      "L2M",
+      "D2M",
+      "S2M",
+      "C5I",
+      "L5I",
+      "D5I",
+      "S5I",
+      "C5Q",
+      "L5Q",
+      "D5Q",
+      "S5Q",
+      "C5X",
+      "L5X",
+      "D5X",
+      "S5X"
+    ],
+    "outputLimit": 536870912,
+    "fullDecodedBytes": 537887009,
+    "fullDecodedSha256": "ae375cf1010609ed8490cbf746a241f14d6f6601738e504974b45d8bff88b3bc",
+    "committedPrefix": {
+      "bytes": 536870801,
+      "lines": 431497,
+      "sha256": "261c1d2b8dc26eb89858ef46b3f9064157c19ef00b997607475f9cc17061b8c9"
+    },
+    "crossing": {
+      "nextLineBytes": 1282,
+      "nextLineNumber": 431498
+    },
+    "baseWireZeroField": "          .000",
+    "independentNumericValue": "0",
+    "fieldWidth": 14,
+    "unchangedOriginalInput": true,
+    "initialHandWireAssumptionRetained": "D:\\CodexLocal\\ban\\work\\publish-ci13-20261029\\rinex\\reports\\round-06-r01\\prepared\\budget-prefix.rnx",
+    "frozenBaseWire": "D:\\CodexLocal\\ban\\work\\publish-ci13-20261029\\rinex\\reports\\round-06-r01\\baseline\\budget-prefix.stdout",
+    "wireEvidence": "Zero is the fixed accepted-base .000 spelling, independently verified as Decimal zero in a 14-byte field. Budget byte counts remain independent; SHA is a frozen base-wire copy oracle, not a new decoder oracle."
+  },
+  "baseCLICompatibility": {
+    "modern": {
+      "stdout": "     3.04           OBSERVATION DATA    G                   RINEX VERSION / TYPE\nSYNTHETIC RESTORE DELIVERY                                  MARKER NAME\nMIT                                                         LICENSE OF USE\nG    1 C1C                                                  SYS / # / OBS TYPES\n  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS\n    30.000                                                  INTERVAL\n                                                            END OF HEADER\n> 2026 10 29 00 00  0.0000001  0  1\nG01         1.234\n",
+      "stderr": "{\"mode\":\"crx\",\"lines\":12,\"bytes\":745,\"complete\":true,\"acceptable\":true,\"epochs\":1,\"recovered_epochs\":0,\"findings\":[]}\n",
+      "exit": 0
+    },
+    "legacy": {
+      "stdout": "     2.11           OBSERVATION DATA    G                   RINEX VERSION / TYPE\nSYNTHETIC RESTORE DELIVERY                                  MARKER NAME\nMIT                                                         LICENSE OF USE\n     1    L1                                                # / TYPES OF OBSERV\n  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS\n    30.000                                                  INTERVAL\n                                                            END OF HEADER\n 26 10 29  0  0  0.0000001  0  1G01\n        -3.250\n",
+      "stderr": "{\"mode\":\"crx\",\"lines\":12,\"bytes\":737,\"complete\":true,\"acceptable\":true,\"epochs\":1,\"recovered_epochs\":0,\"findings\":[]}\n",
+      "exit": 0
+    },
+    "late": {
+      "stdout": "     3.04           OBSERVATION DATA    G                   RINEX VERSION / TYPE\nSYNTHETIC RESTORE DELIVERY                                  MARKER NAME\nMIT                                                         LICENSE OF USE\nG    1 C1C                                                  SYS / # / OBS TYPES\n  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS\n    30.000                                                  INTERVAL\n                                                            END OF HEADER\n> 2026 10 29 00 00  0.0000001  0  1\nG01         1.234\n",
+      "stderr": "{\"complete\":false,\"acceptable\":false,\"error\":\"Rejected(\\\"crx-truncated\\\", 13, \\\"incomplete header/epoch/clock/event\\\")\"}\n",
+      "exit": 1
+    },
+    "loss": {
+      "stdout": "     3.04           OBSERVATION DATA    G                   RINEX VERSION / TYPE\nSYNTHETIC RESTORE DELIVERY                                  MARKER NAME\nMIT                                                         LICENSE OF USE\nG    1 C1C                                                  SYS / # / OBS TYPES\n  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS\n    30.000                                                  INTERVAL\n                                                            END OF HEADER\n> 2026 10 29 00 00  0.0000001  0  1\nG01         1.234\n> 2026 10 29 00 01  0.0000001  0  1\nG01         3.250\n",
+      "stderr": "{\"mode\":\"crx\",\"lines\":18,\"bytes\":854,\"complete\":false,\"acceptable\":false,\"epochs\":2,\"recovered_epochs\":1,\"findings\":[{\"code\":\"crx-unsynchronized\",\"line\":15,\"error\":true,\"detail\":\"crx-uninitialized:numeric arc needs n&value\"}]}\n",
+      "exit": 2
+    },
+    "quality": {
+      "stdout": "     3.04           OBSERVATION DATA    G                   RINEX VERSION / TYPE\nSYNTHETIC RESTORE DELIVERY                                  MARKER NAME\nMIT                                                         LICENSE OF USE\nG    1 C1C                                                  SYS / # / OBS TYPES\n  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS\n    30.000                                                  INTERVAL\n     2                                                      # OF SATELLITES\n                                                            END OF HEADER\n> 2026 10 29 00 00  0.0000001  0  1\nG01         1.234\n",
+      "stderr": "{\"mode\":\"crx\",\"lines\":13,\"bytes\":821,\"complete\":true,\"acceptable\":true,\"epochs\":1,\"recovered_epochs\":0,\"findings\":[]}\n",
+      "exit": 0
+    }
+  }
+}

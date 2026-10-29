@@ -61,6 +61,8 @@ jobs:
           node tools/test-read-extracted-epochs.mjs
           node tools/test-extracted-header.mjs
           node tools/test-saved-empty-epoch-chain.mjs
+      - name: Run restored-file delivery and physical consumers
+        run: node tools/test-crinex-file-delivery.mjs
       - name: Run public consumers on both backends
         run: |
           moon run examples/consumer --target js --deny-warn

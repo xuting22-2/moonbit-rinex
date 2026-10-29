@@ -24,6 +24,15 @@ node examples/nav-query-batch.mjs
 ```
 crx的stdout为普通RNX，legacy/nav为NDJSON，stderr为完成回执。退出0成功、1解析/不支持/IO失败、2恢复中有丢失。提前stdout均须等待finish成功。NAV示例输出toe及±1800秒；库API可评价其他有效时刻。
 
+需要可保存并重新打开的恢复文件时，可使用有界文件交付入口：
+
+```sh
+node tools/restore-crinex.mjs examples/restoration/modern.crx NEW_RESTORED_DIRECTORY
+node examples/consume-restored-file.mjs NEW_RESTORED_DIRECTORY --consumer modern-check
+```
+
+`restoreCrinexFile` API/CLI保存原生RNX、原样恢复报告及输入/实际输出身份。**最终complete清单才是资格标记**；RNX重命名后元数据失败仍可能留下未合格文件。原CRX移走后，显式legacy或modern-check接收方会用本次实际读取的SHA核对再交付结果，恢复成功与OBS质量分开。详见[恢复文件交付合同](docs/RESTORED-FILE-DELIVERY.md)；原同步暂定stdout流程不变。
+
 ## 公共接口与范围
 | 接口 | 本期能力 |
 |---|---|

@@ -1,11 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
+import {createHash} from 'node:crypto';
 import * as api from '../_build/js/release/build/cmd/bridge/bridge.js';
 
 // Only bounded byte/line IO is performed here. All format states and numbers
 // are interpreted by MoonBit. Output remains provisional until finish succeeds.
 export async function consumeFormats(mode,file,emit,options={}){
+ const identity=options.includeInputIdentity===true,hash=identity?createHash('sha256'):null;
  const handle=await fs.promises.open(file,'r');
  const before=await handle.stat();
  if(!before.isFile()||before.size>536870912){await handle.close();throw Error('regular input <=512MiB required');}
@@ -27,7 +29,7 @@ export async function consumeFormats(mode,file,emit,options={}){
  };
  try{
   for await(const chunk of handle.createReadStream({highWaterMark:65536,autoClose:false})){
-   bytes+=chunk.length;if(bytes>536870912)throw Error('input limit');
+   bytes+=chunk.length;if(bytes>536870912)throw Error('input limit');if(hash)hash.update(chunk);
    const data=pending.length?Buffer.concat([pending,chunk]):chunk;let at=0;
    for(let i=0;i<data.length;i++)if(data[i]===10){feed(data.subarray(at,i),true);at=i+1;}
    pending=Buffer.from(data.subarray(at));if(pending.length>8193)throw Error('line limit');
@@ -35,8 +37,11 @@ export async function consumeFormats(mode,file,emit,options={}){
   if(pending.length)feed(pending,false);
   const after=await handle.stat();
   if(before.size!==after.size||before.mtimeMs!==after.mtimeMs||bytes!==before.size)throw Error('input changed');
-  const report=JSON.parse(mode==='crx'?api.crx_finish(state):mode==='legacy'?api.legacy_finish(state):api.nav_finish(state));
-  return {mode,lines,bytes,...report};
+  const input=hash?{bytes,lines,sha256:hash.digest('hex')}:null;
+  let report;
+  try{report=JSON.parse(mode==='crx'?api.crx_finish(state):mode==='legacy'?api.legacy_finish(state):api.nav_finish(state));}
+  catch(error){if(identity){error.verifiedInput=input;error.inputReadComplete=true;}throw error;}
+  return {mode,lines,bytes,...report,...(identity?{input}:{} )};
  }finally{await handle.close();}
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){

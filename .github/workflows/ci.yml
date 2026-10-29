@@ -65,6 +65,8 @@ jobs:
         run: node tools/test-crinex-file-delivery.mjs "$RUNNER_TEMP/rinex-restored-file" --skip-output-budget
       - name: Run selected NAV source and physical replay consumer
         run: node tools/test-nav-source-replay.mjs
+      - name: Run raw OBS CSV export and Decimal file recipient
+        run: node tools/test-observation-csv.mjs
       - name: Run public consumers on both backends
         run: |
           moon run examples/consumer --target js --deny-warn

@@ -1,0 +1,19 @@
+     3.05           OBSERVATION DATA    M                   RINEX VERSION / TYPE
+CSV "raw", station                                          MARKER NAME
+G    2 C1C L1C                                              SYS / # / OBS TYPES
+R    2 C1C L1C                                              SYS / # / OBS TYPES
+  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS
+  2026    10    29     0     1   30.0000001     GPS         TIME OF LAST OBS
+    30.000                                                  INTERVAL
+     0                                                      RCV CLOCK OFFS APPL
+MIT; fully synthetic OBS table fixture                      LICENSE OF USE
+R08 self-authored; no measurements or corrections           COMMENT
+                                                            END OF HEADER
+> 2026 10 29 00 00 00.0000001  0  2
+G01           nan 0       -12.25017
+R02              09     1.250D+0220
+> 2026 10 29 00 00 30.0000001  0  1          0.000000001
+G01         3.50009
+> 2026 10 29 00 01 00.0000001  1  0
+> 2026 10 29 00 01 30.0000001  0  1
+G12     1.000E-0300        -0.00046

@@ -23,3 +23,5 @@ CI不执行第三方 SDK、Rust、GSI 或 RTKLIB 的在线安装，也不把历�
 输出预算曾以真实约38MiB合成CRX生成超过512MiB的原生RNX流，核对实际预算前缀长度/行数及固定基线字节身份。输入由独立Python配方生成；零值`.000`拼写是旧原生字节复制预期，数值/字段宽度和预算独立核对。按本轮明确限制，当前CI以`NEW_DIRECTORY --skip-output-budget`运行其余15项，沿用R06-r01提交a1bff90c7a7251b69b078cdc4438ff535540ed2c、run40795883416的预算通过证据；不声称本轮重跑该大样本。省略选择参数仍运行原完整16项。原十二条合同脚本、原生双后端及全部公共消费者门保留。
 
 新增必要步骤`Run selected NAV source and physical replay consumer`运行`node tools/test-nav-source-replay.mjs`。冻结的自编NAV2/3原始头/八行预期和既有独立RTKLIB状态参照，核对原始选择与真实子文件接收；覆盖GPS/BDS显式轨道和GPST/BDT、等价记录的最早词法来源、冲突无来源、跳过后的物理行号、CRLF/无末LF、晚截断/容量失败、独占输出、原生完成门与旧默认完整JSON字节。双后端原生测试另核对公开来源快照的数组所有权。自编接收方不等于第三方采纳，原始换行字节与数据真实性不在结论内。
+
+R08新增`Run raw OBS CSV export and Decimal file recipient`，运行`node tools/test-observation-csv.mjs`。原始OBS/完整CSV/Decimal预期先于实现冻结，真实Python进程重读CSV后核对精确tick文本、逐槽原文、空历元、原生质量与完整性。另用1024历元的小样本跨宿主读取块，无末LF，并核对全部CSV字节；不重跑512MiB样本或旧科学参照生成器。原双后端与既有必要门保留。当前执行计划和本地复现见根CI-PLAN.md；是否通过仍以相同最终提交的真实run/job/step为准。

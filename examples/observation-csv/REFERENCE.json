@@ -1,0 +1,452 @@
+{
+  "source": "Self-authored fixed columns; Python csv.writer/Decimal/integer datetime before product implementation",
+  "columns": [
+    "row_kind",
+    "epoch_index",
+    "gps_ticks",
+    "epoch_flag",
+    "source_line",
+    "satellite",
+    "observation_code",
+    "source_column",
+    "raw_field",
+    "value_text",
+    "lli",
+    "ssi",
+    "receiver_clock_raw"
+  ],
+  "input": {
+    "bytes": 1127,
+    "sha256": "c8aa6c64b17da4be9c66476dbd936f5e5c14e0374649f1c1f62725b59ca944f0"
+  },
+  "header_lines": [
+    "     3.05           OBSERVATION DATA    M                   RINEX VERSION / TYPE",
+    "CSV \"raw\", station                                          MARKER NAME",
+    "G    2 C1C L1C                                              SYS / # / OBS TYPES",
+    "R    2 C1C L1C                                              SYS / # / OBS TYPES",
+    "  2026    10    29     0     0    0.0000001     GPS         TIME OF FIRST OBS",
+    "  2026    10    29     0     1   30.0000001     GPS         TIME OF LAST OBS",
+    "    30.000                                                  INTERVAL",
+    "     0                                                      RCV CLOCK OFFS APPL",
+    "MIT; fully synthetic OBS table fixture                      LICENSE OF USE",
+    "R08 self-authored; no measurements or corrections           COMMENT",
+    "                                                            END OF HEADER"
+  ],
+  "epochs": [
+    {
+      "gps_ticks": "14776992000000001",
+      "flag": 0,
+      "line": 12,
+      "raw_record": "> 2026 10 29 00 00 00.0000001  0  2",
+      "receiver_clock_raw": "",
+      "satellites": [
+        {
+          "satellite": "G01",
+          "line": 13,
+          "raw_record": "G01         0.000 0       -12.25017",
+          "observations": [
+            {
+              "code": "C1C",
+              "column": 4,
+              "raw_field": "         0.000 0",
+              "value_text": "0.000",
+              "lli": "",
+              "ssi": "0"
+            },
+            {
+              "code": "L1C",
+              "column": 20,
+              "raw_field": "       -12.25017",
+              "value_text": "-12.250",
+              "lli": "1",
+              "ssi": "7"
+            }
+          ]
+        },
+        {
+          "satellite": "R02",
+          "line": 14,
+          "raw_record": "R02              09     1.250D+0220",
+          "observations": [
+            {
+              "code": "C1C",
+              "column": 4,
+              "raw_field": "              09",
+              "value_text": "",
+              "lli": "0",
+              "ssi": "9"
+            },
+            {
+              "code": "L1C",
+              "column": 20,
+              "raw_field": "     1.250D+0220",
+              "value_text": "1.250D+02",
+              "lli": "2",
+              "ssi": "0"
+            }
+          ]
+        }
+      ],
+      "end_line": 14
+    },
+    {
+      "gps_ticks": "14776992300000001",
+      "flag": 0,
+      "line": 15,
+      "raw_record": "> 2026 10 29 00 00 30.0000001  0  1          0.000000001",
+      "receiver_clock_raw": "    0.000000001",
+      "satellites": [
+        {
+          "satellite": "G01",
+          "line": 16,
+          "raw_record": "G01         3.50009",
+          "observations": [
+            {
+              "code": "C1C",
+              "column": 4,
+              "raw_field": "         3.50009",
+              "value_text": "3.500",
+              "lli": "0",
+              "ssi": "9"
+            },
+            {
+              "code": "L1C",
+              "column": 20,
+              "raw_field": "",
+              "value_text": "",
+              "lli": "",
+              "ssi": ""
+            }
+          ]
+        }
+      ],
+      "end_line": 16
+    },
+    {
+      "gps_ticks": "14776992600000001",
+      "flag": 1,
+      "line": 17,
+      "raw_record": "> 2026 10 29 00 01 00.0000001  1  0",
+      "receiver_clock_raw": "",
+      "satellites": [],
+      "end_line": 17
+    },
+    {
+      "gps_ticks": "14776992900000001",
+      "flag": 0,
+      "line": 18,
+      "raw_record": "> 2026 10 29 00 01 30.0000001  0  1",
+      "receiver_clock_raw": "",
+      "satellites": [
+        {
+          "satellite": "G12",
+          "line": 19,
+          "raw_record": "G12     1.000E-0300        -0.00046",
+          "observations": [
+            {
+              "code": "C1C",
+              "column": 4,
+              "raw_field": "     1.000E-0300",
+              "value_text": "1.000E-03",
+              "lli": "0",
+              "ssi": "0"
+            },
+            {
+              "code": "L1C",
+              "column": 20,
+              "raw_field": "        -0.00046",
+              "value_text": "-0.000",
+              "lli": "4",
+              "ssi": "6"
+            }
+          ]
+        }
+      ],
+      "end_line": 19
+    }
+  ],
+  "csv_rows": [
+    [
+      "epoch",
+      "1",
+      "14776992000000001",
+      "0",
+      "12",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "observation",
+      "1",
+      "14776992000000001",
+      "0",
+      "13",
+      "G01",
+      "C1C",
+      "4",
+      "         0.000 0",
+      "0.000",
+      "",
+      "0",
+      ""
+    ],
+    [
+      "observation",
+      "1",
+      "14776992000000001",
+      "0",
+      "13",
+      "G01",
+      "L1C",
+      "20",
+      "       -12.25017",
+      "-12.250",
+      "1",
+      "7",
+      ""
+    ],
+    [
+      "observation",
+      "1",
+      "14776992000000001",
+      "0",
+      "14",
+      "R02",
+      "C1C",
+      "4",
+      "              09",
+      "",
+      "0",
+      "9",
+      ""
+    ],
+    [
+      "observation",
+      "1",
+      "14776992000000001",
+      "0",
+      "14",
+      "R02",
+      "L1C",
+      "20",
+      "     1.250D+0220",
+      "1.250D+02",
+      "2",
+      "0",
+      ""
+    ],
+    [
+      "epoch",
+      "2",
+      "14776992300000001",
+      "0",
+      "15",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "    0.000000001"
+    ],
+    [
+      "observation",
+      "2",
+      "14776992300000001",
+      "0",
+      "16",
+      "G01",
+      "C1C",
+      "4",
+      "         3.50009",
+      "3.500",
+      "0",
+      "9",
+      ""
+    ],
+    [
+      "observation",
+      "2",
+      "14776992300000001",
+      "0",
+      "16",
+      "G01",
+      "L1C",
+      "20",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "epoch",
+      "3",
+      "14776992600000001",
+      "1",
+      "17",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "epoch",
+      "4",
+      "14776992900000001",
+      "0",
+      "18",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "observation",
+      "4",
+      "14776992900000001",
+      "0",
+      "19",
+      "G12",
+      "C1C",
+      "4",
+      "     1.000E-0300",
+      "1.000E-03",
+      "0",
+      "0",
+      ""
+    ],
+    [
+      "observation",
+      "4",
+      "14776992900000001",
+      "0",
+      "19",
+      "G12",
+      "L1C",
+      "20",
+      "        -0.00046",
+      "-0.000",
+      "4",
+      "6",
+      ""
+    ]
+  ],
+  "expected_csv": {
+    "bytes": 1238,
+    "sha256": "d01754f17eda8c00a8f49d379c9fccc06410ee84b15f7cbd42466c155c0ba63a"
+  },
+  "nativeSummary": {
+    "epochs": 4,
+    "satellite_records": 4,
+    "observation_rows": 8,
+    "rows": 12
+  },
+  "expectedConsumer": {
+    "complete": true,
+    "inputAcceptable": true,
+    "epochs": 4,
+    "satellite_records": 4,
+    "observation_rows": 8,
+    "empty_epochs": 1,
+    "first_gps_ticks": "14776992000000001",
+    "last_gps_ticks": "14776992900000001",
+    "groups": [
+      {
+        "satellite": "G01",
+        "code": "C1C",
+        "rows": 2,
+        "blank_values": 0,
+        "zero_values": 1,
+        "lli_nonzero": 0,
+        "sum_stored_raw": "3.500"
+      },
+      {
+        "satellite": "G01",
+        "code": "L1C",
+        "rows": 2,
+        "blank_values": 1,
+        "zero_values": 0,
+        "lli_nonzero": 1,
+        "sum_stored_raw": "-12.250"
+      },
+      {
+        "satellite": "G12",
+        "code": "C1C",
+        "rows": 1,
+        "blank_values": 0,
+        "zero_values": 0,
+        "lli_nonzero": 0,
+        "sum_stored_raw": "0.001000"
+      },
+      {
+        "satellite": "G12",
+        "code": "L1C",
+        "rows": 1,
+        "blank_values": 0,
+        "zero_values": 1,
+        "lli_nonzero": 1,
+        "sum_stored_raw": "0.000"
+      },
+      {
+        "satellite": "R02",
+        "code": "C1C",
+        "rows": 1,
+        "blank_values": 1,
+        "zero_values": 0,
+        "lli_nonzero": 0,
+        "sum_stored_raw": "0"
+      },
+      {
+        "satellite": "R02",
+        "code": "L1C",
+        "rows": 1,
+        "blank_values": 0,
+        "zero_values": 0,
+        "lli_nonzero": 1,
+        "sum_stored_raw": "125.0"
+      }
+    ]
+  },
+  "nativeQuality": {
+    "complete": true,
+    "acceptable": true,
+    "epochs": 4,
+    "records": 4,
+    "finding_counts": {
+      "empty-epoch": 1,
+      "power-failure": 1
+    }
+  },
+  "qualityCase": {
+    "complete": true,
+    "acceptable": false,
+    "additionalFinding": "header-last"
+  },
+  "volume": {
+    "epochs": 1024,
+    "satellite_records": 1024,
+    "observation_rows": 2048,
+    "rows": 3072,
+    "expected_csv": {
+      "bytes": 285024,
+      "sha256": "6b4ff3fc7fd69a964af1a56248e020eddf7ee8692b04386bf52eec29ff76dfb8"
+    }
+  },
+  "semantics": "All declared slots including blank/zero, absent terminal slots stay absent raw_field, original D/E/-0 spelling and 100ns ticks remain strings; no corrections or usability inference"
+}

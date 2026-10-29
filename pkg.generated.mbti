@@ -8,6 +8,8 @@ import {
 // Values
 pub fn map_legacy_code(String, String, overrides? : Map[String, String]) -> CodeMapping raise CheckError
 
+pub fn observation_csv_columns() -> String
+
 // Errors
 pub suberror CatalogError {
   InvalidCatalogInput(String)
@@ -303,6 +305,24 @@ pub fn NavTime::offset_seconds(Self, Int) -> Self raise NavError
 pub fn NavTime::to_json(Self) -> Json
 pub fn NavTime::to_repr(Self) -> @debug.Repr
 pub fn NavTime::week(Int, Double, bdt? : Bool) -> Self raise NavError
+
+pub struct ObservationCsvReader {
+  // private fields
+}
+pub fn ObservationCsvReader::feed_line(Self, String) -> Array[String] raise CheckError
+pub fn ObservationCsvReader::finish(Self) -> ObservationCsvReport raise CheckError
+pub fn ObservationCsvReader::header(Self) -> ObservationHeader?
+pub fn ObservationCsvReader::new() -> Self raise CheckError
+
+pub struct ObservationCsvReport {
+  input_report : Report
+  epochs : Int
+  satellite_records : Int
+  observation_rows : Int
+  rows : Int
+} derive(ToJson, @debug.Debug)
+pub fn ObservationCsvReport::to_json(Self) -> Json
+pub fn ObservationCsvReport::to_repr(Self) -> @debug.Repr
 
 pub struct ObservationEpoch {
   gps_ticks : Int64

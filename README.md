@@ -34,6 +34,16 @@ node examples/consume-restored-file.mjs NEW_RESTORED_DIRECTORY --consumer modern
 `restoreCrinexFile` API/CLI保存原生RNX、原样恢复报告及输入/实际输出身份。**最终complete清单才是资格标记**；RNX重命名后元数据失败仍可能留下未合格文件。原CRX移走后，显式legacy或modern-check接收方会用本次实际读取的SHA核对再交付结果，恢复成功与OBS质量分开。详见[恢复文件交付合同](docs/RESTORED-FILE-DELIVERY.md)；原同步暂定stdout流程不变。
 
 ## 公共接口与范围
+
+需要交给CSV分析工具时，可直接导出现有范围的现代OBS：
+
+```sh
+node tools/export-observation-csv.mjs examples/observation-csv/raw-obs.rnx NEW_TABLE_DIRECTORY
+python examples/read-observation-csv.py NEW_TABLE_DIRECTORY
+```
+
+MoonBit生成长表，始终保留历元标记行（含零卫星历元），再按源顺序保存每个声明槽；`value_text`和`raw_field`保留D/E、负零、末尾省略与LLI/SSI，未作缩放/相位/钟差改正。`gps_ticks`为精确字符串，表格软件导入时须指定文本。导出完成与原生质量分开；Python接收方实际读取CSV及其同次SHA后才交付逐星/码原值统计。详见[CSV完整合同](docs/OBSERVATION-CSV.md)，不宣称与其他CSV工具同schema或物理测量可用性。
+
 | 接口 | 本期能力 |
 |---|---|
 | 旧Reader/Checker | 原3.03/3.04/3.05/4.00/4.01 OBS、GPS时标、flag0/1；旧API保留 |
@@ -44,6 +54,7 @@ node examples/consume-restored-file.mjs NEW_RESTORED_DIRECTORY --consumer modern
 | NavRecord.satellite_position | GPS/BDS MEO/IGSO/GEO，米坐标、含相对论钟差秒，另返未应用的TGD，框架WGS84/CGCS2000 |
 | NavTime.from_gps_ticks/calendar/week/offset_seconds | GPS日历100ns ticks，直接接收OBS整数时间；既有GPST/BDT原点、连续周及14秒转换；不是UTC |
 | NavCatalog.add/query/record | 显式容量内保存广播记录；按卫星/时刻筛选可用状态，返回来源、淘汰原因与同优先级冲突 |
+| ObservationCsvReader.feed_line/header/finish | 在既有Reader上生成含空历元标记的原值CSV，原生统计行数并保留完整输入报告 |
 
 LegacyValue保留raw_code/mapping及原ObservationValue字段；空与0分开，不应用scale/phase/接收机钟差改正。旧码默认规则只有标准明确的系统/码组合，其他未知或多义。详见 [接口合同](docs/FORMATS-0.3.md)、pkg.generated.mbti。
 

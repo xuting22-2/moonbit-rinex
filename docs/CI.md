@@ -18,6 +18,8 @@
 
 CI不执行第三方 SDK、Rust、GSI 或 RTKLIB 的在线安装，也不把历史参照运行冒充本次运行。它检查已提交实现、固定样本、独立预期与实际消费者，不能认证物理轨道精度、全部 RINEX/ICD、数据源真实性、Mooncakes 发布或赛事验收。临时构建、依赖缓存和认证 helper 不属于源码提交。
 
+恢复边界步骤`Check CRINEX recovery through initialized empty epochs`运行`node tools/test-crinex-empty-recovery.mjs`，验证已知观测行损坏后，完整初始化的零卫星历元在钟差记录成功后重同步，两条后续差分观测不再被丢弃。CRINEX1/3完整手写输入/预期RNX、独立Decimal/整数日历与旧解析器兼容参照分开固定；实际stdout保存后由原Reader/LegacyReader重开。正常流、默认fail-fast、未初始化空历元及坏/缺钟差边界保留；恢复输出始终保留丢失诊断和不合格状态，不把后续可解析等同于无损交付。
+
 独立步骤`Run restored-file delivery and physical consumers`核对两版修改前手写CRX/RNX、保存包及原CRX移走后的实际接收、恢复/OBS质量分离、截断/丢失、真实短写/EIO、输入变化、回读不匹配及重命名后元数据失败。错误清单也可能无法持久化，文件名存在不等于合格。
 
 输出预算曾以真实约38MiB合成CRX生成超过512MiB的原生RNX流，核对实际预算前缀长度/行数及固定基线字节身份。输入由独立Python配方生成；零值`.000`拼写是旧原生字节复制预期，数值/字段宽度和预算独立核对。按本轮明确限制，当前CI以`NEW_DIRECTORY --skip-output-budget`运行其余15项，沿用R06-r01提交a1bff90c7a7251b69b078cdc4438ff535540ed2c、run40795883416的预算通过证据；不声称本轮重跑该大样本。省略选择参数仍运行原完整16项。原十二条合同脚本、原生双后端及全部公共消费者门保留。

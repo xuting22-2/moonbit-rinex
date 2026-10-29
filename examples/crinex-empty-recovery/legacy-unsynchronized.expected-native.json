@@ -1,0 +1,91 @@
+{
+  "objects": [
+    [
+      "Epoch",
+      {
+        "gps_ticks": "14776993200000000",
+        "flag": 0,
+        "line": 8,
+        "end_line": 9,
+        "satellites": [
+          {
+            "satellite": "G01",
+            "line": 9,
+            "values": [
+              {
+                "raw_code": "L1",
+                "mapping": [
+                  "Ambiguous",
+                  [
+                    "L1C",
+                    "L1S",
+                    "L1L",
+                    "L1X",
+                    "L1P",
+                    "L1W",
+                    "L1Y",
+                    "L1M",
+                    "L1N"
+                  ]
+                ],
+                "observation": {
+                  "code": "L1",
+                  "column": 1,
+                  "raw_field": "       -10.000",
+                  "value": -10,
+                  "lli": null,
+                  "ssi": null
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      "Epoch",
+      {
+        "gps_ticks": "14776993500000000",
+        "flag": 0,
+        "line": 10,
+        "end_line": 11,
+        "satellites": [
+          {
+            "satellite": "G01",
+            "line": 11,
+            "values": [
+              {
+                "raw_code": "L1",
+                "mapping": [
+                  "Ambiguous",
+                  [
+                    "L1C",
+                    "L1S",
+                    "L1L",
+                    "L1X",
+                    "L1P",
+                    "L1W",
+                    "L1Y",
+                    "L1M",
+                    "L1N"
+                  ]
+                ],
+                "observation": {
+                  "code": "L1",
+                  "column": 1,
+                  "raw_field": "        -7.00015",
+                  "value": -7,
+                  "lli": 1,
+                  "ssi": 5
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  ],
+  "finish": {
+    "complete": true
+  }
+}

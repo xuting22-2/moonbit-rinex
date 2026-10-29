@@ -63,6 +63,8 @@ jobs:
           node tools/test-saved-empty-epoch-chain.mjs
       - name: Run restored-file delivery and physical consumers
         run: node tools/test-crinex-file-delivery.mjs "$RUNNER_TEMP/rinex-restored-file" --skip-output-budget
+      - name: Check CRINEX recovery through initialized empty epochs
+        run: node tools/test-crinex-empty-recovery.mjs
       - name: Run selected NAV source and physical replay consumer
         run: node tools/test-nav-source-replay.mjs
       - name: Run raw OBS CSV export and Decimal file recipient

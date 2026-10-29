@@ -616,6 +616,10 @@ fn CrinexDecoder::consume(
     5 => {
       self.clock_line(s)
       if self.stage == 3 {
+        if self.recovering {
+          self.recovered_epochs += 1
+          self.recovering = false
+        }
         self.epochs += 1
         let out = self.output.copy()
         self.output.clear()

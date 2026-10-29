@@ -1,0 +1,20 @@
+1.0                                                         CRINEX VERS   / TYPE
+R11 HAND AUTHORED RECOVERY CONTRACT                         CRINEX PROG / DATE
+     2.11           OBSERVATION DATA    G                   RINEX VERSION / TYPE
+R11 SYNTHETIC EMPTY RECOVERY                                MARKER NAME
+MIT                                                         LICENSE OF USE
+     1    L1                                                # / TYPES OF OBSERV
+  2026    10    29     0     0    0.0000000     GPS         TIME OF FIRST OBS
+     0                                                      RCV CLOCK OFFS APPL
+                                                            END OF HEADER
+&26 10 29  0  0  0.0000000  0  1G01
+
+bad &&
+&26 10 29  0  0 30.0000000  1  0
+0&125000000
+ 26&10&29&&0&&1&&0.0000000&&0&&1G01
+
+3&-12345 &&
+ 26&10&29&&0&&1&30.0000000&&0&&1G01
+
+1000 15

@@ -68,7 +68,7 @@ BDS非旧GEO PRN1–5需显式提供GEO或MEO_IGSO，不凭PRN猜全部BDS-3轨�
 牛顿最少3次、最多15次、步长≤1e-12弧度；失败明确KeplerDivergence。健康非0或过期拒绝。默认±7200秒，还受GPS声明fit半区间约束；调用方可收紧，上限14400秒。评价时刻为发射/轨道时刻，不做定位、光行时、Sagnac或跨框架转换。B1I3.0官方原文仍未取得，不声称完整ICD认证；传统参数/公式按IGS与RTKLIB实际核对。
 
 ## 状态与完成边界
-CRINEX1行首&、CRINEX3行首>、数值n&value及文本&含义不同；负相位合法。flag4更新头，其他事件恢复原记录；恢复文本不表示旧Reader支持其物理语义。默认错误即封存失败。recover=true只在已知观测行边界错误时丢弃整历元，在可信头和完整初始化后恢复；不扫描未知乱码中的&猜同步。任何丢失都保留finding且complete/acceptable不转成功。CRX complete指无丢失恢复；旧Checker complete指完成输入检查。
+CRINEX1行首&、CRINEX3行首>、数值n&value及文本&含义不同；负相位合法。flag4更新头，其他事件恢复原记录；恢复文本不表示旧Reader支持其物理语义。默认错误即封存失败。recover=true只在已知观测行边界错误时丢弃整历元，在可信头和完整初始化后恢复；不扫描未知乱码中的&猜同步。初始化的零卫星历元在钟差记录成功读完后也建立同步，后续合法差分历元正常恢复；未初始化空历元或坏/截断钟差不建立同步。任何丢失都保留finding且complete/acceptable不转成功。CRX complete指无丢失恢复；旧Checker complete指完成输入检查。
 
 每行8192 ASCII字符、逻辑输入512MiB、头4096行、96类型/系统、有限卫星空间。流式Reader/Checker/CrinexDecoder仅保存头、计数、当前历元及差分状态，不累计历史；NavCatalog另保存显式容量内的广播记录，默认4096、上限32768，满时失败且不淘汰旧记录。调用者累计输出的内存另计；gzip仅由显式现代OBS文件入口解压，不提供其他压缩容器、CRINEX3.1、OBS4.02、SP3或GLONASS/Galileo传播。
 

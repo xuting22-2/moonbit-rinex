@@ -1,0 +1,152 @@
+{
+  "objects": [
+    {
+      "gps_ticks": "14776992000000000",
+      "flag": 0,
+      "line": 8,
+      "end_line": 9,
+      "raw_record": "> 2026 10 29 00 00  0.0000000  0  1",
+      "receiver_clock": null,
+      "receiver_clock_raw": "",
+      "satellites": [
+        {
+          "satellite": "G01",
+          "line": 9,
+          "raw_record": "G01         4.000",
+          "observations": [
+            {
+              "code": "L1C",
+              "column": 4,
+              "raw_field": "         4.000",
+              "value": 4,
+              "lli": null,
+              "ssi": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "gps_ticks": "14776992300000000",
+      "flag": 0,
+      "line": 10,
+      "end_line": 10,
+      "raw_record": "> 2026 10 29 00 00 30.0000000  0  0        .125000000000",
+      "receiver_clock": 0.125,
+      "receiver_clock_raw": "  .125000000000",
+      "satellites": []
+    },
+    {
+      "gps_ticks": "14776992600000000",
+      "flag": 0,
+      "line": 11,
+      "end_line": 12,
+      "raw_record": "> 2026 10 29 00 01  0.0000000  0  1",
+      "receiver_clock": null,
+      "receiver_clock_raw": "",
+      "satellites": [
+        {
+          "satellite": "G01",
+          "line": 12,
+          "raw_record": "G01       -12.345",
+          "observations": [
+            {
+              "code": "L1C",
+              "column": 4,
+              "raw_field": "       -12.345",
+              "value": -12.345,
+              "lli": null,
+              "ssi": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "gps_ticks": "14776992900000000",
+      "flag": 0,
+      "line": 13,
+      "end_line": 14,
+      "raw_record": "> 2026 10 29 00 01 30.0000000  0  1",
+      "receiver_clock": null,
+      "receiver_clock_raw": "",
+      "satellites": [
+        {
+          "satellite": "G01",
+          "line": 14,
+          "raw_record": "G01       -11.34515",
+          "observations": [
+            {
+              "code": "L1C",
+              "column": 4,
+              "raw_field": "       -11.34515",
+              "value": -11.345,
+              "lli": 1,
+              "ssi": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "finish": {
+    "complete": true,
+    "acceptable": true,
+    "profile": "bounded OBS structural/time checks",
+    "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+    "header": {
+      "version": "3.04",
+      "marker": "R11 SYNTHETIC EMPTY RECOVERY",
+      "time_system": "GPS",
+      "first": "14776992000000000",
+      "license": "MIT",
+      "doi": "",
+      "observation_types": {
+        "G": [
+          "L1C"
+        ]
+      },
+      "uninterpreted_labels": []
+    },
+    "epochs": 4,
+    "records": 3,
+    "first": "14776992000000000",
+    "last": "14776992900000000",
+    "missing_epoch_slots": 0,
+    "power_failure_epochs": 0,
+    "receiver_clock_epochs": 1,
+    "systems": [
+      {
+        "system": "G",
+        "records": 3,
+        "satellites": [
+          "G01"
+        ],
+        "signals": [
+          {
+            "code": "L1C",
+            "nonempty_fields": 3,
+            "blank_fields": 0,
+            "zero_values": 0,
+            "lli_nonzero": 1,
+            "lli_bit0": 1,
+            "lli_bit1": 0,
+            "lli_bit2": 0
+          }
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "code": "empty-epoch",
+        "line": 10,
+        "error": false,
+        "detail": "epoch contains no satellite observations"
+      }
+    ],
+    "finding_counts": {
+      "empty-epoch": 1
+    },
+    "omitted_findings": 0
+  }
+}

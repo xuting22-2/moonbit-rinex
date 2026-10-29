@@ -1,0 +1,132 @@
+{
+  "modern-loss": {
+    "report": {
+      "complete": false,
+      "acceptable": false,
+      "epochs": 1,
+      "recovered_epochs": 0,
+      "findings": [
+        {
+          "code": "crx-unsynchronized",
+          "line": 12,
+          "error": true,
+          "detail": "crx-uninitialized:numeric arc needs n&value"
+        }
+      ]
+    },
+    "error": null,
+    "lastInputLine": 21,
+    "outputRows": 8,
+    "actualBytesEqualIndependentExpected": false
+  },
+  "modern-clean": {
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "epochs": 4,
+      "recovered_epochs": 0,
+      "findings": []
+    },
+    "error": null,
+    "lastInputLine": 21,
+    "outputRows": 14,
+    "actualBytesEqualIndependentExpected": true
+  },
+  "modern-unsynchronized": {
+    "report": {
+      "complete": false,
+      "acceptable": false,
+      "epochs": 2,
+      "recovered_epochs": 1,
+      "findings": [
+        {
+          "code": "crx-unsynchronized",
+          "line": 12,
+          "error": true,
+          "detail": "crx-uninitialized:numeric arc needs n&value"
+        }
+      ]
+    },
+    "error": null,
+    "lastInputLine": 27,
+    "outputRows": 11,
+    "actualBytesEqualIndependentExpected": true
+  },
+  "modern-missing-clock": {
+    "report": null,
+    "error": "Rejected(\"crx-truncated\", 14, \"incomplete header/epoch/clock/event\")",
+    "lastInputLine": 14,
+    "outputRows": 7
+  },
+  "modern-broken-clock": {
+    "report": null,
+    "error": "Rejected(\"integer64\", 15, \"invalid integer\")",
+    "lastInputLine": 15,
+    "outputRows": 7
+  },
+  "legacy-loss": {
+    "report": {
+      "complete": false,
+      "acceptable": false,
+      "epochs": 1,
+      "recovered_epochs": 0,
+      "findings": [
+        {
+          "code": "crx-unsynchronized",
+          "line": 12,
+          "error": true,
+          "detail": "crx-uninitialized:numeric arc needs n&value"
+        }
+      ]
+    },
+    "error": null,
+    "lastInputLine": 20,
+    "outputRows": 8,
+    "actualBytesEqualIndependentExpected": false
+  },
+  "legacy-clean": {
+    "report": {
+      "complete": true,
+      "acceptable": true,
+      "epochs": 4,
+      "recovered_epochs": 0,
+      "findings": []
+    },
+    "error": null,
+    "lastInputLine": 20,
+    "outputRows": 14,
+    "actualBytesEqualIndependentExpected": true
+  },
+  "legacy-unsynchronized": {
+    "report": {
+      "complete": false,
+      "acceptable": false,
+      "epochs": 2,
+      "recovered_epochs": 1,
+      "findings": [
+        {
+          "code": "crx-unsynchronized",
+          "line": 12,
+          "error": true,
+          "detail": "crx-uninitialized:numeric arc needs n&value"
+        }
+      ]
+    },
+    "error": null,
+    "lastInputLine": 26,
+    "outputRows": 11,
+    "actualBytesEqualIndependentExpected": true
+  },
+  "legacy-missing-clock": {
+    "report": null,
+    "error": "Rejected(\"crx-truncated\", 13, \"incomplete header/epoch/clock/event\")",
+    "lastInputLine": 13,
+    "outputRows": 7
+  },
+  "legacy-broken-clock": {
+    "report": null,
+    "error": "Rejected(\"integer64\", 14, \"invalid integer\")",
+    "lastInputLine": 14,
+    "outputRows": 7
+  }
+}

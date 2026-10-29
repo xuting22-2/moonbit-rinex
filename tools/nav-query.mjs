@@ -18,8 +18,8 @@ function validateStorage(capacity,skip) {
 function evaluate(session,{satellite,week,sow,bdt,orbit,maxAge}) {
   return JSON.parse(api.nav_catalog_query(session,satellite,week,sow,bdt,orbit,maxAge));
 }
-async function withNavigation(file,capacity,skip,consume) {
-  const session=api.nav_catalog_create(capacity,skip);
+async function withNavigation(file,capacity,skip,consume,captureSource=false) {
+  const session=captureSource?api.nav_catalog_create_with_source(capacity,skip):api.nav_catalog_create(capacity,skip);
   const handle=await fs.promises.open(file,'r');
   let bytes=0,lines=0,pending=Buffer.alloc(0);
   try {
@@ -53,6 +53,18 @@ export async function queryNavigation(file, options) {
   });
 }
 
+// Original text is captured by the same native parser that supplies the catalog.
+// No selected payload escapes a failed or unfinished whole-file read.
+export async function queryNavigationWithSource(file, options) {
+  const query=normalizeQuery(options),{capacity=4096,skip=false}=options;
+  validateStorage(capacity,skip);
+  return withNavigation(file,capacity,skip,(session,load)=>{
+    const {satellite,week,sow,bdt,orbit,maxAge}=query;
+    const {result,source}=JSON.parse(api.nav_catalog_query_source(session,satellite,week,sow,bdt,orbit,maxAge));
+    return {result,source,receipt:{...load,query_status:result.status}};
+  },true);
+}
+
 // A bounded, ordered snapshot; no result escapes if any native query fails.
 export async function queryNavigationBatch(file, requests, {capacity=4096,skip=false}={}) {
   if(!Array.isArray(requests)||requests.length<1||requests.length>256)throw Error('batch requires 1..256 queries');
@@ -77,7 +89,7 @@ export async function queryNavigationBatch(file, requests, {capacity=4096,skip=f
   });
 }
 
-const usage='Usage: node tools/nav-query.mjs INPUT SATELLITE WEEK SOW [--bdt] [--geo|--meo-igso] [--max-age SECONDS] [--capacity N] [--skip-unsupported]';
+const usage='Usage: node tools/nav-query.mjs INPUT SATELLITE WEEK SOW [--bdt] [--geo|--meo-igso] [--max-age SECONDS] [--capacity N] [--skip-unsupported] [--source]';
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){
   try {
     const [file,satellite,weekText,sowText,...flags]=process.argv.slice(2);
@@ -90,14 +102,16 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1]
       else if(flag==='--geo'||flag==='--meo-igso'){
         if(options.orbit)throw Error('conflicting orbit options');options.orbit=flag==='--geo'?1:2;
       }else if(flag==='--skip-unsupported')options.skip=true;
+      else if(flag==='--source')options.source=true;
       else if(flag==='--max-age'||flag==='--capacity'){
         const value=flags[++i];
         if(value===undefined||!/^([0-9]+(\.[0-9]*)?|\.[0-9]+)$/.test(value))throw Error('numeric value required for '+flag);
         if(flag==='--capacity')options.capacity=Number(value);else options.maxAge=Number(value);
       }else throw Error('unknown option '+flag);
     }
-    const {result,receipt}=await queryNavigation(file,options);
-    process.stdout.write(JSON.stringify(result)+'\n');process.stderr.write(JSON.stringify(receipt)+'\n');
+    const output=await (options.source?queryNavigationWithSource:queryNavigation)(file,options);
+    const {result,receipt}=output;
+    process.stdout.write(JSON.stringify(options.source?{result,source:output.source}:result)+'\n');process.stderr.write(JSON.stringify(receipt)+'\n');
     process.exitCode=result.status==='selected'?0:2;
   } catch(error) {
     process.stderr.write(JSON.stringify({complete:false,query_status:'failed',error:String(error.message??error)})+'\n');process.exitCode=1;

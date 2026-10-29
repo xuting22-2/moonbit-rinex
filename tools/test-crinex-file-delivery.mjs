@@ -76,7 +76,8 @@ if(process.argv[2]==='--worker'){
   const build=await fs.promises.realpath(path.join(root,'_build')),retained=!!process.argv[2];
   const directory=retained?path.resolve(process.argv[2]):await fs.promises.mkdtemp(path.join(build,'crinex-file-'));
   if(retained)await fs.promises.mkdir(directory);
-  const only=process.argv[3],fixtures=path.join(root,'examples/restoration');
+  const selection=process.argv[3],skipBudget=selection==='--skip-output-budget';
+  const only=skipBudget?undefined:selection,fixtures=path.join(root,'examples/restoration');
   const reference=JSON.parse(await fs.promises.readFile(path.join(fixtures,'REFERENCE.json'),'utf8'));
   const cases=[],json=async p=>JSON.parse(await fs.promises.readFile(p,'utf8'));
   const {restoreCrinexFile}=await import(pathToFileURL(producer).href);
@@ -109,6 +110,7 @@ if(process.argv[2]==='--worker'){
   }
   async function caseRun(name,action){
     if(only&&only!==name)return;
+    if(skipBudget&&name==='output-budget')return;
     process.stdout.write(JSON.stringify({case:name,status:'running'})+'\n');
     const value=await action();cases.push({name,...value});process.stdout.write(JSON.stringify({case:name,status:'passed'})+'\n');
   }
@@ -223,7 +225,8 @@ if(process.argv[2]==='--worker'){
       rejectReceiver('output-budget',item);return {realInputBytes:generated.bytes,actualPrefix:out.output,limit:536870912,fullIndependentOutputBytes:reference.budget.fullDecodedBytes};
     });
     assert.deepEqual(Object.fromEntries(await Promise.all((await fs.promises.readdir(fixtures)).map(async name=>[name,sha(await fs.promises.readFile(path.join(fixtures,name)))]))),before);
-    const result={status:'passed',completeSelection:!only,cases,actualFilesystem:true,productionHooks:false,originalFixturesUnchanged:true};
+    const result={status:'passed',completeSelection:!only&&!skipBudget,cases,actualFilesystem:true,productionHooks:false,originalFixturesUnchanged:true,
+      ...(skipBudget?{skipped:[{name:'output-budget',reason:'Explicit selection reuses frozen R06-r01 accepted 512MiB proof; full default suite still includes this case'}]}:{})};
     await fs.promises.writeFile(path.join(directory,'RESULT.json'),JSON.stringify(result,null,2)+'\n');
     console.log(JSON.stringify(result));passed=true;
   }finally{

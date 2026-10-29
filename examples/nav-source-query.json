@@ -1,0 +1,10 @@
+{
+  "satellite": "G01",
+  "week": 2442,
+  "sow": 50500,
+  "bdt": false,
+  "orbit": 0,
+  "maxAge": 7200,
+  "capacity": 4096,
+  "skip": false
+}

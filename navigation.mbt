@@ -278,6 +278,21 @@ pub fn NavRecord::satellite_position(
 }
 
 ///|
+/// Original text for the record emitted by the most recent feed_line call.
+/// Line numbers are one-based physical input lines; separators are not stored.
+pub struct NavRecordSource {
+  first_line : Int
+  last_line : Int
+  raw_lines : Array[String]
+} derive(@debug.Debug, ToJson)
+
+///|
+pub extend NavRecordSource with @debug.Debug::{to_repr}
+
+///|
+pub extend NavRecordSource with ToJson::{to_json}
+
+///|
 /// RINEX2.11 GPS or3.03/3.04/3.05 GPS/BDS NAV. By default rejects unsupported
 /// constellations. Explicit skip_unsupported consumes known record sizes only.
 pub struct NavReader {
@@ -291,10 +306,16 @@ pub struct NavReader {
   priv skip_unsupported : Bool
   priv mut skip_left : Int
   priv mut skipped : Int
+  priv capture_source : Bool
+  priv source_header : Array[String]
+  priv mut last_source : NavRecordSource?
 }
 
 ///|
-pub fn NavReader::new(skip_unsupported? : Bool = false) -> NavReader {
+pub fn NavReader::new(
+  skip_unsupported? : Bool = false,
+  capture_source? : Bool = false,
+) -> NavReader {
   {
     line: 0,
     bytes: 0,
@@ -306,7 +327,33 @@ pub fn NavReader::new(skip_unsupported? : Bool = false) -> NavReader {
     skip_unsupported,
     skip_left: 0,
     skipped: 0,
+    capture_source,
+    source_header: [],
+    last_source: None,
   }
+}
+
+///|
+/// A copied header snapshot, empty unless capture_source=true. Provisional
+/// until finish succeeds; includes END OF HEADER and every original header line.
+pub fn NavReader::header_lines(self : NavReader) -> Array[String] {
+  [
+    for line in self.source_header => line
+  ]
+}
+
+///|
+/// A copied snapshot only when the most recent feed_line emitted a record and
+/// capture_source=true. A later feed clears it; finish leaves it available.
+/// This does not certify the rest of the input: finish is still required.
+pub fn NavReader::last_record_source(self : NavReader) -> NavRecordSource? {
+  self.last_source.map(source => {
+    first_line: source.first_line,
+    last_line: source.last_line,
+    raw_lines: [
+      for line in source.raw_lines => line
+    ],
+  })
 }
 
 ///|
@@ -414,6 +461,7 @@ pub fn NavReader::feed_line(
   if self.closed {
     raise InvalidNavigation("reader failed or finished")
   }
+  self.last_source = None
   self.line += 1
   errdefer {
     self.closed = true
@@ -444,6 +492,9 @@ pub fn NavReader::feed_line(
     if trimmed(s, 60, 80) == "END OF HEADER" {
       self.body = true
     }
+    if self.capture_source {
+      self.source_header.push(s)
+    }
     return None
   }
   if self.skip_left > 0 {
@@ -471,6 +522,15 @@ pub fn NavReader::feed_line(
   self.pending.push(s)
   if self.pending.length() == 8 {
     let record = self.parse_record()
+    if self.capture_source {
+      self.last_source = Some({
+        first_line: self.line - 7,
+        last_line: self.line,
+        raw_lines: [
+          for line in self.pending => line
+        ],
+      })
+    }
     self.pending.clear()
     return Some(record)
   }

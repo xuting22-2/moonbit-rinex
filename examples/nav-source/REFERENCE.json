@@ -1,0 +1,260 @@
+{
+  "kind": "native-nav-source-v1",
+  "header_lines": [
+    "     3.05           NAVIGATION DATA     MIXED               RINEX VERSION / TYPE",
+    "Project-authored synthetic selection example; no measurementsCOMMENT",
+    "R07 project-authored raw-source replay; MIT                 COMMENT             ",
+    "                                                            END OF HEADER"
+  ],
+  "records": [
+    [
+      "G01 2026 10 25 13 00 00 1.100000000000E-04 1.000000000000E-12 0.000000000000E+00",
+      "     1.000000000000E+00 0.000000000000E+00 0.000000000000E+00 1.000000000000E-01",
+      "     0.000000000000E+00 1.000000000000E-02 0.000000000000E+00 5.153795500000E+03",
+      "     4.680000000000E+04 0.000000000000E+00 5.000000000000E-01 0.000000000000E+00",
+      "     9.500000000000E-01 0.000000000000E+00 3.000000000000E-01-8.000000000000E-09",
+      "     0.000000000000E+00 0.000000000000E+00 2.442000000000E+03 0.000000000000E+00",
+      "     2.000000000000E+00 0.000000000000E+00 1.000000000000E-09 1.000000000000E+00",
+      "     4.680000000000E+04 4.000000000000E+00                                      "
+    ],
+    [
+      "G01 2026 10 25 14 00 00 1.200000000000E-04 1.000000000000E-12 0.000000000000E+00",
+      "     2.000000000000E+00 0.000000000000E+00 0.000000000000E+00 2.000000000000E-01",
+      "     0.000000000000E+00 1.000000000000E-02 0.000000000000E+00 5.153795500000E+03",
+      "     5.040000000000E+04 0.000000000000E+00 5.000000000000E-01 0.000000000000E+00",
+      "     9.500000000000E-01 0.000000000000E+00 3.000000000000E-01-8.000000000000E-09",
+      "     0.000000000000E+00 0.000000000000E+00 2.442000000000E+03 0.000000000000E+00",
+      "     2.000000000000E+00 1.000000000000E+00 1.000000000000E-09 2.000000000000E+00",
+      "     5.040000000000E+04 4.000000000000E+00                                      "
+    ],
+    [
+      "G01 2026 10 25 15 00 00 1.300000000000E-04 1.000000000000E-12 0.000000000000E+00",
+      "     3.000000000000E+00 0.000000000000E+00 0.000000000000E+00 3.000000000000E-01",
+      "     0.000000000000E+00 1.000000000000E-02 0.000000000000E+00 5.153795500000E+03",
+      "     5.400000000000E+04 0.000000000000E+00 5.000000000000E-01 0.000000000000E+00",
+      "     9.500000000000E-01 0.000000000000E+00 3.000000000000E-01-8.000000000000E-09",
+      "     0.000000000000E+00 0.000000000000E+00 2.442000000000E+03 0.000000000000E+00",
+      "     2.000000000000E+00 0.000000000000E+00 1.000000000000E-09 3.000000000000E+00",
+      "     5.400000000000E+04 4.000000000000E+00                                      "
+    ],
+    [
+      "C01 2026 10 25 00 00 00-2.000000000000E-04 1.000000000000E-12 0.000000000000E+00",
+      "     4.000000000000E+00 0.000000000000E+00 0.000000000000E+00 4.000000000000E-01",
+      "     0.000000000000E+00 1.000000000000E-03 0.000000000000E+00 6.493000000000E+03",
+      "     0.000000000000E+00 0.000000000000E+00 5.000000000000E-01 0.000000000000E+00",
+      "     1.000000000000E-01 0.000000000000E+00 3.000000000000E-01-8.000000000000E-09",
+      "     0.000000000000E+00 0.000000000000E+00 1.086000000000E+03 0.000000000000E+00",
+      "     2.000000000000E+00 0.000000000000E+00 1.000000000000E-09 4.000000000000E+00",
+      "     0.000000000000E+00 0.000000000000E+00                                      "
+    ],
+    [
+      "C06 2026 10 25 00 00 00 3.000000000000E-04 1.000000000000E-12 0.000000000000E+00",
+      "     5.000000000000E+00 0.000000000000E+00 0.000000000000E+00 5.000000000000E-01",
+      "     0.000000000000E+00 1.000000000000E-03 0.000000000000E+00 6.493000000000E+03",
+      "     0.000000000000E+00 0.000000000000E+00 5.000000000000E-01 0.000000000000E+00",
+      "     9.500000000000E-01 0.000000000000E+00 3.000000000000E-01-8.000000000000E-09",
+      "     0.000000000000E+00 0.000000000000E+00 1.086000000000E+03 0.000000000000E+00",
+      "     2.000000000000E+00 0.000000000000E+00 1.000000000000E-09 5.000000000000E+00",
+      "     0.000000000000E+00 0.000000000000E+00                                      "
+    ]
+  ],
+  "modernFirstLines": [
+    5,
+    13,
+    21,
+    29,
+    37
+  ],
+  "skipFirstLines": [
+    10,
+    18,
+    26,
+    34,
+    42
+  ],
+  "legacyHeader": [
+    "     2.11           NAVIGATION DATA                         RINEX VERSION / TYPE",
+    "Project-authored synthetic selection example; no measurementsCOMMENT",
+    "R07 project-authored raw-source replay; MIT                 COMMENT             ",
+    "                                                            END OF HEADER"
+  ],
+  "legacyRecord": [
+    " 1 26 10 25 13  0  0.0 1.100000000000E-04 1.000000000000E-12 0.000000000000E+00",
+    "    1.000000000000E+00 0.000000000000E+00 0.000000000000E+00 1.000000000000E-01",
+    "    0.000000000000E+00 1.000000000000E-02 0.000000000000E+00 5.153795500000E+03",
+    "    4.680000000000E+04 0.000000000000E+00 5.000000000000E-01 0.000000000000E+00",
+    "    9.500000000000E-01 0.000000000000E+00 3.000000000000E-01-8.000000000000E-09",
+    "    0.000000000000E+00 0.000000000000E+00 2.442000000000E+03 0.000000000000E+00",
+    "    2.000000000000E+00 0.000000000000E+00 1.000000000000E-09 1.000000000000E+00",
+    "    4.680000000000E+04 4.000000000000E+00                                      "
+  ],
+  "equivalentFirstRecord": [
+    "G01 2026 10 25 13 00 00 1.100000000000D-04 1.000000000000D-12 0.000000000000D+00",
+    "     1.000000000000D+00 0.000000000000D+00 0.000000000000D+00 1.000000000000D-01",
+    "     0.000000000000D+00 1.000000000000D-02 0.000000000000D+00 5.153795500000D+03",
+    "     4.680000000000D+04 0.000000000000D+00 5.000000000000D-01 0.000000000000D+00",
+    "     9.500000000000D-01 0.000000000000D+00 3.000000000000D-01-8.000000000000D-09",
+    "     0.000000000000D+00 0.000000000000D+00 2.442000000000D+03 0.000000000000D+00",
+    "     2.000000000000D+00 0.000000000000D+00 1.000000000000D-09 1.000000000000D+00",
+    "     4.680000000000D+04 4.000000000000D+00                                      "
+  ],
+  "equivalentFirstLine": 5,
+  "independentStateReference": "Frozen pre-existing RTKLIB2.4.3b34 numerical output; not regenerated",
+  "stateReferences": [
+    {
+      "case": "gps-old",
+      "satellite": "G01",
+      "week": 2442,
+      "sow": 46900.0,
+      "bdt": false,
+      "expectedRecordIndex": 1,
+      "x": -22096045.64113677,
+      "y": -11327418.095180582,
+      "z": 8661814.022148753,
+      "clock_seconds": 0.00010999745579564237,
+      "reference": "RTKLIB2.4.3b34 satpos on explicitly eligible healthy subset;manual expected original ordinal",
+      "bdsOrbit": null
+    },
+    {
+      "case": "gps-fallback",
+      "satellite": "G01",
+      "week": 2442,
+      "sow": 50500.0,
+      "bdt": false,
+      "expectedRecordIndex": 3,
+      "x": -26237691.64230223,
+      "y": -231163.87072261167,
+      "z": 1823109.6166810368,
+      "clock_seconds": 0.00013000133053746334,
+      "reference": "RTKLIB2.4.3b34 satpos on explicitly eligible healthy subset;manual expected original ordinal",
+      "bdsOrbit": null
+    },
+    {
+      "case": "gps-tie-latest-toc",
+      "satellite": "G01",
+      "week": 2442,
+      "sow": 50400.0,
+      "bdt": false,
+      "expectedRecordIndex": 3,
+      "x": -26258955.437229156,
+      "y": -194768.5107339843,
+      "z": 1505937.3035463907,
+      "clock_seconds": 0.00013000155964558216,
+      "reference": "RTKLIB2.4.3b34 satpos on explicitly eligible healthy subset;manual expected original ordinal",
+      "bdsOrbit": null
+    },
+    {
+      "case": "gps-100ns",
+      "satellite": "G01",
+      "week": 2442,
+      "sow": 53999.9999999,
+      "bdt": false,
+      "expectedRecordIndex": 3,
+      "x": -23226121.756250348,
+      "y": -2025999.7168705985,
+      "z": 12188446.466589114,
+      "clock_seconds": 0.00012999316814165505,
+      "reference": "RTKLIB2.4.3b34 satpos on explicitly eligible healthy subset;manual expected original ordinal",
+      "bdsOrbit": null
+    },
+    {
+      "case": "bds-geo-gpst",
+      "satellite": "C01",
+      "week": 2442,
+      "sow": 14.0,
+      "bdt": false,
+      "expectedRecordIndex": 4,
+      "x": 15297025.748138368,
+      "y": 38765211.486445926,
+      "z": 6113319.938875452,
+      "clock_seconds": -0.00020000112439640222,
+      "reference": "RTKLIB2.4.3b34 satpos on explicitly eligible healthy subset;manual expected original ordinal",
+      "bdsOrbit": null
+    },
+    {
+      "case": "bds-geo-bdt",
+      "satellite": "C01",
+      "week": 1086,
+      "sow": 0.0,
+      "bdt": true,
+      "expectedRecordIndex": 4,
+      "x": 15297025.748138368,
+      "y": 38765211.486445926,
+      "z": 6113319.938875452,
+      "clock_seconds": -0.00020000112439640222,
+      "reference": "RTKLIB2.4.3b34 satpos on explicitly eligible healthy subset;manual expected original ordinal",
+      "bdsOrbit": null
+    },
+    {
+      "case": "bds-igso-gpst",
+      "satellite": "C06",
+      "week": 2442,
+      "sow": 14.0,
+      "bdt": false,
+      "expectedRecordIndex": 5,
+      "x": 17294260.920421556,
+      "y": 29494803.385516677,
+      "z": 24601485.858317837,
+      "clock_seconds": 0.00029999861577945157,
+      "reference": "RTKLIB2.4.3b34 satpos on explicitly eligible healthy subset;manual expected original ordinal",
+      "bdsOrbit": "MEO_IGSO"
+    },
+    {
+      "case": "bds-igso-bdt",
+      "satellite": "C06",
+      "week": 1086,
+      "sow": 1200.0,
+      "bdt": true,
+      "expectedRecordIndex": 5,
+      "x": 16706026.143295582,
+      "y": 28070916.72505823,
+      "z": 26596265.98762639,
+      "clock_seconds": 0.00029999959967175107,
+      "reference": "RTKLIB2.4.3b34 satpos on explicitly eligible healthy subset;manual expected original ordinal",
+      "bdsOrbit": "MEO_IGSO"
+    }
+  ],
+  "positionToleranceMeters": 1e-05,
+  "clockToleranceSeconds": 1e-13,
+  "sourceAuthor": "xuting22",
+  "module": "xuting22/rinex",
+  "fixtureLicense": "MIT",
+  "attributionPolicy": "Keep every original header line and each selected record character including trailing blanks; normalize line separators only",
+  "expectedReplayRecordIndex": 1,
+  "expectedReplayFirstLine": 5,
+  "independentCalendarTicks": {
+    "gps-old": "14774005000000000",
+    "gps-fallback": "14774041000000000",
+    "gps-tie-latest-toc": "14774040000000000",
+    "gps-100ns": "14774075999999999",
+    "bds-geo-gpst": "14773536140000000",
+    "bds-geo-bdt": "14773536140000000",
+    "bds-igso-gpst": "14773536140000000",
+    "bds-igso-bdt": "14773548140000000"
+  },
+  "baseCLICompatibility": [
+    {
+      "name": "selected",
+      "arguments": [
+        "G01",
+        "2442",
+        "50500"
+      ],
+      "exit": 0,
+      "stdout": "{\"status\":\"selected\",\"selection\":{\"record\":{\"record_index\":3,\"source_line\":21,\"satellite\":\"G01\",\"message\":\"LNAV\",\"toc\":{\"gps_ticks\":\"14774076000000000\"},\"toe\":{\"gps_ticks\":\"14774076000000000\"},\"health\":0},\"state\":{\"x\":-26237691.64230223,\"y\":-231163.87072261143,\"z\":1823109.6166810368,\"clock_seconds\":0.00013000133053746334,\"group_delay_seconds\":1e-9,\"frame\":\"WGS84\",\"iterations\":3},\"equivalent_records\":1,\"report\":{\"satellite\":\"G01\",\"at\":{\"gps_ticks\":\"14774041000000000\"},\"candidates\":3,\"eligible\":2,\"rejected\":1,\"rejection_counts\":{\"unhealthy\":1},\"rejection_samples\":[{\"candidate\":{\"record_index\":2,\"source_line\":13,\"satellite\":\"G01\",\"message\":\"LNAV\",\"toc\":{\"gps_ticks\":\"14774040000000000\"},\"toe\":{\"gps_ticks\":\"14774040000000000\"},\"health\":1},\"reason\":\"Unhealthy\"}],\"omitted_rejections\":0}}}\n",
+      "stderr": "{\"complete\":true,\"stored_records\":5,\"skipped_unsupported\":0,\"lines\":44,\"bytes\":3545,\"scope\":\"GPS/BDS broadcast query within declared reader/model/selection policy; skipped unsupported records are not validated\",\"query_status\":\"selected\"}\n"
+    },
+    {
+      "name": "unavailable",
+      "arguments": [
+        "C06",
+        "1086",
+        "0",
+        "--bdt"
+      ],
+      "exit": 2,
+      "stdout": "{\"status\":\"unavailable\",\"report\":{\"satellite\":\"C06\",\"at\":{\"gps_ticks\":\"14773536140000000\"},\"candidates\":1,\"eligible\":0,\"rejected\":1,\"rejection_counts\":{\"orbit-type-required\":1},\"rejection_samples\":[{\"candidate\":{\"record_index\":5,\"source_line\":37,\"satellite\":\"C06\",\"message\":\"B1I-D1/D2\",\"toc\":{\"gps_ticks\":\"14773536140000000\"},\"toe\":{\"gps_ticks\":\"14773536140000000\"},\"health\":0},\"reason\":\"OrbitChoiceRequired\"}],\"omitted_rejections\":0}}\n",
+      "stderr": "{\"complete\":true,\"stored_records\":5,\"skipped_unsupported\":0,\"lines\":44,\"bytes\":3545,\"scope\":\"GPS/BDS broadcast query within declared reader/model/selection policy; skipped unsupported records are not validated\",\"query_status\":\"unavailable\"}\n"
+    }
+  ]
+}

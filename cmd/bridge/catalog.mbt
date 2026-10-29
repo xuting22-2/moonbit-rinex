@@ -5,16 +5,39 @@ pub struct CatalogSession {
   priv mut lines : Int
   priv mut closed : Bool
   priv mut ready : Bool
+  priv sources : Array[@r.NavRecordSource]?
 }
 
 ///|
 pub fn nav_catalog_create(capacity : Int, skip : Bool) -> CatalogSession {
+  catalog_create(capacity, skip, false)
+}
+
+///|
+pub fn nav_catalog_create_with_source(
+  capacity : Int,
+  skip : Bool,
+) -> CatalogSession {
+  catalog_create(capacity, skip, true)
+}
+
+///|
+fn catalog_create(
+  capacity : Int,
+  skip : Bool,
+  capture : Bool,
+) -> CatalogSession {
   {
-    reader: @r.NavReader::new(skip_unsupported=skip),
+    reader: @r.NavReader::new(skip_unsupported=skip, capture_source=capture),
     catalog: @r.NavCatalog::new(capacity~),
     lines: 0,
     closed: false,
     ready: false,
+    sources: if capture {
+      Some([])
+    } else {
+      None
+    },
   } catch {
     error => {
       fail(@debug.to_string(error))
@@ -33,6 +56,12 @@ pub fn nav_catalog_feed(session : CatalogSession, line : String) -> Unit {
     if session.reader.feed_line(line) is Some(record) {
       // Both supported NAV2/3 GPS/BDS formats have eight-line records.
       ignore(session.catalog.add(record, source_line=session.lines - 7))
+      if session.sources is Some(sources) {
+        guard session.reader.last_record_source() is Some(source) else {
+          raise Failure("missing native record source")
+        }
+        sources.push(source)
+      }
     }
   } catch {
     error => {
@@ -79,10 +108,51 @@ pub fn nav_catalog_query(
   max_age : Double,
 ) -> String {
   try {
-    let (output, _) = catalog_evaluate(
+    let (output, _, _) = catalog_evaluate(
       session, satellite, week, sow, bdt, orbit, max_age,
     )
     output.stringify()
+  } catch {
+    error => {
+      fail(@debug.to_string(error))
+      ""
+    }
+  }
+}
+
+///|
+pub fn nav_catalog_query_source(
+  session : CatalogSession,
+  satellite : String,
+  week : Int,
+  sow : Double,
+  bdt : Bool,
+  orbit : Int,
+  max_age : Double,
+) -> String {
+  try {
+    guard session.sources is Some(sources) else {
+      raise Failure("source capture was not enabled")
+    }
+    let (output, _, selected) = catalog_evaluate(
+      session, satellite, week, sow, bdt, orbit, max_age,
+    )
+    let source : Json = match selected {
+      None => Json::null()
+      Some(index) => {
+        guard sources.get(index - 1) is Some(raw) else {
+          raise Failure("missing selected native source")
+        }
+        {
+          "record_index": index.to_json(),
+          "first_line": raw.first_line.to_json(),
+          "last_line": raw.last_line.to_json(),
+          "header_lines": session.reader.header_lines().to_json(),
+          "record_lines": raw.raw_lines.to_json(),
+        }
+      }
+    }
+    ({ "result": output, "source": source } : Json).stringify()
   } catch {
     error => {
       fail(@debug.to_string(error))
@@ -100,7 +170,7 @@ fn catalog_evaluate(
   bdt : Bool,
   orbit : Int,
   max_age : Double,
-) -> (Json, Int) raise {
+) -> (Json, Int, Int?) raise {
   if !session.ready {
     raise Failure("catalog requires a successfully finished input")
   }
@@ -115,7 +185,7 @@ fn catalog_evaluate_at(
   time : @r.NavTime,
   orbit : Int,
   max_age : Double,
-) -> (Json, Int) raise {
+) -> (Json, Int, Int?) raise {
   let bds_orbit = match orbit {
     0 => None
     1 => Some(@r.GEO)
@@ -130,11 +200,15 @@ fn catalog_evaluate_at(
   )
   match result {
     @r.Selected(selection) =>
-      ({ "status": "selected", "selection": selection.to_json() }, 0)
+      (
+        { "status": "selected", "selection": selection.to_json() },
+        0,
+        Some(selection.record.record_index),
+      )
     @r.Unavailable(report) =>
-      ({ "status": "unavailable", "report": report.to_json() }, 1)
+      ({ "status": "unavailable", "report": report.to_json() }, 1, None)
     @r.NavQueryOutcome::Conflict(conflict) =>
-      ({ "status": "ambiguous", "conflict": conflict.to_json() }, 2)
+      ({ "status": "ambiguous", "conflict": conflict.to_json() }, 2, None)
   }
 }
 
@@ -171,7 +245,7 @@ pub fn nav_catalog_query_batch(
     let mut unavailable = 0
     let mut ambiguous = 0
     for index, request in requests {
-      let (result, status) = try {
+      let (result, status, _) = try {
         guard request is Json::Object(fields) else {
           raise Failure("query object required")
         }

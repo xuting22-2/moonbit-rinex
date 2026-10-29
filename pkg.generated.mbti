@@ -243,7 +243,9 @@ pub struct NavReader {
 }
 pub fn NavReader::feed_line(Self, String) -> NavRecord? raise NavError
 pub fn NavReader::finish(Self) -> Unit raise NavError
-pub fn NavReader::new(skip_unsupported? : Bool) -> Self
+pub fn NavReader::header_lines(Self) -> Array[String]
+pub fn NavReader::last_record_source(Self) -> NavRecordSource?
+pub fn NavReader::new(skip_unsupported? : Bool, capture_source? : Bool) -> Self
 pub fn NavReader::skipped_records(Self) -> Int
 
 pub struct NavRecord {
@@ -256,6 +258,14 @@ pub struct NavRecord {
   // private fields
 }
 pub fn NavRecord::satellite_position(Self, NavTime, bds_orbit? : BdsOrbit, max_age_seconds? : Double) -> SatPosition raise NavError
+
+pub struct NavRecordSource {
+  first_line : Int
+  last_line : Int
+  raw_lines : Array[String]
+} derive(ToJson, @debug.Debug)
+pub fn NavRecordSource::to_json(Self) -> Json
+pub fn NavRecordSource::to_repr(Self) -> @debug.Repr
 
 pub struct NavRejection {
   candidate : NavCandidate

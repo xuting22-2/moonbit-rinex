@@ -73,6 +73,15 @@ OBS文件提取在每条NDJSON完整写入后才更新输出长度/SHA；低层�
 
 完整加载与选中状态分开：仅有合法头或显式跳过记录时，目录为空，返回unavailable及精确计数；受支持记录之后的跳过记录若在末尾截断，仍以输入失败结束，不输出部分查询。NAV2多卫星记录的来源索引/行号也通过实际CLI及独立RTKLIB状态核对，详见同一示例说明。
 
+需要把选中的广播记录交给文件接收方时，点查询追加`--source`，或导入`queryNavigationWithSource`。同一次原生解析保存完整原始头、所选八行和物理行号，整份读取成功后才交付；unavailable/ambiguous的`source`为null。默认查询JSON和回执不变。
+
+```sh
+node tools/nav-query.mjs examples/catalog-synthetic.nav G01 2442 50500 --source
+node examples/nav-source-replay.mjs examples/catalog-synthetic.nav NEW_SELECTED.nav examples/nav-source-query.json
+```
+
+实际接收方独占创建NAV子文件，保留全部头与记录字符（含末尾空格，仅换行转LF），关闭后用原查询入口重新读取并核对同一状态。子文件内记录重新编号，原目录的淘汰/等价记录计数不复制为子文件判断。它是可复现来源文本，不认证数据源或物理轨道；详见[选中来源与文件重放合同](docs/NAV-SOURCE-REPLAY.md)。
+
 ## 一次加载，批量查询
 `node tools/nav-query-batch.mjs INPUT REQUESTS.json [--capacity N] [--skip-unsupported]`一次完整加载后处理1–256项卫星/时刻请求，按输入顺序保留逐项selected/unavailable/ambiguous、原始来源与诊断。MoonBit负责查询、批次计数和完整结果构造；Node负责有界文件IO与参数整理。输入或任一查询参数失败时，整批不输出部分结果。
 

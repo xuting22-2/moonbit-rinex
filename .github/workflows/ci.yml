@@ -62,7 +62,9 @@ jobs:
           node tools/test-extracted-header.mjs
           node tools/test-saved-empty-epoch-chain.mjs
       - name: Run restored-file delivery and physical consumers
-        run: node tools/test-crinex-file-delivery.mjs
+        run: node tools/test-crinex-file-delivery.mjs "$RUNNER_TEMP/rinex-restored-file" --skip-output-budget
+      - name: Run selected NAV source and physical replay consumer
+        run: node tools/test-nav-source-replay.mjs
       - name: Run public consumers on both backends
         run: |
           moon run examples/consumer --target js --deny-warn

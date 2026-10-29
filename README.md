@@ -1,5 +1,7 @@
 # MoonBit RINEX：观测接收、CRINEX恢复与广播星历
-模块 `xuting22/rinex`，MIT。[仓库](https://github.com/xuting22-2/moonbit-rinex)。**0.4.0源码版本**；[GitHub CI](https://github.com/xuting22-2/moonbit-rinex/actions/workflows/ci.yml)的结果以对应提交为准，复现与范围见[CI说明](docs/CI.md)。尚未发布Mooncakes或提交比赛。历史 `xuting22-rinex-申报书.md` 保留旧快照，当前功能见PROPOSAL.md。SUBMISSION.json、REVIEW-RESPONSE.md和docs/SCOPE.md记录旧快照，不作为当前版本的新完成证明。
+模块 `xuting22-2/rinex`，MIT。[仓库](https://github.com/xuting22-2/moonbit-rinex)。**0.4.0源码版本**；[GitHub CI](https://github.com/xuting22-2/moonbit-rinex/actions/workflows/ci.yml)的结果以对应提交为准，复现与范围见[CI说明](docs/CI.md)。尚未发布Mooncakes或提交比赛。历史 `xuting22-rinex-申报书.md` 保留旧快照，当前功能见PROPOSAL.md。SUBMISSION.json、REVIEW-RESPONSE.md和docs/SCOPE.md记录旧快照，不作为当前版本的新完成证明。
+
+当前维护与申报账号为 `xuting22-2`。原始代码来源保留 `xuting22` 署名与Git历史；账号归属调整不改变既有版权、外部数据许可或上游来源。
 
 定宽语法、精确100ns日历时间、原始槽、数字/文本差分和轨道传播均在MoonBit，Node只做有界文件IO；不是接收机定位/PPP引擎。
 
@@ -150,7 +152,7 @@ node examples/read-extracted-epochs.mjs NEW_SERIES_DIRECTORY
 
 GSI4.2.0在OBS2 flag6多行载荷、首个零卫星历元带钟差的保留列上与规范有分歧；这两处按RINEX2.11表A2／3.04表A3保留规范行为，不能称为GSI逐字符一致。其余新增合法钟差输入使用独立GSI输出。初始手工CRX3未写初始化空标志的输入错误已单独保留，不计作产品缺陷。
 
-本轮GSI RNXCMP4.2.0参照覆盖OBS2多重续行、负/空/零、换星、LLI/SSI、flag2–6、头更新、0–5阶及钟差爬升/稳态。真实ROB BRUX原始CRX前两历元98条卫星记录，原生输出与官方CRX2RNX在LF统一后逐字符一致。
+GSI RNXCMP4.2.0历史参照覆盖OBS2多重续行、负/空/零、换星、LLI/SSI、flag2–6、头更新、0–5阶及钟差爬升/稳态。真实ROB BRUX原始CRX前两历元98条卫星记录，原生输出与官方CRX2RNX在LF统一后逐字符一致。
 
 BKG/IGS BRDC三个真实参数记录（GPS、BDS GEO、BDS IGSO），toe及±1800秒9个状态，与pyrtklib0.2.7所带RTKLIB2.4.3b34比较：最大三维位置差4.16500117164066e-9米，钟差最大差0秒。回归阈值1e-5米及1e-13秒只针对同参数/同模型的数值一致性，**不是物理轨道精度或全域/BDS-3完整验证**。
 

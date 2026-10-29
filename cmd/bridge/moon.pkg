@@ -1,5 +1,5 @@
 import {
-  "xuting22/rinex" @r,
+  "xuting22-2/rinex" @r,
   "moonbitlang/core/debug",
   "moonbitlang/core/json",
   "moonbitlang/core/string" @strconv,

@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "xuting22/rinex"
+package "xuting22-2/rinex"
 
 import {
   "moonbitlang/core/debug",

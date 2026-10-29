@@ -1,4 +1,4 @@
-name = "xuting22/rinex"
+name = "xuting22-2/rinex"
 
 version = "0.4.0"
 

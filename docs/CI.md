@@ -14,7 +14,7 @@
 
 原始 ROB BRUX 前缀保留整日头声明，提取预期退出 2，CI 会精确检查这个状态。随后独立 fixed-column/Decimal Python 参考核对全部选中槽，再由两个冷启动的独立 MoonBit 模块分别在 JS / Wasm-GC 上核对完整公共结果。提取目录与独立模块目录均位于 runner 的临时目录；不下载或改造整日测站数据来隐藏质量问题。
 
-`.gitattributes`为固定列 NAV/CRX、原始 RINEX、参考 JSON 和历史证据保留原始字节，避免 checkout 的换行归一化破坏既有来源散列。许可证、原始模块名 `xuting22/rinex` 和原作者来源保留；仅维护仓库地址按实际发布位置更新。
+`.gitattributes`为固定列 NAV/CRX、原始 RINEX、参考 JSON 和历史证据保留原始字节，避免 checkout 的换行归一化破坏既有来源散列。当前模块为 `xuting22-2/rinex`，维护与申报账号为 `xuting22-2`。原始作者来源、版权及旧证据中的历史模块标记保留；它们不表示当前导入或申报归属。独立消费者通过workspace依赖当前0.4.0模块，不请求Mooncakes；`localreview/rinex-observation-consumer`仅为本地独立消费者的测试身份。
 
 CI不执行第三方 SDK、Rust、GSI 或 RTKLIB 的在线安装，也不把历史参照运行冒充本次运行。它检查已提交实现、固定样本、独立预期与实际消费者，不能认证物理轨道精度、全部 RINEX/ICD、数据源真实性、Mooncakes 发布或赛事验收。临时构建、依赖缓存和认证 helper 不属于源码提交。
 

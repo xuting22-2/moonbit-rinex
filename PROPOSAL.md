@@ -1,6 +1,6 @@
 # MoonBit RINEX：GNSS文件接收与可追溯广播星历查询
 
-模块xuting22/rinex原生连接观测接收、精确时间与广播查询，保留原始语义及完成/质量判断。
+模块xuting22-2/rinex，当前维护/申报账号xuting22-2；原生连接观测、精确时间与广播查询。
 面向GNSS离线处理、测站文件接收和科研数据工具开发者，可提取指定历元，按卫星与时刻取得广播状态。
 解析、差分、整数时间、检查统计、轨道计算及筛选由MoonBit实现，支持JS与Wasm-GC。Node负责文件IO、拆行、身份核对与CLI。
 
@@ -26,4 +26,4 @@ moon run examples/nav-query --target wasm-gc
 
 根代码采用MIT；自编示例同许可，ROB节选遵守CC-BY4.0，BKG/IGS广播数据保留提供者署名。外部数据不改授MIT，参照工具许可证与来源见THIRD-PARTY文档，源码包不含其运行时。
 
-[仓库](https://github.com/xuting22-2/moonbit-rinex)。0.4.0已本地验证；CI见对应提交，未发布Mooncakes或提交比赛。
+[仓库](https://github.com/xuting22-2/moonbit-rinex)。0.4.0源码；CI按提交核对，未发布包或提交比赛。

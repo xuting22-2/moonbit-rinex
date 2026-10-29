@@ -1,5 +1,5 @@
 import {
-  "xuting22/rinex" @r,
+  "xuting22-2/rinex" @r,
 }
 
 pkgtype(kind: "executable")

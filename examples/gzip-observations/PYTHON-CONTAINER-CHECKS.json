@@ -1,0 +1,76 @@
+{
+  "valid": {
+    "status": "decoded",
+    "decoded": {
+      "bytes": 887,
+      "sha256": "459d36567fa9a86bfa189ba6e9fae128a4eb9bf0bfb58ce265f1ce209967f76d"
+    }
+  },
+  "members": {
+    "status": "decoded",
+    "decoded": {
+      "bytes": 887,
+      "sha256": "459d36567fa9a86bfa189ba6e9fae128a4eb9bf0bfb58ce265f1ce209967f76d"
+    }
+  },
+  "crlf": {
+    "status": "decoded",
+    "decoded": {
+      "bytes": 901,
+      "sha256": "4c15af83877af168c7a83ab9e5d1daa4e013da912723364fcaf9c5670b574793"
+    }
+  },
+  "no-final-lf": {
+    "status": "decoded",
+    "decoded": {
+      "bytes": 886,
+      "sha256": "01c11d622c0fab59088afbbd935888ad93915850fcf31dbda059025979c8ffb9"
+    }
+  },
+  "quality": {
+    "status": "decoded",
+    "decoded": {
+      "bytes": 887,
+      "sha256": "44027a7dba71ece7378706a1ada5fc7a319e1589ded0056d44462aa41a2b46b1"
+    }
+  },
+  "native-truncated": {
+    "status": "decoded",
+    "decoded": {
+      "bytes": 851,
+      "sha256": "cabf3dd0f9d29eb50a8c8006237a91dd66f6e61262266670a9e12415b1e1e6fb"
+    }
+  },
+  "large-stored": {
+    "status": "decoded",
+    "decoded": {
+      "bytes": 79022,
+      "sha256": "e03cf3b8143a5f213dfdc7ce3ce29e08f93d4b1cce9d6b6b81d2d0abc236c150"
+    }
+  },
+  "crc-error": {
+    "status": "rejected",
+    "errorType": "BadGzipFile",
+    "error": "CRC check failed"
+  },
+  "size-error": {
+    "status": "rejected",
+    "errorType": "BadGzipFile",
+    "error": "Incorrect length of data produced"
+  },
+  "truncated": {
+    "status": "rejected",
+    "errorType": "EOFError",
+    "error": "Compressed file ended before the end-of-stream marker was reached"
+  },
+  "garbage": {
+    "status": "rejected",
+    "errorType": "BadGzipFile",
+    "error": "Not a gzipped file (b'NO')"
+  },
+  "large-late-crc": {
+    "status": "rejected",
+    "errorType": "BadGzipFile",
+    "error": "CRC check failed"
+  }
+}

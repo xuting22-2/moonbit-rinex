@@ -25,3 +25,5 @@ CI不执行第三方 SDK、Rust、GSI 或 RTKLIB 的在线安装，也不把历�
 新增必要步骤`Run selected NAV source and physical replay consumer`运行`node tools/test-nav-source-replay.mjs`。冻结的自编NAV2/3原始头/八行预期和既有独立RTKLIB状态参照，核对原始选择与真实子文件接收；覆盖GPS/BDS显式轨道和GPST/BDT、等价记录的最早词法来源、冲突无来源、跳过后的物理行号、CRLF/无末LF、晚截断/容量失败、独占输出、原生完成门与旧默认完整JSON字节。双后端原生测试另核对公开来源快照的数组所有权。自编接收方不等于第三方采纳，原始换行字节与数据真实性不在结论内。
 
 R08新增`Run raw OBS CSV export and Decimal file recipient`，运行`node tools/test-observation-csv.mjs`。原始OBS/完整CSV/Decimal预期先于实现冻结，真实Python进程重读CSV后核对精确tick文本、逐槽原文、空历元、原生质量与完整性。另用1024历元的小样本跨宿主读取块，无末LF，并核对全部CSV字节；不重跑512MiB样本或旧科学参照生成器。原双后端与既有必要门保留。当前执行计划和本地复现见根CI-PLAN.md；是否通过仍以相同最终提交的真实run/job/step为准。
+
+R09新增`Run gzip OBS ingestion and existing file recipients`，运行`node tools/test-gzip-observations.mjs`。固定Python gzip/完整逻辑OBS/逐字段整数日历预期，覆盖正常与多成员、CRLF/无末LF、CRC/ISIZE/尾截断/垃圾尾、压缩正确但原生截断、原生质量拒绝及实际旧目录接收；存储块小样本让正确首历元先写出、坏CRC后到，仍不得交付合格目录。未压缩四文件和CLI原字节不变；相关旧host/短写/range快照门保留。512MiB上限检查为静态/已有界限证据，本轮不执行大预算样本或旧科学生成器。

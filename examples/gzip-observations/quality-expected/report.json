@@ -1,0 +1,88 @@
+{
+  "complete": true,
+  "acceptable": false,
+  "profile": "bounded OBS structural/time checks",
+  "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+  "header": {
+    "version": "3.05",
+    "marker": "R09 GZIP SYNTHETIC",
+    "time_system": "GPS",
+    "first": "14778504000000003",
+    "last": "14778504200000003",
+    "interval": "200000000",
+    "license": "MIT; fully synthetic gzip-ingestion input",
+    "doi": "",
+    "observation_types": {
+      "G": [
+        "C1C",
+        "L2W"
+      ]
+    },
+    "uninterpreted_labels": []
+  },
+  "epochs": 3,
+  "records": 2,
+  "first": "14778504000000003",
+  "last": "14778504400000003",
+  "missing_epoch_slots": 0,
+  "power_failure_epochs": 1,
+  "receiver_clock_epochs": 1,
+  "systems": [
+    {
+      "system": "G",
+      "records": 2,
+      "satellites": [
+        "G02",
+        "G09"
+      ],
+      "signals": [
+        {
+          "code": "C1C",
+          "nonempty_fields": 1,
+          "blank_fields": 1,
+          "zero_values": 0,
+          "lli_nonzero": 0,
+          "lli_bit0": 0,
+          "lli_bit1": 0,
+          "lli_bit2": 0
+        },
+        {
+          "code": "L2W",
+          "nonempty_fields": 2,
+          "blank_fields": 0,
+          "zero_values": 1,
+          "lli_nonzero": 2,
+          "lli_bit0": 1,
+          "lli_bit1": 1,
+          "lli_bit2": 0
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "code": "empty-epoch",
+      "line": 12,
+      "error": false,
+      "detail": "epoch contains no satellite observations"
+    },
+    {
+      "code": "power-failure",
+      "line": 12,
+      "error": false,
+      "detail": "receiver power interruption flag"
+    },
+    {
+      "code": "header-last",
+      "line": 5,
+      "error": true,
+      "detail": "last observed epoch differs from header"
+    }
+  ],
+  "finding_counts": {
+    "empty-epoch": 1,
+    "power-failure": 1,
+    "header-last": 1
+  },
+  "omitted_findings": 0
+}

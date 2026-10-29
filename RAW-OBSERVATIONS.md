@@ -2,6 +2,8 @@
 
 持续维护补充实际数据消费接口；已提交的 0.1.2 申报材料保持原样。`Reader` 与 `Checker` 共用 MoonBit 的定宽字段解析、错误状态与统计，不在 Node/Python 复制产品语法。
 
+现代OBS的显式gzip容器入口为`extractGzipObservations`或`tools/extract-gzip-observations.mjs`。它完整验证gzip流后仍使用同一Reader和四文件交付合同，已保存历元消费者无需修改。`manifest.input`记录解压后OBS的精确字节/行数/SHA，`compressedInput`另外记录物理gzip；源行号对应解压后的文本。完整流与原生质量边界见[专门合同](docs/GZIP-OBSERVATIONS.md)，默认未压缩入口不自动探测容器。
+
 ## 公共接口
 
 `Reader::new(gps_range? : (Int64, Int64))` 可选择半开范围 `[start, stop)`。参数采用自 1980-01-01 00:00:00 GPS 起算的 100ns 日历 ticks，范围必须非负、递增并在 1980..2100 之内。`Reader::feed_line(String)` 返回 `ObservationEpoch?`：只有当该时刻声明的全部卫星记录均通过检查，才返回完整对象；0 条卫星的时刻即时返回。选择范围外的数据也完整验证，但不构造观测字段对象。

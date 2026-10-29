@@ -1,0 +1,30 @@
+{
+  "parsed": {
+    "version": "3.05",
+    "marker": "R09 LATE GZIP FOOTER",
+    "time_system": "GPS",
+    "first": "14778504000000003",
+    "last": "14778542100000003",
+    "interval": "300000000",
+    "license": "MIT; fully synthetic gzip-ingestion input",
+    "doi": "",
+    "observation_types": {
+      "G": [
+        "C1C",
+        "L2W"
+      ]
+    },
+    "uninterpreted_labels": []
+  },
+  "raw_lines": [
+    "     3.05           OBSERVATION DATA    G                   RINEX VERSION / TYPE",
+    "R09 LATE GZIP FOOTER                                        MARKER NAME",
+    "G    2 C1C L2W                                              SYS / # / OBS TYPES",
+    "  2026    10    30    18     0    0.0000003     GPS         TIME OF FIRST OBS",
+    "  2026    10    30    19     3   30.0000003     GPS         TIME OF LAST OBS",
+    "        30.000                                              INTERVAL",
+    "     0                                                      RCV CLOCK OFFS APPL",
+    "MIT; fully synthetic gzip-ingestion input                   LICENSE OF USE",
+    "                                                            END OF HEADER"
+  ]
+}

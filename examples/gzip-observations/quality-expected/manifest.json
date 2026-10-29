@@ -1,0 +1,33 @@
+{
+  "complete": true,
+  "inputAcceptable": false,
+  "gpsRange": null,
+  "selectedEpochs": 3,
+  "selectedSatelliteRecords": 2,
+  "input": {
+    "file": "quality.rnx",
+    "bytes": 887,
+    "lines": 14,
+    "sha256": "44027a7dba71ece7378706a1ada5fc7a319e1589ded0056d44462aa41a2b46b1"
+  },
+  "output": {
+    "bytes": 1122,
+    "sha256": "233a8d302d73cd312158ecf88c50d6a65f9a37d28c55e3ea2d832c86e7afc205"
+  },
+  "source": {
+    "license": "MIT; fully synthetic gzip-ingestion input",
+    "doi": "",
+    "marker": "R09 GZIP SYNTHETIC"
+  },
+  "semantics": {
+    "time": "100ns GPS calendar ticks since 1980-01-01; not UTC",
+    "values": "stored raw numbers; numeric zero is retained and may mean missing",
+    "corrections": "no scale/phase/clock corrections applied; original header retained",
+    "lines": "one-based source lines; raw strings exclude line terminators"
+  },
+  "limits": [
+    "complete validates the entire file; inputAcceptable and findings remain separate",
+    "returned complete epochs are provisional until finish",
+    "existing listed OBS versions, GPS time and flags 0/1 only; no positioning or full RINEX certification"
+  ]
+}

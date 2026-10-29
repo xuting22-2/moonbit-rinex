@@ -1,0 +1,36 @@
+{
+  "complete": true,
+  "inputAcceptable": true,
+  "gpsRange": [
+    "14778504000000003",
+    "14778504000000004"
+  ],
+  "selectedEpochs": 1,
+  "selectedSatelliteRecords": 16,
+  "input": {
+    "file": "large-logical.rnx",
+    "bytes": 79022,
+    "lines": 2185,
+    "sha256": "e03cf3b8143a5f213dfdc7ce3ce29e08f93d4b1cce9d6b6b81d2d0abc236c150"
+  },
+  "output": {
+    "bytes": 4611,
+    "sha256": "4fdbcfd111dc857252e6ef24a3cbd975eef28459cd3d8d9f284a35ffa4ec7489"
+  },
+  "source": {
+    "license": "MIT; fully synthetic gzip-ingestion input",
+    "doi": "",
+    "marker": "R09 LATE GZIP FOOTER"
+  },
+  "semantics": {
+    "time": "100ns GPS calendar ticks since 1980-01-01; not UTC",
+    "values": "stored raw numbers; numeric zero is retained and may mean missing",
+    "corrections": "no scale/phase/clock corrections applied; original header retained",
+    "lines": "one-based source lines; raw strings exclude line terminators"
+  },
+  "limits": [
+    "complete validates the entire file; inputAcceptable and findings remain separate",
+    "returned complete epochs are provisional until finish",
+    "existing listed OBS versions, GPS time and flags 0/1 only; no positioning or full RINEX certification"
+  ]
+}

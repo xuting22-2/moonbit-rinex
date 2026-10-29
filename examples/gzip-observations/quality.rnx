@@ -1,0 +1,14 @@
+     3.05           OBSERVATION DATA    G                   RINEX VERSION / TYPE
+R09 GZIP SYNTHETIC                                          MARKER NAME
+G    2 C1C L2W                                              SYS / # / OBS TYPES
+  2026    10    30    18     0    0.0000003     GPS         TIME OF FIRST OBS
+  2026    10    30    18     0   20.0000003     GPS         TIME OF LAST OBS
+        20.000                                              INTERVAL
+     0                                                      RCV CLOCK OFFS APPL
+MIT; fully synthetic gzip-ingestion input                   LICENSE OF USE
+                                                            END OF HEADER
+> 2026 10 30 18 00 00.0000003  0  1
+G02       123.75008         0.00016
+> 2026 10 30 18 00 20.0000003  1  0
+> 2026 10 30 18 00 40.0000003  0  1         -0.000000002
+G09               0       -45.12520

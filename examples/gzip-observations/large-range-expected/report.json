@@ -1,0 +1,79 @@
+{
+  "complete": true,
+  "acceptable": true,
+  "profile": "bounded OBS structural/time checks",
+  "time_unit": "100ns calendar ticks since 1980-01-01 00:00:00 GPS; not UTC",
+  "header": {
+    "version": "3.05",
+    "marker": "R09 LATE GZIP FOOTER",
+    "time_system": "GPS",
+    "first": "14778504000000003",
+    "last": "14778542100000003",
+    "interval": "300000000",
+    "license": "MIT; fully synthetic gzip-ingestion input",
+    "doi": "",
+    "observation_types": {
+      "G": [
+        "C1C",
+        "L2W"
+      ]
+    },
+    "uninterpreted_labels": []
+  },
+  "epochs": 128,
+  "records": 2048,
+  "first": "14778504000000003",
+  "last": "14778542100000003",
+  "missing_epoch_slots": 0,
+  "power_failure_epochs": 0,
+  "receiver_clock_epochs": 0,
+  "systems": [
+    {
+      "system": "G",
+      "records": 2048,
+      "satellites": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09",
+        "G10",
+        "G11",
+        "G12",
+        "G13",
+        "G14",
+        "G15",
+        "G16"
+      ],
+      "signals": [
+        {
+          "code": "C1C",
+          "nonempty_fields": 2048,
+          "blank_fields": 0,
+          "zero_values": 0,
+          "lli_nonzero": 0,
+          "lli_bit0": 0,
+          "lli_bit1": 0,
+          "lli_bit2": 0
+        },
+        {
+          "code": "L2W",
+          "nonempty_fields": 2048,
+          "blank_fields": 0,
+          "zero_values": 0,
+          "lli_nonzero": 1792,
+          "lli_bit0": 1024,
+          "lli_bit1": 1024,
+          "lli_bit2": 1024
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "finding_counts": {},
+  "omitted_findings": 0
+}

@@ -2,18 +2,28 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {createGunzip} from 'node:zlib';
+import {pipeline} from 'node:stream/promises';
 import * as api from '../_build/js/release/build/cmd/bridge/bridge.js';
 
 // Keep files in the host and the shared grammar/state in the MoonBit Reader.
 export async function extractObservations(file,directory,gpsRange=null){
+ return extractObservationInput(file,directory,gpsRange,false);
+}
+// Explicit gzip transport only; the decoded data still uses the same Reader.
+export async function extractGzipObservations(file,directory,gpsRange=null){
+ return extractObservationInput(file,directory,gpsRange,true);
+}
+async function extractObservationInput(file,directory,gpsRange,gzip){
  const options=JSON.stringify({gps_range:gpsRange});
  const reader=api.reader_create(options);
  // Record the same serialized range the native Reader accepted, without caller aliases.
  const rangeSnapshot=JSON.parse(options).gps_range;
  const handle=await fs.promises.open(file,'r');let fd=null,created=false,outputBytes=0,epochs=0,records=0;
  const digest=createHash('sha256'),outputDigest=createHash('sha256');let bytes=0,lines=0,headerSaved=false;
+ const compressedDigest=gzip?createHash('sha256'):null;let compressedBytes=0;
  try{
-  const before=await handle.stat();if(!before.isFile()||before.size>536870912)throw Error('regular uncompressed file <=512MiB required');
+  const before=await handle.stat();if(!before.isFile()||before.size>536870912)throw Error(gzip?'regular gzip file <=512MiB required':'regular uncompressed file <=512MiB required');
   fs.mkdirSync(directory);created=true;fd=fs.openSync(path.join(directory,'epochs.ndjson'),'wx');
   function consume(raw,hasLF){
    if(hasLF&&raw.at(-1)===13)raw=raw.subarray(0,-1);
@@ -30,15 +40,30 @@ export async function extractObservations(file,directory,gpsRange=null){
     fs.writeFileSync(fd,Buffer.from(encoded));outputDigest.update(encoded);outputBytes+=size;epochs++;records+=epoch.satellites.length;
    }
   }
-  let pending=Buffer.alloc(0);
-  for await(const chunk of handle.createReadStream({highWaterMark:65536,autoClose:false})){
-   bytes+=chunk.length;if(bytes>536870912)throw Error('input byte limit exceeded');digest.update(chunk);
-   const joined=pending.length?Buffer.concat([pending,chunk]):chunk;let at=0;
-   for(let i=0;i<joined.length;i++)if(joined[i]===10){consume(joined.subarray(at,i),true);at=i+1;}
-   pending=Buffer.from(joined.subarray(at));if(pending.length>8193)throw Error('line capacity exceeded');
+  async function consumeChunks(source){
+   let pending=Buffer.alloc(0);
+   for await(const chunk of source){
+    bytes+=chunk.length;if(bytes>536870912)throw Error('input byte limit exceeded');digest.update(chunk);
+    const joined=pending.length?Buffer.concat([pending,chunk]):chunk;let at=0;
+    for(let i=0;i<joined.length;i++)if(joined[i]===10){consume(joined.subarray(at,i),true);at=i+1;}
+    pending=Buffer.from(joined.subarray(at));if(pending.length>8193)throw Error('line capacity exceeded');
+   }
+   if(pending.length)consume(pending,false);
   }
-  if(pending.length)consume(pending,false);
-  const after=await handle.stat();if(before.size!==after.size||before.mtimeMs!==after.mtimeMs||bytes!==before.size)throw Error('input changed during read');
+  const source=handle.createReadStream({highWaterMark:65536,autoClose:false});
+  if(gzip){
+   async function* identifyCompressed(chunks){
+    for await(const chunk of chunks){
+     compressedBytes+=chunk.length;if(compressedBytes>536870912)throw Error('compressed input byte limit exceeded');
+     compressedDigest.update(chunk);yield chunk;
+    }
+   }
+   // Default finish behavior rejects truncated/footer/extra-member errors. Do
+   // not finish the native Reader merely because a selected epoch was emitted.
+   await pipeline(source,identifyCompressed,createGunzip({chunkSize:65536}),consumeChunks);
+  }else await consumeChunks(source);
+  const physicalBytes=gzip?compressedBytes:bytes;
+  const after=await handle.stat();if(before.size!==after.size||before.mtimeMs!==after.mtimeMs||physicalBytes!==before.size)throw Error('input changed during read');
   const report=JSON.parse(api.reader_finish(reader));
   fs.closeSync(fd);fd=null;
   fs.writeFileSync(path.join(directory,'report.json'),JSON.stringify(report,null,2)+'\n',{flag:'wx'});
@@ -51,6 +76,7 @@ export async function extractObservations(file,directory,gpsRange=null){
     corrections:'no scale/phase/clock corrections applied; original header retained',lines:'one-based source lines; raw strings exclude line terminators'},
    limits:['complete validates the entire file; inputAcceptable and findings remain separate','returned complete epochs are provisional until finish',
     'existing listed OBS versions, GPS time and flags 0/1 only; no positioning or full RINEX certification']};
+  if(gzip)manifest.compressedInput={encoding:'gzip',file:path.basename(file),bytes:compressedBytes,sha256:compressedDigest.digest('hex'),complete:true};
   fs.writeFileSync(path.join(directory,'manifest.json'),JSON.stringify(manifest,null,2)+'\n',{flag:'wx'});
   return manifest;
  }catch(error){

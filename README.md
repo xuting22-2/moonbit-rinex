@@ -67,7 +67,16 @@ BDS非旧GEO PRN1–5需显式提供GEO或MEO_IGSO，不凭PRN猜全部BDS-3轨�
 ## 状态与完成边界
 CRINEX1行首&、CRINEX3行首>、数值n&value及文本&含义不同；负相位合法。flag4更新头，其他事件恢复原记录；恢复文本不表示旧Reader支持其物理语义。默认错误即封存失败。recover=true只在已知观测行边界错误时丢弃整历元，在可信头和完整初始化后恢复；不扫描未知乱码中的&猜同步。任何丢失都保留finding且complete/acceptable不转成功。CRX complete指无丢失恢复；旧Checker complete指完成输入检查。
 
-每行8192 ASCII字符、逻辑输入512MiB、头4096行、96类型/系统、有限卫星空间。流式Reader/Checker/CrinexDecoder仅保存头、计数、当前历元及差分状态，不累计历史；NavCatalog另保存显式容量内的广播记录，默认4096、上限32768，满时失败且不淘汰旧记录。调用者累计输出的内存另计；不提供gzip、CRINEX3.1、OBS4.02、SP3或GLONASS/Galileo传播。
+每行8192 ASCII字符、逻辑输入512MiB、头4096行、96类型/系统、有限卫星空间。流式Reader/Checker/CrinexDecoder仅保存头、计数、当前历元及差分状态，不累计历史；NavCatalog另保存显式容量内的广播记录，默认4096、上限32768，满时失败且不淘汰旧记录。调用者累计输出的内存另计；gzip仅由显式现代OBS文件入口解压，不提供其他压缩容器、CRINEX3.1、OBS4.02、SP3或GLONASS/Galileo传播。
+
+已有`.rnx.gz`时可直接完整接收为原保存目录：
+
+```sh
+node tools/extract-gzip-observations.mjs examples/gzip-observations/valid.rnx.gz NEW_GZIP_DIRECTORY
+node tools/read-extracted-epochs.mjs NEW_GZIP_DIRECTORY 1 3 --header
+```
+
+`extractGzipObservations`使用Node标准gzip流，压缩与解压后输入分别计数/SHA，所有成员及尾部校验完成后才调用原生finish；仅选早期历元也不能略过坏尾部。`manifest.input`是解压后OBS身份/行号，`compressedInput`另记物理gzip身份；原生质量与完成仍分开，旧未压缩入口字节保持兼容。详见[gzip完整接收合同](docs/GZIP-OBSERVATIONS.md)。
 
 OBS文件提取在每条NDJSON完整写入后才更新输出长度/SHA；低层短写入不会被当成整条成功。写入异常保留complete=false的暂定文件，末条可能不完整；文件例程会在此停止，不能用暂定数据继续当作已完成输入查询导航。详见[原始观测文件交付约定](RAW-OBSERVATIONS.md)。
 

@@ -1,0 +1,536 @@
+{
+  "source": "Project-authored complete fixed columns plus independent integer datetime/Decimal values; Python stdlib gzip/zlib containers",
+  "logical": {
+    "bytes": 887,
+    "sha256": "459d36567fa9a86bfa189ba6e9fae128a4eb9bf0bfb58ce265f1ce209967f76d"
+  },
+  "compressed": {
+    "bytes": 340,
+    "sha256": "5b9cf388a4fec0d83799aedac013db1605bc1ee1f6c236cc6828e98ee9dd27c5"
+  },
+  "epochs": [
+    {
+      "gps_ticks": "14778504000000003",
+      "flag": 0,
+      "line": 10,
+      "end_line": 11,
+      "raw_record": "> 2026 10 30 18 00 00.0000003  0  1",
+      "receiver_clock": null,
+      "receiver_clock_raw": "",
+      "satellites": [
+        {
+          "satellite": "G02",
+          "line": 11,
+          "raw_record": "G02       123.75008         0.00016",
+          "observations": [
+            {
+              "code": "C1C",
+              "column": 4,
+              "raw_field": "       123.75008",
+              "value": 123.75,
+              "lli": 0,
+              "ssi": 8
+            },
+            {
+              "code": "L2W",
+              "column": 20,
+              "raw_field": "         0.00016",
+              "value": 0.0,
+              "lli": 1,
+              "ssi": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "gps_ticks": "14778504200000003",
+      "flag": 1,
+      "line": 12,
+      "end_line": 12,
+      "raw_record": "> 2026 10 30 18 00 20.0000003  1  0",
+      "receiver_clock": null,
+      "receiver_clock_raw": "",
+      "satellites": []
+    },
+    {
+      "gps_ticks": "14778504400000003",
+      "flag": 0,
+      "line": 13,
+      "end_line": 14,
+      "raw_record": "> 2026 10 30 18 00 40.0000003  0  1         -0.000000002",
+      "receiver_clock": -2e-09,
+      "receiver_clock_raw": "   -0.000000002",
+      "satellites": [
+        {
+          "satellite": "G09",
+          "line": 14,
+          "raw_record": "G09               0       -45.12520",
+          "observations": [
+            {
+              "code": "C1C",
+              "column": 4,
+              "raw_field": "               0",
+              "value": null,
+              "lli": null,
+              "ssi": 0
+            },
+            {
+              "code": "L2W",
+              "column": 20,
+              "raw_field": "       -45.12520",
+              "value": -45.125,
+              "lli": 2,
+              "ssi": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "header_lines": [
+    "     3.05           OBSERVATION DATA    G                   RINEX VERSION / TYPE",
+    "R09 GZIP SYNTHETIC                                          MARKER NAME",
+    "G    2 C1C L2W                                              SYS / # / OBS TYPES",
+    "  2026    10    30    18     0    0.0000003     GPS         TIME OF FIRST OBS",
+    "  2026    10    30    18     0   40.0000003     GPS         TIME OF LAST OBS",
+    "        20.000                                              INTERVAL",
+    "     0                                                      RCV CLOCK OFFS APPL",
+    "MIT; fully synthetic gzip-ingestion input                   LICENSE OF USE",
+    "                                                            END OF HEADER"
+  ],
+  "rangeFirstOnly": [
+    "14778504000000003",
+    "14778504000000004"
+  ],
+  "expectedNative": {
+    "epochs": 3,
+    "records": 2,
+    "acceptable": true,
+    "first": "14778504000000003",
+    "last": "14778504400000003",
+    "missing_epoch_slots": 0,
+    "finding_counts": {
+      "empty-epoch": 1,
+      "power-failure": 1
+    }
+  },
+  "large": {
+    "logical": {
+      "bytes": 79022,
+      "sha256": "e03cf3b8143a5f213dfdc7ce3ce29e08f93d4b1cce9d6b6b81d2d0abc236c150"
+    },
+    "compressed": {
+      "bytes": 79050,
+      "sha256": "804ea2a8e03ba7dd62d5cb237085a759a2729959f3434301733479ab3ea72fbb"
+    },
+    "inputEpochs": 128,
+    "inputSatelliteRecords": 2048,
+    "inputObservationSlots": 4096,
+    "selectedEpochs": [
+      {
+        "gps_ticks": "14778504000000003",
+        "flag": 0,
+        "line": 10,
+        "end_line": 26,
+        "raw_record": "> 2026 10 30 18 00 00.0000003  0 16",
+        "receiver_clock": null,
+        "receiver_clock_raw": "",
+        "satellites": [
+          {
+            "satellite": "G01",
+            "line": 11,
+            "raw_record": "G01       250.250 7       -12.62511",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       250.250 7",
+                "value": 250.25,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -12.62511",
+                "value": -12.625,
+                "lli": 1,
+                "ssi": 1
+              }
+            ]
+          },
+          {
+            "satellite": "G02",
+            "line": 12,
+            "raw_record": "G02       250.500 7       -12.75022",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       250.500 7",
+                "value": 250.5,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -12.75022",
+                "value": -12.75,
+                "lli": 2,
+                "ssi": 2
+              }
+            ]
+          },
+          {
+            "satellite": "G03",
+            "line": 13,
+            "raw_record": "G03       250.750 7       -12.87533",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       250.750 7",
+                "value": 250.75,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -12.87533",
+                "value": -12.875,
+                "lli": 3,
+                "ssi": 3
+              }
+            ]
+          },
+          {
+            "satellite": "G04",
+            "line": 14,
+            "raw_record": "G04       251.000 7       -13.00044",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       251.000 7",
+                "value": 251.0,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -13.00044",
+                "value": -13.0,
+                "lli": 4,
+                "ssi": 4
+              }
+            ]
+          },
+          {
+            "satellite": "G05",
+            "line": 15,
+            "raw_record": "G05       251.250 7       -13.12555",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       251.250 7",
+                "value": 251.25,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -13.12555",
+                "value": -13.125,
+                "lli": 5,
+                "ssi": 5
+              }
+            ]
+          },
+          {
+            "satellite": "G06",
+            "line": 16,
+            "raw_record": "G06       251.500 7       -13.25066",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       251.500 7",
+                "value": 251.5,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -13.25066",
+                "value": -13.25,
+                "lli": 6,
+                "ssi": 6
+              }
+            ]
+          },
+          {
+            "satellite": "G07",
+            "line": 17,
+            "raw_record": "G07       251.750 7       -13.37577",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       251.750 7",
+                "value": 251.75,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -13.37577",
+                "value": -13.375,
+                "lli": 7,
+                "ssi": 7
+              }
+            ]
+          },
+          {
+            "satellite": "G08",
+            "line": 18,
+            "raw_record": "G08       252.000 7       -13.50008",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       252.000 7",
+                "value": 252.0,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -13.50008",
+                "value": -13.5,
+                "lli": 0,
+                "ssi": 8
+              }
+            ]
+          },
+          {
+            "satellite": "G09",
+            "line": 19,
+            "raw_record": "G09       252.250 7       -13.62519",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       252.250 7",
+                "value": 252.25,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -13.62519",
+                "value": -13.625,
+                "lli": 1,
+                "ssi": 9
+              }
+            ]
+          },
+          {
+            "satellite": "G10",
+            "line": 20,
+            "raw_record": "G10       252.500 7       -13.75020",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       252.500 7",
+                "value": 252.5,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -13.75020",
+                "value": -13.75,
+                "lli": 2,
+                "ssi": 0
+              }
+            ]
+          },
+          {
+            "satellite": "G11",
+            "line": 21,
+            "raw_record": "G11       252.750 7       -13.87531",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       252.750 7",
+                "value": 252.75,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -13.87531",
+                "value": -13.875,
+                "lli": 3,
+                "ssi": 1
+              }
+            ]
+          },
+          {
+            "satellite": "G12",
+            "line": 22,
+            "raw_record": "G12       253.000 7       -14.00042",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       253.000 7",
+                "value": 253.0,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -14.00042",
+                "value": -14.0,
+                "lli": 4,
+                "ssi": 2
+              }
+            ]
+          },
+          {
+            "satellite": "G13",
+            "line": 23,
+            "raw_record": "G13       253.250 7       -14.12553",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       253.250 7",
+                "value": 253.25,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -14.12553",
+                "value": -14.125,
+                "lli": 5,
+                "ssi": 3
+              }
+            ]
+          },
+          {
+            "satellite": "G14",
+            "line": 24,
+            "raw_record": "G14       253.500 7       -14.25064",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       253.500 7",
+                "value": 253.5,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -14.25064",
+                "value": -14.25,
+                "lli": 6,
+                "ssi": 4
+              }
+            ]
+          },
+          {
+            "satellite": "G15",
+            "line": 25,
+            "raw_record": "G15       253.750 7       -14.37575",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       253.750 7",
+                "value": 253.75,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -14.37575",
+                "value": -14.375,
+                "lli": 7,
+                "ssi": 5
+              }
+            ]
+          },
+          {
+            "satellite": "G16",
+            "line": 26,
+            "raw_record": "G16       254.000 7       -14.50006",
+            "observations": [
+              {
+                "code": "C1C",
+                "column": 4,
+                "raw_field": "       254.000 7",
+                "value": 254.0,
+                "lli": null,
+                "ssi": 7
+              },
+              {
+                "code": "L2W",
+                "column": 20,
+                "raw_field": "       -14.50006",
+                "value": -14.5,
+                "lli": 0,
+                "ssi": 6
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "header_lines": [
+      "     3.05           OBSERVATION DATA    G                   RINEX VERSION / TYPE",
+      "R09 LATE GZIP FOOTER                                        MARKER NAME",
+      "G    2 C1C L2W                                              SYS / # / OBS TYPES",
+      "  2026    10    30    18     0    0.0000003     GPS         TIME OF FIRST OBS",
+      "  2026    10    30    19     3   30.0000003     GPS         TIME OF LAST OBS",
+      "        30.000                                              INTERVAL",
+      "     0                                                      RCV CLOCK OFFS APPL",
+      "MIT; fully synthetic gzip-ingestion input                   LICENSE OF USE",
+      "                                                            END OF HEADER"
+    ],
+    "first": "14778504000000003",
+    "last": "14778542100000003"
+  },
+  "containerFailures": [
+    "crc-error",
+    "size-error",
+    "truncated",
+    "garbage",
+    "large-late-crc"
+  ],
+  "nativeFailure": "native-truncated",
+  "qualityFailure": "quality",
+  "newGzipContract": "Require full default Gunzip stream completion and full native Reader finish; container identity is compressed bytes, input identity is exact decoded OBS bytes; no source authenticity.",
+  "boundedLimitProof": "Both compressed/decoded streams capped512MiB before further processing; current round tests small byte chunks/late footer only, no512MiB boundary rerun."
+}

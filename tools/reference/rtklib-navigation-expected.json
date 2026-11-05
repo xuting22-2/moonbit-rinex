@@ -1,0 +1,260 @@
+{
+  "reference": "Byte-preserved pinned RTKLIB eph2pos/geph2pos (variance not compared), TinyCC0.9.27 private native runner",
+  "repository": "https://github.com/rtklibexplorer/RTKLIB",
+  "commit": "965e94507b628e84597c73b3a3d6530ecb9df272",
+  "functions": [
+    {
+      "name": "var_uraeph",
+      "firstLine": 114,
+      "lastLine": 130,
+      "sha256": "2e81a46b3ba6d90fee5e5523920bfc5a354f59716c7193e791e93c119802e490"
+    },
+    {
+      "name": "eph2pos",
+      "firstLine": 222,
+      "lastLine": 293,
+      "sha256": "3d8455cdaa54fdc0a2d793c45d7e1f11c4b99467a4128596699b60a8570847b4"
+    },
+    {
+      "name": "deq",
+      "firstLine": 295,
+      "lastLine": 311,
+      "sha256": "4876e7d5ca05ad911b4ad55a8070982c372a677304a9690fe90bf768c8624f8f"
+    },
+    {
+      "name": "glorbit",
+      "firstLine": 313,
+      "lastLine": 323,
+      "sha256": "95ade556c12efe1523b03fbb31a08526c76f082fba4df8a0c6f956e1bd0c42ad"
+    },
+    {
+      "name": "geph2pos",
+      "firstLine": 358,
+      "lastLine": 383,
+      "sha256": "eb63f2b505f89043bdb7db49c5e65097200058e0625f1337745f150bdb14ed97"
+    }
+  ],
+  "runnerSha256": "c3aaa65142d2b9570515a8b6386556e3581c255802e62e93377141583b9a60c7",
+  "sourceSha256": "1cb1870a1a85bda8f847342ec811c47375bb5278ec368093002b7b152d3ee7f2",
+  "contractSourceSha256": "844d1374cb4e634fb9612368241db32f165ac0888214a2e83d22041007c24925",
+  "scope": "GLO FDMA and Galileo orbital computation; no RINEX4 parsing claim; no product code imported",
+  "results": [
+    {
+      "key": "EPH R FDMA",
+      "sourceFirstLine": 50524,
+      "elapsedSeconds": -1800,
+      "toeMinusToc": 0,
+      "expected": [
+        -22646770.436656017,
+        -2322698.9961453797,
+        -11511577.728608495,
+        0.00010968115384453681
+      ]
+    },
+    {
+      "key": "EPH R FDMA",
+      "sourceFirstLine": 50524,
+      "elapsedSeconds": -600,
+      "toeMinusToc": 0,
+      "expected": [
+        -20468197.705968525,
+        -2556642.743136003,
+        -15008717.813612742,
+        0.00010968224523817894
+      ]
+    },
+    {
+      "key": "EPH R FDMA",
+      "sourceFirstLine": 50524,
+      "elapsedSeconds": 0,
+      "toeMinusToc": 0,
+      "expected": [
+        -19191147.94922,
+        -2802584.472656,
+        -16570102.050779998,
+        0.000109682790935
+      ]
+    },
+    {
+      "key": "EPH R FDMA",
+      "sourceFirstLine": 50524,
+      "elapsedSeconds": 17,
+      "toeMinusToc": 0,
+      "expected": [
+        -19153376.714111753,
+        -2810939.690153348,
+        -16612316.63493902,
+        0.00010968280639640993
+      ]
+    },
+    {
+      "key": "EPH R FDMA",
+      "sourceFirstLine": 50524,
+      "elapsedSeconds": 600,
+      "toeMinusToc": 0,
+      "expected": [
+        -17810749.427130904,
+        -3146010.2334435447,
+        -17988334.84499052,
+        0.00010968333663182106
+      ]
+    },
+    {
+      "key": "EPH R FDMA",
+      "sourceFirstLine": 50524,
+      "elapsedSeconds": 1800,
+      "toeMinusToc": 0,
+      "expected": [
+        -14813234.700428942,
+        -4146774.8229703656,
+        -20347670.053336162,
+        0.00010968442802546319
+      ]
+    },
+    {
+      "key": "EPH E INAV",
+      "sourceFirstLine": 57874,
+      "elapsedSeconds": -1800,
+      "toeMinusToc": 0.0,
+      "expected": [
+        9757953.248622023,
+        -23243572.53326886,
+        15520172.060296427,
+        0.0001866037549750288
+      ]
+    },
+    {
+      "key": "EPH E INAV",
+      "sourceFirstLine": 57874,
+      "elapsedSeconds": -600,
+      "toeMinusToc": 0.0,
+      "expected": [
+        10921288.304408189,
+        -24477027.211749032,
+        12573310.298467753,
+        0.00018660726583653967
+      ]
+    },
+    {
+      "key": "EPH E INAV",
+      "sourceFirstLine": 57874,
+      "elapsedSeconds": 0,
+      "toeMinusToc": 0.0,
+      "expected": [
+        11367215.610461522,
+        -25030482.877884414,
+        10991432.06450816,
+        0.00018660903092383087
+      ]
+    },
+    {
+      "key": "EPH E INAV",
+      "sourceFirstLine": 57874,
+      "elapsedSeconds": 17,
+      "toeMinusToc": 0.0,
+      "expected": [
+        11378564.595320133,
+        -25045403.5480447,
+        10945684.917545054,
+        0.00018660908102588605
+      ]
+    },
+    {
+      "key": "EPH E INAV",
+      "sourceFirstLine": 57874,
+      "elapsedSeconds": 600,
+      "toeMinusToc": 0.0,
+      "expected": [
+        11725994.877993764,
+        -25528647.40650628,
+        9348795.689588634,
+        0.00018661080220759056
+      ]
+    },
+    {
+      "key": "EPH E INAV",
+      "sourceFirstLine": 57874,
+      "elapsedSeconds": 1800,
+      "toeMinusToc": 0.0,
+      "expected": [
+        12199010.517809981,
+        -26322743.84369721,
+        5917871.7288845545,
+        0.0001866143624359258
+      ]
+    },
+    {
+      "key": "EPH E FNAV",
+      "sourceFirstLine": 58900,
+      "elapsedSeconds": -1800,
+      "toeMinusToc": 0.0,
+      "expected": [
+        9757953.248622023,
+        -23243572.53326886,
+        15520172.060296427,
+        0.0001866037549750288
+      ]
+    },
+    {
+      "key": "EPH E FNAV",
+      "sourceFirstLine": 58900,
+      "elapsedSeconds": -600,
+      "toeMinusToc": 0.0,
+      "expected": [
+        10921288.304408189,
+        -24477027.211749032,
+        12573310.298467753,
+        0.00018660726583653967
+      ]
+    },
+    {
+      "key": "EPH E FNAV",
+      "sourceFirstLine": 58900,
+      "elapsedSeconds": 0,
+      "toeMinusToc": 0.0,
+      "expected": [
+        11367215.610461522,
+        -25030482.877884414,
+        10991432.06450816,
+        0.00018660903092383087
+      ]
+    },
+    {
+      "key": "EPH E FNAV",
+      "sourceFirstLine": 58900,
+      "elapsedSeconds": 17,
+      "toeMinusToc": 0.0,
+      "expected": [
+        11378564.595320133,
+        -25045403.5480447,
+        10945684.917545054,
+        0.00018660908102588605
+      ]
+    },
+    {
+      "key": "EPH E FNAV",
+      "sourceFirstLine": 58900,
+      "elapsedSeconds": 600,
+      "toeMinusToc": 0.0,
+      "expected": [
+        11725994.877993764,
+        -25528647.40650628,
+        9348795.689588634,
+        0.00018661080220759056
+      ]
+    },
+    {
+      "key": "EPH E FNAV",
+      "sourceFirstLine": 58900,
+      "elapsedSeconds": 1800,
+      "toeMinusToc": 0.0,
+      "expected": [
+        12199010.517809981,
+        -26322743.84369721,
+        5917871.7288845545,
+        0.0001866143624359258
+      ]
+    }
+  ],
+  "licenseNote": "Only computed reference numbers and function/hash provenance are included. No RTKLIB source or public RINEX raw record is distributed in this product. Upstream code remains under its own license."
+}

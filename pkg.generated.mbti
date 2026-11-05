@@ -306,6 +306,83 @@ pub fn NavTime::to_json(Self) -> Json
 pub fn NavTime::to_repr(Self) -> @debug.Repr
 pub fn NavTime::week(Int, Double, bdt? : Bool) -> Self raise NavError
 
+pub struct NavigationEarthOrientation {
+  xp_arcsec : Double
+  yp_arcsec : Double
+  delta_ut1_seconds : Double
+  delta_ut1_reference : String
+} derive(ToJson)
+pub fn NavigationEarthOrientation::to_json(Self) -> Json
+
+pub struct NavigationEpoch {
+  calendar : String
+  scale : String
+  calendar_ticks : Int64
+  leap_second : Bool
+} derive(ToJson, @debug.Debug)
+pub fn NavigationEpoch::to_json(Self) -> Json
+pub fn NavigationEpoch::to_repr(Self) -> @debug.Repr
+
+pub struct NavigationField {
+  name : String
+  unit : String
+  row : Int
+  column : Int
+  raw : String
+  value : Double?
+  availability : String
+} derive(ToJson, @debug.Debug)
+pub fn NavigationField::to_json(Self) -> Json
+pub fn NavigationField::to_repr(Self) -> @debug.Repr
+
+pub struct NavigationMessage {
+  version : String
+  category : String
+  system : String
+  satellite : String
+  family : String
+  subtype : String
+  model : String
+  known : Bool
+  epoch : NavigationEpoch?
+  first_line : Int
+  last_line : Int
+  // private fields
+}
+pub fn NavigationMessage::earth_orientation(Self, Double) -> NavigationEarthOrientation raise NavError
+pub fn NavigationMessage::parameters(Self) -> Array[NavigationField]
+pub fn NavigationMessage::raw_lines(Self) -> Array[String]
+pub fn NavigationMessage::state_at_offset(Self, Double, signal? : String, bds_orbit? : BdsOrbit, max_age_seconds? : Double) -> NavigationState raise NavError
+pub fn NavigationMessage::system_time_offset(Self, Double) -> Double raise NavError
+pub fn NavigationMessage::text(Self, String) -> String?
+pub fn NavigationMessage::to_json(Self) -> Json
+pub fn NavigationMessage::value(Self, String) -> Double?
+
+pub struct NavigationReader {
+  // private fields
+}
+pub fn NavigationReader::feed_line(Self, String) -> NavigationMessage? raise NavError
+pub fn NavigationReader::finish(Self) -> NavigationMessage? raise NavError
+pub fn NavigationReader::header_lines(Self) -> Array[String]
+pub fn NavigationReader::new() -> Self
+pub fn NavigationReader::record_count(Self) -> Int
+pub fn NavigationReader::unsupported_records(Self) -> Int
+
+pub struct NavigationState {
+  satellite : String
+  family : String
+  elapsed_seconds : Double
+  x : Double
+  y : Double
+  z : Double
+  clock_seconds : Double
+  frame : String
+  clock_reference : String
+  velocity_mps : Array[Double]?
+  group_delays : Array[NavigationField]
+} derive(ToJson)
+pub fn NavigationState::to_json(Self) -> Json
+
 pub struct ObservationClipReport {
   input_report : Report
   gps_range : (Int64, Int64)

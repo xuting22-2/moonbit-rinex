@@ -1,5 +1,5 @@
 # MoonBit RINEX：观测接收、CRINEX恢复与广播星历
-模块 `xuting22-2/rinex`，MIT。[仓库](https://github.com/xuting22-2/moonbit-rinex)。**0.4.0源码版本**；[GitHub CI](https://github.com/xuting22-2/moonbit-rinex/actions/workflows/ci.yml)的结果以对应提交为准，复现与范围见[CI说明](docs/CI.md)。尚未发布Mooncakes或提交比赛。历史 `xuting22-rinex-申报书.md` 保留旧快照，当前功能见PROPOSAL.md。SUBMISSION.json、REVIEW-RESPONSE.md和docs/SCOPE.md记录旧快照，不作为当前版本的新完成证明。
+模块 `xuting22-2/rinex`，MIT。[仓库](https://github.com/xuting22-2/moonbit-rinex)。**0.5.0源码版本**；[GitHub CI](https://github.com/xuting22-2/moonbit-rinex/actions/workflows/ci.yml)的结果以对应提交为准，复现与范围见[CI说明](docs/CI.md)。尚未发布Mooncakes或提交比赛。历史 `xuting22-rinex-申报书.md` 保留旧快照，当前功能见PROPOSAL.md。SUBMISSION.json、REVIEW-RESPONSE.md和docs/SCOPE.md记录旧快照，不作为当前版本的新完成证明。
 
 当前维护与申报账号为 `xuting22-2`。原始代码来源保留 `xuting22` 署名与Git历史；账号归属调整不改变既有版权、外部数据许可或上游来源。
 
@@ -35,6 +35,21 @@ node examples/consume-restored-file.mjs NEW_RESTORED_DIRECTORY --consumer modern
 
 `restoreCrinexFile` API/CLI保存原生RNX、原样恢复报告及输入/实际输出身份。**最终complete清单才是资格标记**；RNX重命名后元数据失败仍可能留下未合格文件。原CRX移走后，显式legacy或modern-check接收方会用本次实际读取的SHA核对再交付结果，恢复成功与OBS质量分开。详见[恢复文件交付合同](docs/RESTORED-FILE-DELIVERY.md)；原同步暂定stdout流程不变。
 
+## 多星座与 RINEX4 NAV
+
+新原生 `NavigationReader` 接收 NAV3.00–3.05、4.00–4.02，解释 EPH/STO/EOP/ION、GPS CNAV/CNV2、北斗 CNV1/2/3、GLONASS FDMA/CDMA 和 Galileo INAV/FNAV 等列明消息。GLONASS FDMA 与 Galileo 已有带框架、时间及信号健康语义的轨道消费接口；现代电文参数支持具名、带单位的保真交换，其传播边界见[逐版本/系统/消息矩阵](docs/NAVIGATION-COMPATIBILITY.md)。旧 `NavReader`/目录仍保留原合同。
+
+```sh
+moon run examples/navigation-messages --target wasm-gc --deny-warn
+node tools/navigation-file.mjs inspect examples/navigation-core-4.02.rnx
+node tools/navigation-file.mjs exchange examples/navigation-core-4.02.rnx NEW_NAV_DIRECTORY
+python tools/reference/verify-navigation-exchange.py examples/navigation-core-4.02.rnx NEW_NAV_DIRECTORY
+node tools/navigation-file.mjs evaluate examples/navigation-core-4.02.rnx 1 600
+node tools/navigation-file.mjs evaluate examples/navigation-core-4.02.rnx 3 600 E5a
+```
+
+交换保存完整头、全部原始行、具名槽、源行号及输入/输出 SHA；未知 R4 记录保留原文并使合格标记为 false，不能默默跳过。查询使用相对钟历元的 SI 秒，不自动把 UTC/GST/BDT 转为 GPST。受控示例、真实公开 4.02/3.04 全文件、独立 Decimal 接收方、实际支持 4.02 的 Rust 读取器及 RTKLIB 数值证据见[运行与参考说明](docs/NAVIGATION-REFERENCE.md)。[0.5 来源与许可](THIRD-PARTY-0.5.md)区分自编数据和只下载到本地的公开原始数据。
+
 ## 公共接口与范围
 
 需要交给CSV分析工具时，可直接导出现有范围的现代OBS：
@@ -52,6 +67,8 @@ MoonBit生成长表，始终保留历元标记行（含零卫星历元），再�
 | LegacyReader.feed_line/finish | OBS2.11、GPS时标；9码头续行、12星续行、5槽续行；原码与事件2–5、独立CycleSlip(flag6) |
 | map_legacy_code | raw码、Unknown/Ambiguous/有rule-id的RuleMapped/ExplicitOverride；不据接收机型号猜身份 |
 | CrinexDecoder.feed_line/finish | 原生CRINEX1.0→OBS2.11、3.0→列明3/4 OBS；0–5阶、钟/数值/文本、LLI/SSI、缺测、换星及头更新 |
+| NavigationReader.feed_line/finish | NAV3/4 多星座及四类记录；完整头/原文/具名单位槽；未知 R4 显式保留且不合格 |
+| NavigationMessage.state_at_offset/system_time_offset/earth_orientation | G/C 传统、R FDMA、E INAV/FNAV 轨道；STO/EOP 数值消费；现代 EPH/ION 系数保真输出 |
 | NavReader.feed_line/finish | NAV2.11GPS及NAV3.03/3.04/3.05GPS/BDS传统LNAV/B1I D1/D2参数；不含NAV4新消息 |
 | NavRecord.satellite_position | GPS/BDS MEO/IGSO/GEO，米坐标、含相对论钟差秒，另返未应用的TGD，框架WGS84/CGCS2000 |
 | NavTime.from_gps_ticks/calendar/week/offset_seconds | GPS日历100ns ticks，直接接收OBS整数时间；既有GPST/BDT原点、连续周及14秒转换；不是UTC |
@@ -61,16 +78,16 @@ MoonBit生成长表，始终保留历元标记行（含零卫星历元），再�
 
 LegacyValue保留raw_code/mapping及原ObservationValue字段；空与0分开，不应用scale/phase/接收机钟差改正。旧码默认规则只有标准明确的系统/码组合，其他未知或多义。详见 [接口合同](docs/FORMATS-0.3.md)、pkg.generated.mbti。
 
-BDS非旧GEO PRN1–5需显式提供GEO或MEO_IGSO，不凭PRN猜全部BDS-3轨道。默认拒绝其他星座；显式skip_unsupported仅按已知长度跳过并计数，不宣称已解析。GLONASS3.05跳过五行。
+BDS非旧GEO PRN1–5需显式提供GEO或MEO_IGSO，不凭PRN猜全部BDS-3轨道。旧NavReader默认拒绝其他星座；显式skip_unsupported仅按已知长度跳过并计数，不宣称已解析。GLONASS3.05跳过五行。
 
 `NavTime::from_gps_ticks(epoch.gps_ticks)`将Reader/LegacyReader返回的GPST整数时间直接接到导航查询，范围对应OBS支持的1980..2100年。超过2^53的奇数100ns tick原样保留，不推断时标、不应用接收机钟差；调用者仍须完成两个输入的finish。可运行的现代/旧版OBS→目录查询及独立参考见[精确时间连接示例](docs/OBS-NAV-TIME.md)。
 
-牛顿最少3次、最多15次、步长≤1e-12弧度；失败明确KeplerDivergence。健康非0或过期拒绝。默认±7200秒，还受GPS声明fit半区间约束；调用方可收紧，上限14400秒。评价时刻为发射/轨道时刻，不做定位、光行时、Sagnac或跨框架转换。B1I3.0官方原文仍未取得，不声称完整ICD认证；传统参数/公式按IGS与RTKLIB实际核对。
+牛顿最少3次、最多15次、步长≤1e-12弧度；失败明确KeplerDivergence。旧G/C入口健康非0或过期拒绝。默认±7200秒，还受GPS声明fit半区间约束；调用方可收紧，上限14400秒。评价时刻为发射/轨道时刻，不做定位、光行时、Sagnac或跨框架转换。B1I3.0官方原文仍未取得，不声称完整ICD认证；传统参数/公式按IGS与RTKLIB实际核对。
 
 ## 状态与完成边界
 CRINEX1行首&、CRINEX3行首>、数值n&value及文本&含义不同；负相位合法。flag4更新头，其他事件恢复原记录；恢复文本不表示旧Reader支持其物理语义。默认错误即封存失败。recover=true只在已知观测行边界错误时丢弃整历元，在可信头和完整初始化后恢复；不扫描未知乱码中的&猜同步。初始化的零卫星历元在钟差记录成功读完后也建立同步，后续合法差分历元正常恢复；未初始化空历元或坏/截断钟差不建立同步。任何丢失都保留finding且complete/acceptable不转成功。CRX complete指无丢失恢复；旧Checker complete指完成输入检查。
 
-每行8192 ASCII字符、逻辑输入512MiB、头4096行、96类型/系统、有限卫星空间。流式Reader/Checker/CrinexDecoder仅保存头、计数、当前历元及差分状态，不累计历史；NavCatalog另保存显式容量内的广播记录，默认4096、上限32768，满时失败且不淘汰旧记录。调用者累计输出的内存另计；gzip仅由显式现代OBS文件入口解压，不提供其他压缩容器、CRINEX3.1、OBS4.02、SP3或GLONASS/Galileo传播。
+每行8192 ASCII字符、逻辑输入512MiB、头4096行、96类型/系统、有限卫星空间。流式Reader/Checker/CrinexDecoder仅保存头、计数、当前历元及差分状态，不累计历史；NavCatalog另保存显式容量内的广播记录，默认4096、上限32768，满时失败且不淘汰旧记录。调用者累计输出的内存另计；gzip仅由显式现代OBS文件入口解压，不提供其他压缩容器、CRINEX3.1、OBS4.02或SP3；新NAV入口支持的星座/传播范围见上述矩阵。
 
 已有`.rnx.gz`时可直接完整接收为原保存目录：
 

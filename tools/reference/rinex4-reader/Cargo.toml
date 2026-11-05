@@ -1,0 +1,9 @@
+[package]
+name = "rinex4-independent-reader"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+rinex = { git = "https://github.com/nav-solutions/rinex", rev = "4871949d06554e0be75fe96b1b045210137e0334", default-features = false, features = ["serde"] }
+serde_json = "1"

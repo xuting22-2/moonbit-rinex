@@ -31,3 +31,14 @@ R08新增`Run raw OBS CSV export and Decimal file recipient`，运行`node tools
 R09新增`Run gzip OBS ingestion and existing file recipients`，运行`node tools/test-gzip-observations.mjs`。固定Python gzip/完整逻辑OBS/逐字段整数日历预期，覆盖正常与多成员、CRLF/无末LF、CRC/ISIZE/尾截断/垃圾尾、压缩正确但原生截断、原生质量拒绝及实际旧目录接收；存储块小样本让正确首历元先写出、坏CRC后到，仍不得交付合格目录。未压缩四文件和CLI原字节不变；相关旧host/短写/range快照门保留。512MiB上限检查为静态/已有界限证据，本轮不执行大预算样本或旧科学生成器。
 
 R10新增`Run raw OBS time-window RINEX file clipping and recipients`，运行`node tools/test-observation-clip.mjs`，另有3组原生裁剪合同进入JS/Wasm-GC套件。完整独立输入/预期RNX在实现前固定，验证跨午夜、精确半开边界、空历元/无选择、可选末时刻缺省、全部既有版本标签、原始测量与scale/clock/许可上下文、源质量/源末尾截断不被裁剪隐藏，以及新文件的真实Checker/Reader读回和接收者身份。原Reader/Checker源码不改；不重跑512MiB或旧科学参考生成器。
+
+##0.5.0 navigation remediation
+
+The workflow additionally runs the controlled multi-GNSS/RINEX4 host contract and
+the independently pinned real DLR3.04/4.02 whole-file exchange/Decimal recipient.
+It checks the18 actual RTKLIB numerical expectations and public native R/E query
+path. `examples/navigation-messages` runs on JS and Wasm-GC. Network input changes
+fail exact SHA checks rather than silently regenerating expectations. The pinned
+Rust4.02 reference build/559-field comparison and actual independent exchange
+readback are separately recorded local evidence; the workflow does not imply it
+rebuilds Rust. Old passing CI is not substituted for the new same-commit run.

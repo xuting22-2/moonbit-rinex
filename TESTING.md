@@ -1,3 +1,18 @@
+# 0.5.0 NAV remediation (2026-11-05)
+
+New required checks are `node tools/test-navigation-file.mjs TASK_SCRATCH` and,
+after `python tools/reference/fetch-navigation-data.py TASK_DATA`,
+`node tools/test-navigation-public.mjs TASK_DATA NEW_CHECK_DIRECTORY`.
+They cover actual3.04/4.02 files, every source slot and exact exchanged text,
+independent Decimal/calendar recipients,18 pinned actual RTKLIB states and three
+whole-file host numerical queries. Native tests cover version-dependent GLO rows,
+Galileo source/signal health/BGD, SI/day units, opaque EOF flush, poison/truncation,
+signed channel13, bad health/numeric inputs and UTC leap spelling. Existing
+OBS/CRINEX/legacy NAV tests and consumers remain required. See
+[reference and known differences](docs/NAVIGATION-REFERENCE.md).
+
+The following dated sections remain historical evidence, not this remediation's CI receipt.
+
 Current repeatable GitHub checks and supported consumers: [CI说明](docs/CI.md). The sections below retain dated local evidence; they are not a receipt for a new GitHub run.
 
 # 0.2.0 本地验证

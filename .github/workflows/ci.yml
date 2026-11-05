@@ -65,6 +65,12 @@ jobs:
         run: node tools/test-crinex-file-delivery.mjs "$RUNNER_TEMP/rinex-restored-file" --skip-output-budget
       - name: Check CRINEX recovery through initialized empty epochs
         run: node tools/test-crinex-empty-recovery.mjs
+      - name: Check multi-GNSS and RINEX4 native file contracts
+        run: node tools/test-navigation-file.mjs "$RUNNER_TEMP"
+      - name: Consume real RINEX3 and RINEX4 navigation with independent expectations
+        run: |
+          python tools/reference/fetch-navigation-data.py "$RUNNER_TEMP/rinex-public-navigation"
+          node tools/test-navigation-public.mjs "$RUNNER_TEMP/rinex-public-navigation" "$RUNNER_TEMP/rinex-public-navigation-checks"
       - name: Run selected NAV source and physical replay consumer
         run: node tools/test-nav-source-replay.mjs
       - name: Run raw OBS CSV export and Decimal file recipient
@@ -79,6 +85,8 @@ jobs:
           moon run examples/consumer --target wasm-gc --deny-warn
           moon run examples/formats-consumer --target js --deny-warn
           moon run examples/formats-consumer --target wasm-gc --deny-warn
+          moon run examples/navigation-messages --target js --deny-warn
+          moon run examples/navigation-messages --target wasm-gc --deny-warn
           moon run examples/nav-query --target js --deny-warn
           moon run examples/nav-query --target wasm-gc --deny-warn
           moon run examples/obs-nav-query --target js --deny-warn

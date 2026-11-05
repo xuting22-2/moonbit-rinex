@@ -6,6 +6,7 @@ node_modules/
 # Optional independent Rust reference build output
 tools/reference/georust/target/
 tools/reference/georust-observations/target/
+tools/reference/rinex4-reader/target/
 
 __pycache__/
 *.pyc

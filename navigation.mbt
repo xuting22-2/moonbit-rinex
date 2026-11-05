@@ -154,10 +154,13 @@ pub fn NavRecord::satellite_position(
     raise UnhealthyEphemeris
   }
   let bds = self.satellite.has_prefix("C")
-  if !bds && !self.satellite.has_prefix("G") {
+  let galileo = self.satellite.has_prefix("E")
+  if !bds && !galileo && !self.satellite.has_prefix("G") {
     raise UnsupportedConstellation(self.satellite)
   }
-  let fit_limit = if bds {
+  let fit_limit = if galileo {
+    14400.0
+  } else if bds {
     7200.0
   } else {
     match self.data.get(25) {
@@ -184,7 +187,7 @@ pub fn NavRecord::satellite_position(
   } else {
     false
   }
-  let mu = if bds { 3.986004418e14 } else { 3.986005e14 }
+  let mu = if bds || galileo { 3.986004418e14 } else { 3.986005e14 }
   let omge = if bds { 7.292115e-5 } else { 7.2921151467e-5 }
   let sqrt_a = nav_required(self.data, 7)
   let a = sqrt_a * sqrt_a
@@ -268,7 +271,9 @@ pub fn NavRecord::satellite_position(
     z: oz,
     clock_seconds: clk,
     group_delay_seconds: nav_required(self.data, 22),
-    frame: if bds {
+    frame: if galileo {
+      "GTRF"
+    } else if bds {
       "CGCS2000"
     } else {
       "WGS84"

@@ -1,0 +1,68 @@
+{
+  "attribution": "Montenbruck, O.; Steigenberger, P., DLR/GSOC, DOI10.57677/BRD400DLR. Anonymous IGS/BKG source. No redistribution license asserted for downloaded data.",
+  "method": "Original bytes, independent fixed-column Decimal/integer inventory; not product output. Actual4.02/3.04 headers.",
+  "files": [
+    {
+      "name": "BRD400DLR_S_20250010000_01D_MN.rnx",
+      "version": "4.02",
+      "sha256": "844d1374cb4e634fb9612368241db32f165ac0888214a2e83d22041007c24925",
+      "counts": {
+        "STO C CNVX": 96,
+        "STO C D1D2": 2,
+        "STO E IFNV": 2,
+        "STO R FDMA": 14,
+        "STO G LNAV": 6,
+        "STO G CNVX": 14,
+        "STO I LNAV": 8,
+        "STO J CNVX": 2,
+        "STO J LNAV": 1,
+        "EOP G CNVX": 2,
+        "EOP C CNVX": 2,
+        "EOP J CNVX": 24,
+        "EOP I LNAV": 2,
+        "ION G LNAV": 3,
+        "ION G CNVX": 2,
+        "ION E IFNV": 4,
+        "ION C D1D2": 14,
+        "ION C CNVX": 12,
+        "ION J LNAV WIDE": 24,
+        "ION J CNVX WIDE": 24,
+        "ION J LNAV JAPN": 24,
+        "ION J CNVX JAPN": 24,
+        "ION I LNAV": 2,
+        "EPH G LNAV": 424,
+        "EPH G CNAV": 331,
+        "EPH S SBAS": 8461,
+        "EPH R FDMA": 1225,
+        "EPH E INAV": 2789,
+        "EPH E FNAV": 2834,
+        "EPH C D2": 192,
+        "EPH C D1": 914,
+        "EPH C CNV1": 676,
+        "EPH C CNV2": 1060,
+        "EPH C CNV3": 560,
+        "EPH J LNAV": 96,
+        "EPH J CNAV": 173,
+        "EPH J CNV2": 95,
+        "EPH I LNAV": 217
+      },
+      "records": 20355
+    },
+    {
+      "name": "BRDM00DLR_S_20250010000_01D_MN.rnx",
+      "version": "3.04",
+      "sha256": "153624911ffd25ae807103d76b1d9b6b72bcfab61c083b15e568c39355b6241a",
+      "counts": {
+        "EPH G LNAV": 424,
+        "EPH S SBAS": 8461,
+        "EPH R FDMA": 1225,
+        "EPH E INAV": 2789,
+        "EPH E FNAV": 2834,
+        "EPH C D1D2": 1106,
+        "EPH J LNAV": 96,
+        "EPH I LNAV": 217
+      },
+      "records": 17152
+    }
+  ]
+}
